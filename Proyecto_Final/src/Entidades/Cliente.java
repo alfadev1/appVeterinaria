@@ -17,11 +17,12 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private String altClie;
+    private int altTel;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, int dni, String apellido, String nombre, String direccion, String telefono, String altClie) {
+    public Cliente(int idCliente, int dni, String apellido, String nombre, String direccion, String telefono, String altClie,int altTel) {
         this.idCliente = idCliente;
         this.dni = dni;
         this.apellido = apellido;
@@ -29,15 +30,17 @@ public class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         this.altClie = altClie;
+        this.altTel= altTel;
     }
 
-    public Cliente(int dni, String apellido, String nombre, String direccion, String telefono, String altClie) {
+    public Cliente(int dni, String apellido, String nombre, String direccion, String telefono, String altClie,int altTel) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.altClie = altClie;
+        this.altTel= altTel;
     }
 
     public int getIdCliente() {
@@ -96,8 +99,19 @@ public class Cliente {
         this.altClie = altClie;
     }
 
+    public int getAltTel() {
+        return altTel;
+    }
+
+    public void setAltTel(int altTel) {
+        this.altTel = altTel;
+    }
+
     @Override
     public String toString() {
-        return "Cliente{" + "idCliente=" + idCliente + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", altClie=" + altClie + '}';
+        return "Cliente{" + "idCliente=" + idCliente + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + ", altClie=" + altClie + ", altTel=" + altTel + '}';
     }
+    
+
+   
 }

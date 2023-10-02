@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2023 a las 16:21:13
+-- Tiempo de generación: 02-10-2023 a las 17:53:01
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `veterinariabd`
+-- Base de datos: `appveterinariaulp`
 --
 
 -- --------------------------------------------------------
@@ -34,7 +34,8 @@ CREATE TABLE `cliente` (
   `nombre` varchar(30) NOT NULL,
   `telefono` int(11) NOT NULL,
   `direccion` int(11) NOT NULL,
-  `telAux` int(11) NOT NULL
+  `altClie` varchar(60) NOT NULL,
+  `altTel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

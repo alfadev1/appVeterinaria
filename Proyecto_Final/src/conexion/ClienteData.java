@@ -62,7 +62,7 @@ public class ClienteData {
         }
 
     }
-    //`apellido`, `nombre`, `telefono`, `direccion`, `telAux`
+    
     public void modificarCliente(Cliente cliente){
         String sql = "UPDATE cliente SET apellido = ?, nombre = ?, telefono = ?, direccion = ?, nomAux = ?, telAux = ? WHERE idCliente = ?";
         try {
@@ -116,7 +116,6 @@ public class ClienteData {
 
         return cliente;
     }
-    
     
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<>();

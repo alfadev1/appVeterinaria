@@ -18,16 +18,17 @@ public class ClienteData {
     
     public void altaCliente(Cliente cliente){
         
-        String sql = "INSERT INTO `cliente`(`dni`, `apellido`, `nombre`, `telefono`, `direccion`, `telAux`)"
-                + "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO `cliente`(`dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux`)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, cliente.getDni());
             ps.setString(2, cliente.getApellido());
             ps.setString(3, cliente.getNombre());
-            ps.setString(4, cliente.getTelefono());
+            ps.setInt(4, cliente.getTelefono());
             ps.setString(5, cliente.getDireccion());
-            ps.setInt(6, cliente.getAltTel());//
+            ps.setString(6, cliente.getAltClie());
+            ps.setInt(7, cliente.getAltTel());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -66,7 +67,7 @@ public class ClienteData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, cliente.getApellido());
             ps.setString(2, cliente.getNombre());
-            ps.setString(3, cliente.getTelefono());
+            ps.setInt(3, cliente.getTelefono());
             ps.setString(4, cliente.getDireccion());
             ps.setInt(5, cliente.getAltTel());
             ps.setInt(6, cliente.getIdCliente());

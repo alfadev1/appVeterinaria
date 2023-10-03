@@ -42,4 +42,41 @@ public class ClienteData {
         }
     }
     
+    public void bajaCliente(int dni) {
+        String sql = "DELETE FROM `cliente` WHERE dni = ? ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            int fila = ps.executeUpdate();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, "Se ha dado de baja al cliente");
+            } else if (fila == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontra un cliente con ese DNI");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla CLIENTE");
+        }
+
+    }
+    //`apellido`, `nombre`, `telefono`, `direccion`, `telAux`
+    public void modificarCliente(Cliente cliente){
+        String sql = "UPDATE cliente SET apellido = ?, nombre = ?, telefono = ?, direccion = ?, telAux = ? WHERE idCliente = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cliente.getApellido());
+            ps.setString(2, cliente.getNombre());
+            ps.setString(3, cliente.getTelefono());
+            ps.setString(4, cliente.getDireccion());
+            ps.setInt(5, cliente.getAltTel());
+            ps.setInt(6, cliente.getIdCliente());
+            int guardar = ps.executeUpdate();
+            if (guardar == 1) {
+                JOptionPane.showMessageDialog(null, "Se modificó correctamente los datos del cliente");
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos del cliente" + ex.getMessage());
+        }
+    }
 }

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
@@ -80,4 +81,13 @@ public class ClienteData {
             JOptionPane.showMessageDialog(null, "Error al modificar los datos del cliente" + ex.getMessage());
         }
     }
+    
+//    public Cliente buscarCliente(int id) {
+//    
+//    }
+    
+    
+//    public List<Cliente> listarClientes() {
+//        
+//    }
 }

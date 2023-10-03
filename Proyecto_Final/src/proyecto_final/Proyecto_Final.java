@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 
 /**
  *
- * @author Caren Markevicz, Tomas Bresca, Bradon Alfaro Rollano, Daniel Simonetta
+ * @author Caren Markevicz, Tomas Bresca, Brandon Alfaro Rollano, Daniel Simonetta
  */
 public class Proyecto_Final {
 

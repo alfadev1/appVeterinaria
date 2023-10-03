@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -63,15 +64,16 @@ public class ClienteData {
     }
     //`apellido`, `nombre`, `telefono`, `direccion`, `telAux`
     public void modificarCliente(Cliente cliente){
-        String sql = "UPDATE cliente SET apellido = ?, nombre = ?, telefono = ?, direccion = ?, telAux = ? WHERE idCliente = ?";
+        String sql = "UPDATE cliente SET apellido = ?, nombre = ?, telefono = ?, direccion = ?, nomAux = ?, telAux = ? WHERE idCliente = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, cliente.getApellido());
             ps.setString(2, cliente.getNombre());
             ps.setInt(3, cliente.getTelefono());
             ps.setString(4, cliente.getDireccion());
-            ps.setInt(5, cliente.getAltTel());
-            ps.setInt(6, cliente.getIdCliente());
+            ps.setString(5, cliente.getAltClie());
+            ps.setInt(6, cliente.getAltTel());
+            ps.setInt(7, cliente.getIdCliente());
             int guardar = ps.executeUpdate();
             if (guardar == 1) {
                 JOptionPane.showMessageDialog(null, "Se modificó correctamente los datos del cliente");
@@ -82,12 +84,63 @@ public class ClienteData {
         }
     }
     
-//    public Cliente buscarCliente(int id) {
-//    
-//    }
+    public Cliente buscarCliente(int id) {
+    Cliente cliente = null;
+        String sql = "SELECT `dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux` FROM cliente WHERE idCliente = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setIdCliente(id);
+                cliente.setDni(rs.getInt("dni"));
+                cliente.setApellido(rs.getString("apellido"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setDireccion(rs.getString("direccion"));
+                cliente.setAltClie(rs.getString("nomAux"));
+                cliente.setAltTel(rs.getByte("telAux"));
+                
+
+            } else {
+                JOptionPane.showMessageDialog(null, "El cliente no existe");
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de Clientes" + ex.getMessage());
+
+        }
+
+        return cliente;
+    }
     
     
-//    public List<Cliente> listarClientes() {
-//        
-//    }
+    public List<Cliente> listarClientes() {
+        List<Cliente> clientes = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM cliente WHERE estado = 1 ";//Al eliminar un cliente, habria que set a 0
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+
+                cliente.setIdCliente(rs.getInt("idCliente"));
+                cliente.setDni(rs.getInt("dni"));
+                cliente.setApellido(rs.getString("apellido"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setDireccion(rs.getString("direccion"));
+                cliente.setAltClie(rs.getString("nomAux"));
+                cliente.setAltTel(rs.getByte("telAux"));
+                clientes.add(cliente);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de Clientes" + ex.getMessage());
+        }
+        return clientes;
+    }
 }

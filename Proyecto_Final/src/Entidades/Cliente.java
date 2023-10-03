@@ -15,14 +15,14 @@ public class Cliente {
     private String apellido;
     private String nombre;
     private String direccion;
-    private String telefono;
+    private int telefono;
     private String altClie;
     private int altTel;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, int dni, String apellido, String nombre, String direccion, String telefono, String altClie,int altTel) {
+    public Cliente(int idCliente, int dni, String apellido, String nombre, String direccion, int telefono, String altClie,int altTel) {
         this.idCliente = idCliente;
         this.dni = dni;
         this.apellido = apellido;
@@ -33,7 +33,7 @@ public class Cliente {
         this.altTel= altTel;
     }
 
-    public Cliente(int dni, String apellido, String nombre, String direccion, String telefono, String altClie,int altTel) {
+    public Cliente(int dni, String apellido, String nombre, String direccion, int telefono, String altClie,int altTel) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -83,11 +83,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 

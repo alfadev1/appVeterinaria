@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Cliente">
+  <ClassDiagramComponents>
+    <Class name="Cliente" package="Entidades" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="idCliente" type="int" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="telefono" type="int" visibility="private"/>
+        <Field name="altClie" type="String" visibility="private"/>
+        <Field name="altTel" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idCliente"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="int" name="telefono"/>
+          <Argument type="String" name="altClie"/>
+          <Argument type="int" name="altTel"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="int" name="telefono"/>
+          <Argument type="String" name="altClie"/>
+          <Argument type="int" name="altTel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdCliente" returnType="int" visibility="public"/>
+        <Method name="setIdCliente" returnType="void" visibility="public">
+          <Argument type="int" name="idCliente"/>
+        </Method>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDireccion" returnType="String" visibility="public"/>
+        <Method name="setDireccion" returnType="void" visibility="public">
+          <Argument type="String" name="direccion"/>
+        </Method>
+        <Method name="getTelefono" returnType="int" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="int" name="telefono"/>
+        </Method>
+        <Method name="getAltClie" returnType="String" visibility="public"/>
+        <Method name="setAltClie" returnType="void" visibility="public">
+          <Argument type="String" name="altClie"/>
+        </Method>
+        <Method name="getAltTel" returnType="int" visibility="public"/>
+        <Method name="setAltTel" returnType="void" visibility="public">
+          <Argument type="int" name="altTel"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

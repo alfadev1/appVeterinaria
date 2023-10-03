@@ -1,6 +1,7 @@
 package conexion;
 
 import java.sql.Connection;
+import Entidades.*;
 
 
 public class MascotaData {
@@ -14,6 +15,9 @@ public class MascotaData {
 //    
 //    }
     
+//     public Mascota promedioPeso(double peso){
+//         
+//     }
     
 //    public List<Mascota> listarMascotas() {
 //        

@@ -20,11 +20,12 @@ public class Mascota {
     private LocalDate fNac;
     private double pesoMedio;
     private double pesoActual;
+    private Cliente idCliente;
 
     public Mascota() {
     }
 
-    public Mascota(int idMascota, String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual) {
+    public Mascota(int idMascota, String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual, Cliente idCliente) {
         this.idMascota = idMascota;
         this.alias = alias;
         this.sexo = sexo;
@@ -34,9 +35,10 @@ public class Mascota {
         this.fNac = fNac;
         this.pesoMedio = pesoMedio;
         this.pesoActual = pesoActual;
+        this.idCliente = idCliente;
     }
 
-    public Mascota(String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual) {
+    public Mascota(String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual, Cliente idCliente) {
         this.alias = alias;
         this.sexo = sexo;
         this.especie = especie;
@@ -45,6 +47,7 @@ public class Mascota {
         this.fNac = fNac;
         this.pesoMedio = pesoMedio;
         this.pesoActual = pesoActual;
+        this.idCliente = idCliente;
     }
 
     public int getIdMascota() {
@@ -119,8 +122,16 @@ public class Mascota {
         this.pesoActual = pesoActual;
     }
 
+    public Cliente getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
+    }
+
     @Override
     public String toString() {
-        return "Mascota{" + "idMascota=" + idMascota + ", alias=" + alias + ", sexo=" + sexo + ", especie=" + especie + ", raza=" + raza + ", color=" + color + ", fNac=" + fNac + ", pesoMedio=" + pesoMedio + ", pesoActual=" + pesoActual + '}';
+        return "Mascota{" + "idMascota=" + idMascota + ", alias=" + alias + ", sexo=" + sexo + ", especie=" + especie + ", raza=" + raza + ", color=" + color + ", fNac=" + fNac + ", pesoMedio=" + pesoMedio + ", pesoActual=" + pesoActual + ", idCliente=" + idCliente + '}';
     }
 }

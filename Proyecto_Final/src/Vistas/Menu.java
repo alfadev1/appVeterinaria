@@ -62,6 +62,11 @@ public class Menu extends javax.swing.JFrame {
         jbPrincipal.setBorder(null);
         jbPrincipal.setBorderPainted(false);
         jbPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPrincipalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuLateralLayout = new javax.swing.GroupLayout(menuLateral);
         menuLateral.setLayout(menuLateralLayout);
@@ -179,6 +184,10 @@ public class Menu extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPrincipalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbPrincipalActionPerformed
 
     public void transparenciaButton() {
         jbPrincipal.setOpaque(false);

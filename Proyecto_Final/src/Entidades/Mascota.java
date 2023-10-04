@@ -20,12 +20,12 @@ public class Mascota {
     private LocalDate fNac;
     private double pesoMedio;
     private double pesoActual;
-    private Cliente idCliente;
+    private Cliente Cliente;
 
     public Mascota() {
     }
 
-    public Mascota(int idMascota, String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual, Cliente idCliente) {
+    public Mascota(int idMascota, String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual, Cliente Cliente) {
         this.idMascota = idMascota;
         this.alias = alias;
         this.sexo = sexo;
@@ -35,10 +35,10 @@ public class Mascota {
         this.fNac = fNac;
         this.pesoMedio = pesoMedio;
         this.pesoActual = pesoActual;
-        this.idCliente = idCliente;
+        this.Cliente = Cliente;
     }
 
-    public Mascota(String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual, Cliente idCliente) {
+    public Mascota(String alias, String sexo, String especie, String raza, String color, LocalDate fNac, double pesoMedio, double pesoActual, Cliente Cliente) {
         this.alias = alias;
         this.sexo = sexo;
         this.especie = especie;
@@ -47,7 +47,7 @@ public class Mascota {
         this.fNac = fNac;
         this.pesoMedio = pesoMedio;
         this.pesoActual = pesoActual;
-        this.idCliente = idCliente;
+        this.Cliente = Cliente;
     }
 
     public int getIdMascota() {
@@ -122,16 +122,16 @@ public class Mascota {
         this.pesoActual = pesoActual;
     }
 
-    public Cliente getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return Cliente;
     }
 
-    public void setIdCliente(Cliente idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente Cliente) {
+        this.Cliente = Cliente;
     }
 
     @Override
     public String toString() {
-        return "Mascota{" + "idMascota=" + idMascota + ", alias=" + alias + ", sexo=" + sexo + ", especie=" + especie + ", raza=" + raza + ", color=" + color + ", fNac=" + fNac + ", pesoMedio=" + pesoMedio + ", pesoActual=" + pesoActual + ", idCliente=" + idCliente + '}';
+        return "Mascota{" + "idMascota=" + idMascota + ", alias=" + alias + ", sexo=" + sexo + ", especie=" + especie + ", raza=" + raza + ", color=" + color + ", fNac=" + fNac + ", pesoMedio=" + pesoMedio + ", pesoActual=" + pesoActual + ", Cliente=" + Cliente + '}';
     }
 }

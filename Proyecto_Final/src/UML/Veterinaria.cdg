@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Cliente">
   <ClassDiagramComponents>
-    <Class name="Cliente" package="Entidades" visibility="public" xPosition="56.0" yPosition="41.0">
+    <Class name="Cliente" package="Entidades" visibility="public" xPosition="50.0" yPosition="60.0">
       <Fields>
         <Field name="idCliente" type="int" visibility="private"/>
         <Field name="dni" type="int" visibility="private"/>
@@ -29,7 +29,7 @@
         <Field name="fNac" type="LocalDate" visibility="private"/>
         <Field name="pesoMedio" type="double" visibility="private"/>
         <Field name="pesoActual" type="double" visibility="private"/>
-        <Field name="idCliente" type="int" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -64,8 +64,8 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
+    <HasRelation name="tiene" source="Visitas" target="Tratamiento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <HasRelation name="tiene" source="Mascota" target="Visitas" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <HasRelation name="tiene" source="Entidades.Cliente" target="Mascota" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="tiene" source="Visitas" target="Tratamiento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
   </ClassDiagramRelations>
 </ClassDiagram>

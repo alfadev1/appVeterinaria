@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package Vistas;
 
-/**
- *
- * @author Usuario
- */
+package Vistas;
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -31,6 +23,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jbPrincipal = new javax.swing.JButton();
+        jbVisita = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -68,6 +61,19 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jbVisita.setBackground(new java.awt.Color(51, 51, 255));
+        jbVisita.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbVisita.setForeground(new java.awt.Color(255, 255, 255));
+        jbVisita.setText("Visita");
+        jbVisita.setBorder(null);
+        jbVisita.setBorderPainted(false);
+        jbVisita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbVisita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVisitaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuLateralLayout = new javax.swing.GroupLayout(menuLateral);
         menuLateral.setLayout(menuLateralLayout);
         menuLateralLayout.setHorizontalGroup(
@@ -81,6 +87,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
+            .addComponent(jbVisita, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
         );
         menuLateralLayout.setVerticalGroup(
             menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +97,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addGap(125, 125, 125)
+                .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 173, 255));
@@ -189,6 +198,10 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbPrincipalActionPerformed
 
+    private void jbVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVisitaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbVisitaActionPerformed
+
     public void transparenciaButton() {
         jbPrincipal.setOpaque(false);
         jbPrincipal.setContentAreaFilled(false);
@@ -238,6 +251,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbPrincipal;
+    private javax.swing.JButton jbVisita;
     private javax.swing.JPanel jpFondo;
     private javax.swing.JPanel menuLateral;
     // End of variables declaration//GEN-END:variables

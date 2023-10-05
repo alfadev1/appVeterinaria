@@ -1,5 +1,8 @@
 
 package Vistas;
+
+import vistas.Visita;
+
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -200,6 +203,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void jbVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVisitaActionPerformed
         // TODO add your handling code here:
+       Visita v= new Visita();
+       //v.getVisible(true);
+       
+       
     }//GEN-LAST:event_jbVisitaActionPerformed
 
     public void transparenciaButton() {

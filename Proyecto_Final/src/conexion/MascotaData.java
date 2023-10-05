@@ -2,6 +2,7 @@ package conexion;
 
 import java.sql.Connection;
 import Entidades.*;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,6 +64,7 @@ public class MascotaData {
     
 public Mascota buscarMascota(int id) {
         Mascota mascota = null;
+        Cliente cliente = null;//???
         String sql = "SELECT `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente FROM Mascota WHERE idMascota = ?";
         PreparedStatement ps = null;
         try {
@@ -72,6 +74,14 @@ public Mascota buscarMascota(int id) {
 
             if (rs.next()) {
                 mascota = new Mascota();
+                mascota.setAlias(rs.getString("alias"));
+                mascota.setSexo(rs.getString("sexo"));
+                mascota.setEspecie(rs.getString("especie"));
+                mascota.setRaza(rs.getString("raza"));
+                mascota.setColor(rs.getString("colorPelo"));
+                mascota.setfNac(rs.getDate("f_nac").toLocalDate());
+                mascota.setPesoActual(rs.getDouble("peso"));//Tengo una duda (No hagan el chiste)
+                cliente.setIdCliente(rs.getInt("idCliente"));
                 
 
             } else {
@@ -87,9 +97,26 @@ public Mascota buscarMascota(int id) {
         return mascota;
     }
     
-//    public void modificarMascota(int id) {
-//    
-//    }    
+    public void modificarMascota(Mascota mascota) {
+        String sql = "UPDATE mascote SET `alias` = ?, `sexo` = ?, `especie` = ?, `raza` = ?, `colorPelo` = ?, `f_nac` = ?, `peso` = ? WHERE idMascota = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, mascota.getAlias());
+            ps.setString(2, mascota.getSexo());
+            ps.setString(3, mascota.getEspecie());
+            ps.setString(4, mascota.getRaza());
+            ps.setString(5, mascota.getColor());
+            ps.setDate(6, Date.valueOf(mascota.getfNac()));
+            ps.setDouble(7, mascota.getPesoActual());
+            int guardar = ps.executeUpdate();
+            if (guardar == 1) {
+                JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos de la mascota" + ex.getMessage());
+        }  
+    }    
     
 //     public Mascota promedioPeso(double peso){
 //         

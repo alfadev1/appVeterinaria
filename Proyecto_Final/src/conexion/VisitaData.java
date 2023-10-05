@@ -15,6 +15,14 @@ public class VisitaData {
 //        
 //    } 
 
+//    public void agregarPesoDeVisita(double peso) {
+//        
+//    }
+    
+//    public List<Double> PesosDeVisitas() {
+//        return pesosDeVisitas;
+//    }
+    
     
 //Debe haber un método que pueda listar todas las 
 //visitas de una mascota en especial (históricamente) 

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -89,9 +90,26 @@ public Mascota buscarMascota(int id) {
         return mascota;
     }
     
-//    public void modificarMascota(int id) {
-//    
-//    }    
+public void modificarMascota(Mascota mascota) {
+        String sql = "UPDATE mascote SET `alias` = ?, `sexo` = ?, `especie` = ?, `raza` = ?, `colorPelo` = ?, `f_nac` = ?, `peso` = ? WHERE idMascota = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, mascota.getAlias());
+            ps.setString(2, mascota.getSexo());
+            ps.setString(3, mascota.getEspecie());
+            ps.setString(4, mascota.getRaza());
+            ps.setString(5, mascota.getColor());
+            ps.setDate(6, java.sql.Date.valueOf(mascota.getfNac()));
+            ps.setDouble(7, mascota.getPesoActual());
+            int guardar = ps.executeUpdate();
+            if (guardar == 1) {
+                JOptionPane.showMessageDialog(null, "Datos modificados correctamente");
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al modificar los datos de la mascota" + ex.getMessage());
+        }  
+    }  
     
 //     public Mascota promedioPeso(double peso){
 //         
@@ -112,7 +130,8 @@ public Mascota buscarMascota(int id) {
                 masc.setEspecie(rs.getString("especie"));
                 masc.setRaza(rs.getString("raza"));
                 masc.setColor(rs.getString("colorPelo"));
-                masc.setfNac(Date.valueOf(masc.getfNac()));
+                LocalDate Nac = rs.getDate("f_nac").toLocalDate();
+                masc.setfNac(Nac);
                 masc.setPesoActual(rs.getInt("peso"));
                 cli.setIdCliente(rs.getInt("idCliente"));         
                 mascotas.add(masc);

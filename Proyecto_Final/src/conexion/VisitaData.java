@@ -10,6 +10,12 @@ public class VisitaData {
         con = Conexion.getConexion();
     }
     
+    
+//    public void registrarVisita() {
+//        
+//    } 
+
+    
 //Debe haber un método que pueda listar todas las 
 //visitas de una mascota en especial (históricamente) 
     

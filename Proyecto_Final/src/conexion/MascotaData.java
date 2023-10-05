@@ -3,6 +3,7 @@ package conexion;
 import java.sql.Connection;
 import Entidades.*;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -60,9 +61,35 @@ public class MascotaData {
         }
     }
     
-//    public Mascota buscarMascota(int id) {
+public Mascota buscarMascota(int id) {
+        Mascota mascota = null;
+        String sql = "SELECT `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente FROM Mascota WHERE idMascota = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                mascota = new Mascota();
+                
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe esa mascota");
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla MASCOTA" + ex.getMessage());
+
+        }
+
+        return mascota;
+    }
+    
+//    public void modificarMascota(int id) {
 //    
-//    }
+//    }    
     
 //     public Mascota promedioPeso(double peso){
 //         

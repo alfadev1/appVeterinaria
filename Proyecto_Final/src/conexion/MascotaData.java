@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -122,7 +124,31 @@ public Mascota buscarMascota(int id) {
 //         
 //     }
     
-//    public List<Mascota> listarMascotas() {
-//        
-//    }
+    public List<Mascota> listarMascotas() {
+       List<Mascota> mascotas = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM cliente WHERE estado = 1 ";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Mascota masc = new Mascota();
+                Cliente cli = new Cliente();
+                masc.setIdMascota(rs.getInt("idMascota"));
+                masc.setAlias(rs.getString("alias"));
+                masc.setSexo(rs.getString("sexo"));
+                masc.setEspecie(rs.getString("especie"));
+                masc.setRaza(rs.getString("raza"));
+                masc.setColor(rs.getString("colorPelo"));
+                masc.setfNac(Date.valueOf(masc.getfNac()));
+                masc.setPesoActual(rs.getInt("peso"));
+                cli.setIdCliente(rs.getInt("idCliente"));         
+                mascotas.add(masc);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla MASCOTA" + ex.getMessage());
+        }
+        return mascotas;        
+    }
 }

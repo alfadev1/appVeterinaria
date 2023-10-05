@@ -22,9 +22,9 @@ public class MascotaData {
 //idmascota	alias	sexo	especie	raza	colorPelo	f_nac	peso	idCliente	
 
 
-    public void registrarMascota(Mascota mascota){
+    public void registrarMascota(Mascota mascota, Cliente cliente){
         String sql = "INSERT INTO `mascota`(`alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente)" 
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, mascota.getIdMascota());
@@ -35,7 +35,26 @@ public class MascotaData {
             ps.setString(6, mascota.getColor());
             java.sql.Date nac = java.sql.Date.valueOf(mascota.getfNac());
             ps.setDate(7, nac);
+            ps.setDouble(8, mascota.getPesoActual());
+            ps.setInt(9, cliente.getIdCliente());
             
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla MASCOTA" + ex.getMessage());
+        }
+    }
+    
+    public void noEsDormirMascota(int id){
+        String sql = "DELETE FROM alumno WHERE dni = ? ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            int fila = ps.executeUpdate();
+            if (fila == 1) {
+                JOptionPane.showMessageDialog(null, "La mascota ha decidido irse a otra veterinaria");
+            } else if (fila == 0) {
+                JOptionPane.showMessageDialog(null, "No se encontró a la mascota");
+            }
+            ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla MASCOTA" + ex.getMessage());
         }

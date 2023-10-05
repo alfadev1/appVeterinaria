@@ -41,14 +41,7 @@ public class Visita extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
-        ImageIcon imagen =new ImageIcon(getClass().getResource());
-        Image image= imagen.getImage();
-        jDesktopPane1 =  new javax.swing.JDesktopPane(){
-
-            public void paintComponent(Graphics g){
-                g.drawImage(image,0,0,getWidth(),getHeight(),this);
-            }
-        };
+        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

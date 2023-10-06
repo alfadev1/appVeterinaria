@@ -66,8 +66,8 @@
     </Container>
     <Container class="javax.swing.JDesktopPane" name="jDfondo">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    public void painComponent (Graphics g){&#xa;        g.drawImage(Myimagen, 0, 0,getWidth(),getHeight(), this);&#xa;    }&#xa;}"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icono= new ImageIcon(getClass().getResource(&quot;/Proyecto_Final/Recursos/doc.jpg&quot;));&#xa;Image Myimagen = icono.getImage();"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;    public void paintComponent (Graphics g){&#xa;        g.drawImage(Myimagen, 0, 0,getWidth(),getHeight(), this);&#xa;    }&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icono= new ImageIcon(getClass().getResource(&quot;/Recursos/doc.png&quot;));&#xa;Image Myimagen = icono.getImage();"/>
       </AuxValues>
 
       <Layout>

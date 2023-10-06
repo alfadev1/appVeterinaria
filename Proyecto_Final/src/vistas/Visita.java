@@ -21,10 +21,10 @@ public class Visita extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        ImageIcon icono= new ImageIcon(getClass().getResource("/Proyecto_Final/Recursos/doc.jpg"));
+        ImageIcon icono= new ImageIcon(getClass().getResource("/Recursos/doc.png"));
         Image Myimagen = icono.getImage();
         jDfondo = new javax.swing.JDesktopPane(){
-            public void painComponent (Graphics g){
+            public void paintComponent (Graphics g){
                 g.drawImage(Myimagen, 0, 0,getWidth(),getHeight(), this);
             }
         };

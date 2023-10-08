@@ -132,6 +132,6 @@ public class Mascota {
 
     @Override
     public String toString() {
-        return "Mascota{" + "idMascota=" + idMascota + ", alias=" + alias + ", sexo=" + sexo + ", especie=" + especie + ", raza=" + raza + ", color=" + color + ", fNac=" + fNac + ", pesoMedio=" + pesoMedio + ", pesoActual=" + pesoActual + ", Cliente=" + Cliente + '}';
+        return "Mascota: "+alias+ ",raza "+ raza;
     }
 }

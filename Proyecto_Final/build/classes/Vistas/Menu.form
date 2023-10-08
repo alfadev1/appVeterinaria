@@ -47,7 +47,7 @@
                   <Component id="menuLateral" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1" max="32767" attributes="0"/>
-                      <Component id="jDesktopPane1" max="32767" attributes="0"/>
+                      <Component id="escritorio" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -58,7 +58,7 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
-                  <Component id="jDesktopPane1" min="-2" max="-2" attributes="0"/>
+                  <Component id="escritorio" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,6 +87,10 @@
                   </Group>
                   <Component id="jbClientes" min="-2" pref="280" max="-2" attributes="0"/>
                   <Component id="jbVisita" min="-2" pref="280" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="PRUEBA" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -103,6 +107,8 @@
                               <Component id="jbVisita" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="PRUEBA" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -202,6 +208,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbVisitaActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="PRUEBA">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="prueba"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PRUEBAActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel1">
@@ -244,7 +258,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JDesktopPane" name="jDesktopPane1">
+        <Container class="javax.swing.JDesktopPane" name="escritorio">
 
           <Layout>
             <DimensionLayout dim="0">

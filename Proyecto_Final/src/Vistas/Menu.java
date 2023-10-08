@@ -24,6 +24,7 @@ public class Menu extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jbClientes = new javax.swing.JButton();
         jbVisita = new javax.swing.JButton();
+        PRUEBA = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         escritorio = new javax.swing.JDesktopPane();
@@ -93,6 +94,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        PRUEBA.setText("prueba");
+        PRUEBA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PRUEBAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuLateralLayout = new javax.swing.GroupLayout(menuLateral);
         menuLateral.setLayout(menuLateralLayout);
         menuLateralLayout.setHorizontalGroup(
@@ -105,6 +113,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(menuLateralLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PRUEBA))
         );
         menuLateralLayout.setVerticalGroup(
             menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +128,9 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(menuLateralLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PRUEBA))
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 173, 255));
@@ -220,6 +233,14 @@ public class Menu extends javax.swing.JFrame {
         jbVisita.setOpaque(false);
     }//GEN-LAST:event_jbVisitaMouseExited
 
+    private void PRUEBAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRUEBAActionPerformed
+       escritorio.removeAll();
+       escritorio.repaint();
+       pruebaFondo pf=new pruebaFondo();
+       pf.setVisible(true);
+       escritorio.add(pf);
+    }//GEN-LAST:event_PRUEBAActionPerformed
+
     public void transparenciaButton() {
         jbClientes.setOpaque(false);
         jbClientes.setContentAreaFilled(false);
@@ -265,6 +286,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton PRUEBA;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

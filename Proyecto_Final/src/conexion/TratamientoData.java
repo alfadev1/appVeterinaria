@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.*;
 import javax.swing.JOptionPane;
 public class TratamientoData {
 
@@ -56,7 +57,26 @@ public class TratamientoData {
         }
     }
 
-//    public List<Tratamiento> listarTratamiento() {
-//        
-//    }
+    public List<Tratamiento> listarTratamiento() {
+       List <Tratamiento>tratamientos= new ArrayList<>();
+        try {
+            String sql ="SELECT * FROM tratamiento WHERE estado = 1 ";
+            PreparedStatement ps= con.prepareStatement(sql);
+           ResultSet rs= ps.executeQuery();
+           while (rs.next()){
+               Tratamiento t= new Tratamiento();
+               t.setIdTratamiento(rs.getInt("idTratamiento"));
+               t.setTipo(rs.getString("tipo"));
+               t.setDescripcion(rs.getString("descripcion"));
+               t.setImporte(rs.getInt("importe"));
+               t.setEstado(rs.getBoolean("estado"));
+               tratamientos.add(t);
+           }
+           ps.close();
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al listar los tratamientos.");
+        }
+        return tratamientos;
+   }
 }

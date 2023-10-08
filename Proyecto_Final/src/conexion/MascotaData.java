@@ -118,7 +118,7 @@ public void modificarMascota(Mascota mascota) {
     public List<Mascota> listarMascotas() {
        List<Mascota> mascotas = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM cliente WHERE estado = 1 ";
+            String sql = "SELECT * FROM mascota WHERE estado = 1 ";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -130,8 +130,9 @@ public void modificarMascota(Mascota mascota) {
                 masc.setEspecie(rs.getString("especie"));
                 masc.setRaza(rs.getString("raza"));
                 masc.setColor(rs.getString("colorPelo"));
-                LocalDate Nac = rs.getDate("f_nac").toLocalDate();
-                masc.setfNac(Nac);
+               //no me anda con el localDate Daniel
+                //LocalDate Nac = rs.getDate("f_nac").toLocalDate();
+               //masc.setfNac(Nac);
                 masc.setPesoActual(rs.getInt("peso"));
                 cli.setIdCliente(rs.getInt("idCliente"));         
                 mascotas.add(masc);

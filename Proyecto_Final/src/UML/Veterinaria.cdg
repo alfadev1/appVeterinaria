@@ -49,10 +49,11 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="Visitas" package="" visibility="public" xPosition="574.0" yPosition="72.0">
+    <Class name="Visitas" package="" visibility="public" xPosition="574.0" yPosition="104.0">
       <Fields>
+        <Field name="idVisita" type="int" visibility="private"/>
         <Field name="fechaVisita" type="LocalDate" visibility="private"/>
-        <Field name="detalle" type="String" visibility="private"/>
+        <Field name="detale" type="String" visibility="private"/>
         <Field name="pesoActual" type="double" visibility="private"/>
         <Field name="idTratamiento" type="int" visibility="private"/>
         <Field name="idMascota" type="int" visibility="private"/>
@@ -64,8 +65,8 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="tiene" source="Mascota" target="Visitas" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <HasRelation name="tiene" source="Entidades.Cliente" target="Mascota" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <HasRelation name="tiene" source="Visitas" target="Tratamiento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="Mascota" target="Visitas" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
   </ClassDiagramRelations>
 </ClassDiagram>

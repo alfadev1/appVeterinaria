@@ -4,7 +4,6 @@ import java.sql.Connection;
 import Entidades.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,26 +19,29 @@ public class VisitaData {
     }
     
     
-    public void registrarVisita(Mascota mascota, Tratamiento tratamiento, Visitas visita) {
-        String sql = "INSERT INTO `visita`( `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`)"
-                + "+ VALUES (?,?,?,?,?)";
+    public void registrarVisita(Mascota mascota,Tratamiento tratamiento,Visitas visita) {
+       String sql="INSERT INTO `visita`( `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`)"
+               + "VALUES (?,?,?,?,?)"; 
         try {
-            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, mascota.getIdMascota());
-            ps.setInt(2, tratamiento.getIdTratamiento());
-            ps.setDate(3, java.sql.Date.valueOf(visita.getFechaVisita()));
-            ps.setString(4, visita.getDetalle());
-            ps.setDouble(5, mascota.getPesoActual());
-            ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                //visita.setIdVisita(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Se registró la visita");
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setInt(1, mascota.getIdMascota());
+        ps.setInt(2, tratamiento.getIdTratamiento());
+        ps.setDate(3, java.sql.Date.valueOf(visita.getFechaVisita()));
+        ps.setString(4,visita.getDetalle());
+        ps.setDouble(5, mascota.getPesoActual());
+        int ejecucion=ps.executeUpdate();
+         if (ejecucion > 0) {
+            ResultSet generatedKeys = ps.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
             }
-            ps.close();
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al listar las visitas");
+         }
+        } catch (Exception e) {
+             e.printStackTrace(); // Imprime el mensaje completo de la excepción 
+            JOptionPane.showMessageDialog(null,"Error al registrar la visita");
         }
+        
+        
     } 
 
     

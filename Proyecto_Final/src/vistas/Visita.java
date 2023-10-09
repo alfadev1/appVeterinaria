@@ -4,6 +4,7 @@ import Entidades.*;
 import conexion.*;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.time.*;
 import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -41,13 +42,15 @@ public class Visita extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        cboxMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new Mascota[] {}));
         cboxMascota = new javax.swing.JComboBox<>();
         calendario = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tfDetalle = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
+        cboxTratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new Tratamiento[] {}));
         cboxTratamiento = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
+        jTpeso = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         botonGuardar = new javax.swing.JButton();
         ImageIcon imagen =new ImageIcon(getClass().getResource("/Recursos/patita.jpg"));
@@ -93,9 +96,9 @@ public class Visita extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Peso:");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jTpeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jTpesoActionPerformed(evt);
             }
         });
 
@@ -139,7 +142,7 @@ public class Visita extends javax.swing.JInternalFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -171,7 +174,7 @@ public class Visita extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(botonGuardar)
@@ -240,16 +243,33 @@ public class Visita extends javax.swing.JInternalFrame {
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
         try {
-            
+            Mascota idM = (Mascota) cboxMascota.getSelectedItem();
+            idM.getIdMascota();
+
+            Tratamiento idT = (Tratamiento) cboxTratamiento.getSelectedItem();
+            idT.getIdTratamiento();
+
+            LocalDate fechaVisita = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            String detalle = tfDetalle.getText();
+            double peso = Double.parseDouble(jTpeso.getText());
+
+            Visitas visita = new Visitas();
+
+            visita.setFechaVisita(fechaVisita);
+            visita.setDetalle(detalle);
+            visita.setPesoActual(peso);
+            vd.registrarVisita(idM, idT, visita);
+
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        
-        
+
+
     }//GEN-LAST:event_botonGuardarActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jTpesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTpesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jTpesoActionPerformed
 
     private void cboxMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxMascotaActionPerformed
         // TODO add your handling code here:   
@@ -276,7 +296,7 @@ public class Visita extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTpeso;
     private javax.swing.JPanel panel;
     private javax.swing.JTextArea tfDetalle;
     // End of variables declaration//GEN-END:variables

@@ -2,11 +2,8 @@ package Entidades;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author @SimonettaDaniel
- */
 public class Visitas {
+    private int idVisita;
     private LocalDate fechaVisita;
     private String detalle;
     private double pesoActual;
@@ -16,12 +13,29 @@ public class Visitas {
     public Visitas() {
     }
 
+    public Visitas(int idVisita, LocalDate fechaVisita, String detalle, double pesoActual, Tratamiento idTratamiento, Mascota idMascota) {
+        this.idVisita = idVisita;
+        this.fechaVisita = fechaVisita;
+        this.detalle = detalle;
+        this.pesoActual = pesoActual;
+        this.idTratamiento = idTratamiento;
+        this.idMascota = idMascota;
+    }
+
     public Visitas(LocalDate fechaVisita, String detalle, double pesoActual, Tratamiento idTratamiento, Mascota idMascota) {
         this.fechaVisita = fechaVisita;
         this.detalle = detalle;
         this.pesoActual = pesoActual;
         this.idTratamiento = idTratamiento;
         this.idMascota = idMascota;
+    }
+
+    public int getIdVisita() {
+        return idVisita;
+    }
+
+    public void setIdVisita(int idVisita) {
+        this.idVisita = idVisita;
     }
 
     public LocalDate getFechaVisita() {
@@ -66,7 +80,6 @@ public class Visitas {
 
     @Override
     public String toString() {
-        return "Visitas{" + "fechaVisita=" + fechaVisita + ", detalle=" + detalle + ", pesoActual=" + pesoActual + ", idTratamiento=" + idTratamiento + ", idMascota=" + idMascota + '}';
+        return "Visitas{" + "idVisita=" + idVisita + ", fechaVisita=" + fechaVisita + ", detalle=" + detalle + ", pesoActual=" + pesoActual + ", idTratamiento=" + idTratamiento + ", idMascota=" + idMascota + '}';
     }
-    
 }

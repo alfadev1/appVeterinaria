@@ -15,6 +15,7 @@ public class Visita extends javax.swing.JInternalFrame {
     //fondoPanel fondo=new fondoPanel();
     MascotaData md = new MascotaData();
     TratamientoData td=new TratamientoData();
+    VisitaData vd=new VisitaData();
     private List<Mascota> listaM;
     private List<Tratamiento> listaT;
 
@@ -122,9 +123,6 @@ public class Visita extends javax.swing.JInternalFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panelLayout.createSequentialGroup()
-                            .addGap(244, 244, 244)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelLayout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,7 +142,10 @@ public class Visita extends javax.swing.JInternalFrame {
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(227, 227, 227)
-                        .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(jLabel1)))
                 .addContainerGap(203, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
@@ -238,6 +239,11 @@ public class Visita extends javax.swing.JInternalFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
+        try {
+            
+        } catch (Exception e) {
+        }
+        
         
     }//GEN-LAST:event_botonGuardarActionPerformed
 
@@ -274,26 +280,7 @@ public class Visita extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panel;
     private javax.swing.JTextArea tfDetalle;
     // End of variables declaration//GEN-END:variables
-//intento de fondo 
-   /* class fondoPanel extends JPanel{
-    private Image imagen;
-    @Override
-    public void paint (Graphics g){
-     imagen=new ImageIcon(getClass().getResource("/Recursos/patira.jpg")).getImage();
-     g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-        setOpaque(false);
-        super.paint(g);
-    }
-}
-/*ImageIcon imagen =new ImageIcon(getClass().getResource("/Recursos/fondo.jpeg"));
-        Image image= imagen.getImage();
-        jDesktopPane1 = new javax.swing.JDesktopPane(){
-            public void paintComponent (Graphics g){
-                g.drawImage(image, 0, 0, getWidth(), ,getHeight(), this);
-            }
-        };*/
 
-//carga el combo box
 private void cargarMascota(){
     for(Mascota item: listaM){
         cboxMascota.addItem(item);

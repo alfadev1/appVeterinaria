@@ -41,31 +41,30 @@ public class VisitaData {
 //Debe haber un método que pueda listar todas las 
 //visitas de una mascota en especial (históricamente) 
     
-   /* public List<Visitas> listarVisitas() {
-       List <Visitas> listaV= new ArrayList<>();
+    public List<Visitas> listarVisitas() {
+        List<Visitas> listaV = new ArrayList<>();
         try {
-            String sql ="SELECT * FROM visitas";
-            PreparedStatement ps =con.prepareStatement(sql);
-            
-        ResultSet rs= ps.executeQuery();
-        
-        if (rs.next()){
-         Visitas v=new Visitas();
-         v.setFechaVisita(LocalDate.MIN);
-         v.setDetalle(rs.getString("Detalle"));
-         v.setPesoActual(rs.getDouble("pesoActual"));
-         //v.setIdMascota(rs.getInt("idMascota"));
-         //v.setIdTratamiento(rs.getInt("idTratamiento"));
-         
-         
-        
-         
-         
-         
-        }
+            String sql = "SELECT * FROM visitas WHERE idMascota = ? ORDER BY fechaVisita DESC";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Visitas v = new Visitas();
+                Mascota masc = new Mascota();
+                Tratamiento trat = new Tratamiento();
+                v.setFechaVisita(LocalDate.MIN);
+                v.setDetalle(rs.getString("Detalle"));
+                v.setPesoActual(rs.getDouble("pesoActual"));
+                masc.setIdMascota(rs.getInt("idMascota"));
+                trat.setIdTratamiento(rs.getInt("idTratamiento"));
+
+            }
         } catch (Exception e) {
-        }*/
-  
-   
+            JOptionPane.showMessageDialog(null, "Error al listar las visitas");
+        }
+        return listaV;
+    }
+
 }
 

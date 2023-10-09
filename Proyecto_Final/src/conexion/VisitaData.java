@@ -32,7 +32,7 @@ public class VisitaData {
             ps.setDouble(5, mascota.getPesoActual());
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                //visita.setIdVisita(rs.getInt(1)); //Dudas
+                visita.setIdVisita(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Se registró la visita");
             }
             ps.close();
@@ -68,7 +68,9 @@ public void registrarVisita(Mascota mascota, Tratamiento tratamiento, Visitas vi
 */
     
 //Debe haber un método que pueda listar todas las 
-//visitas de una mascota en especial (históricamente) 
+//visitas de una mascota en especial (históricamente)
+    
+    
     
     public List<Visitas> listarVisitas() {
         List<Visitas> listaV = new ArrayList<>();

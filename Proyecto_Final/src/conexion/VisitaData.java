@@ -32,7 +32,7 @@ public class VisitaData {
             ps.setDouble(5, mascota.getPesoActual());
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                //visita.setIdVisita(rs.getInt(1));
+                //visita.setIdVisita(rs.getInt(1)); //Dudas
                 JOptionPane.showMessageDialog(null, "Se registró la visita");
             }
             ps.close();
@@ -40,8 +40,32 @@ public class VisitaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al listar las visitas");
         }
-    } 
+    }
+    
+/*
+//Manera alternativa    
+public void registrarVisita(Mascota mascota, Tratamiento tratamiento, Visitas visita) {
+    String sql = "INSERT INTO `visita` (`idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`) + VALUES (?,?,?,?,?)";
 
+    try {
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setInt(1, mascota.getIdMascota());
+        ps.setInt(2, tratamiento.getIdTratamiento());
+        ps.setDate(3, java.sql.Date.valueOf(visita.getFechaVisita()));
+        ps.setString(4, visita.getDetalle());
+        ps.setDouble(5, mascota.getPesoActual());
+        int reg = ps.executeUpdate();//Faltaria el id de Visita?
+        if (reg > 0) {
+            JOptionPane.showMessageDialog(null, "Visita registrada exitosamente.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al registrar la visita.");
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
+}
+    
+*/
     
 //Debe haber un método que pueda listar todas las 
 //visitas de una mascota en especial (históricamente) 

@@ -20,9 +20,9 @@ public class Proyecto_Final {
         PreparedStatement ps = null;
         con = Conexion.getConexion();
         
-        Cliente Juan = new Cliente(29860341, "Salvo", "Juan", "Manaos 360", 11234567, "Jorge",11987654);
-        ClienteData cd = new ClienteData();
-        cd.altaCliente(Juan);
+//        Cliente Juan = new Cliente(29860341, "Salvo", "Juan", "Manaos 360", 11234567, "Jorge",11987654);
+//        ClienteData cd = new ClienteData();
+//        cd.altaCliente(Juan);
         //Luego de dar el alta, se modifica algun dato de la linea 23 y luego se ejecuta la 27
         //cd.modificarCliente(Juan);
         //Y por ultimo se da de baja al cliente

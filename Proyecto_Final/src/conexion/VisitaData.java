@@ -46,19 +46,18 @@ public class VisitaData {
         try {
             String sql = "SELECT * FROM visitas WHERE idMascota = ? ORDER BY fechaVisita DESC";
             PreparedStatement ps = con.prepareStatement(sql);
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 Visitas v = new Visitas();
                 Mascota masc = new Mascota();
                 Tratamiento trat = new Tratamiento();
-                v.setFechaVisita(LocalDate.MIN);
-                v.setDetalle(rs.getString("Detalle"));
-                v.setPesoActual(rs.getDouble("pesoActual"));
                 masc.setIdMascota(rs.getInt("idMascota"));
                 trat.setIdTratamiento(rs.getInt("idTratamiento"));
-
+                v.setFechaVisita(rs.getDate("fechaVisita").toLocalDate());
+                v.setDetalle(rs.getString("Detalle"));
+                v.setPesoActual(rs.getDouble("pesoActual"));
+                
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al listar las visitas");

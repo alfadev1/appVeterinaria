@@ -42,17 +42,15 @@ public class Visita extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cboxMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new Mascota[] {}));
-        cboxMascota = new javax.swing.JComboBox<>();
         calendario = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tfDetalle = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        cboxTratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new Tratamiento[] {}));
-        cboxTratamiento = new javax.swing.JComboBox<>();
         jTpeso = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         botonGuardar = new javax.swing.JButton();
+        cboxMascota = new javax.swing.JComboBox<>();
+        cboxTratamiento = new javax.swing.JComboBox<>();
         ImageIcon imagen =new ImageIcon(getClass().getResource("/Recursos/patita.jpg"));
         Image icono= imagen.getImage();
         jDesktopPane1 = new javax.swing.JDesktopPane(){
@@ -78,12 +76,6 @@ public class Visita extends javax.swing.JInternalFrame {
         jLabel6.setText("Tratamiento:");
 
         jLabel7.setText("Detalle:");
-
-        cboxMascota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxMascotaActionPerformed(evt);
-            }
-        });
 
         tfDetalle.setColumns(20);
         tfDetalle.setRows(5);
@@ -113,36 +105,39 @@ public class Visita extends javax.swing.JInternalFrame {
             }
         });
 
+        cboxMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new Mascota[] {  }));
+
+        cboxTratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new Tratamiento[] {}));
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6))
-                            .addGap(41, 41, 41)
-                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(cboxMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cboxTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(panelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addGap(39, 39, 39)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cboxMascota, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboxTratamiento, 0, 342, Short.MAX_VALUE)))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,15 +155,15 @@ public class Visita extends javax.swing.JInternalFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(cboxMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cboxTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addGap(59, 59, 59)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -242,27 +237,27 @@ public class Visita extends javax.swing.JInternalFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
-        try {
-            Mascota idM = (Mascota) cboxMascota.getSelectedItem();
-            idM.getIdMascota();
-
-            Tratamiento idT = (Tratamiento) cboxTratamiento.getSelectedItem();
-            idT.getIdTratamiento();
-
-            LocalDate fechaVisita = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            String detalle = tfDetalle.getText();
-            double peso = Double.parseDouble(jTpeso.getText());
-
-            Visitas visita = new Visitas();
-
-            visita.setFechaVisita(fechaVisita);
-            visita.setDetalle(detalle);
-            visita.setPesoActual(peso);
-            vd.registrarVisita(idM, idT, visita);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Mascota idM = (Mascota) cboxMascota.getSelectedItem();
+//            idM.getIdMascota();
+//
+//            Tratamiento idT = (Tratamiento) cboxTratamiento.getSelectedItem();
+//            idT.getIdTratamiento();
+//
+//            LocalDate fechaVisita = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//            String detalle = tfDetalle.getText();
+//            double peso = Double.parseDouble(jTpeso.getText());
+//
+//            Visitas visita = new Visitas();
+//
+//            visita.setFechaVisita(fechaVisita);
+//            visita.setDetalle(detalle);
+//            visita.setPesoActual(peso);
+//            vd.registrarVisita(idM, idT, visita);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
     }//GEN-LAST:event_botonGuardarActionPerformed
@@ -270,10 +265,6 @@ public class Visita extends javax.swing.JInternalFrame {
     private void jTpesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTpesoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTpesoActionPerformed
-
-    private void cboxMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxMascotaActionPerformed
-        // TODO add your handling code here:   
-    }//GEN-LAST:event_cboxMascotaActionPerformed
 
     private void tfDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfDetalleMouseClicked
         // TODO add your handling code here:
@@ -302,7 +293,7 @@ public class Visita extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
 private void cargarMascota(){
-    for(Mascota item: listaM){
+    for(Mascota item: md.listarMascotas()){
         cboxMascota.addItem(item);
     }
 }

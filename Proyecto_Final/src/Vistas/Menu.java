@@ -236,9 +236,13 @@ public class Menu extends javax.swing.JFrame {
     private void PRUEBAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRUEBAActionPerformed
        escritorio.removeAll();
        escritorio.repaint();
-       pruebaFondo pf=new pruebaFondo();
-       pf.setVisible(true);
-       escritorio.add(pf);
+//       pruebaFondo pf=new pruebaFondo();
+       TratamientoVista tv = new TratamientoVista();
+
+       tv.setVisible(true);
+       escritorio.add(tv);
+       escritorio.moveToFront(tv);
+       
     }//GEN-LAST:event_PRUEBAActionPerformed
 
     public void transparenciaButton() {

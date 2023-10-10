@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class TratamientoData {
 
@@ -14,6 +16,29 @@ public class TratamientoData {
 
     public TratamientoData() {
         con = Conexion.getConexion();
+    }
+    
+    public void modificarTratamiento(Tratamiento tr) {
+        try {
+            Tratamiento tratamiento = new Tratamiento();
+            String sql = "UPDATE tratamiento SET  descripcion = ?, importe = ?, estado = ? WHERE tipo = ?";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1,tr.getDescripcion());
+            ps.setInt(2, tr.getImporte());
+            ps.setBoolean(3, tr.isEstado());
+            ps.setString(4,tr.getTipo());
+            int rM= ps.executeUpdate();
+            if (rM==0) {
+                JOptionPane.showMessageDialog(null, "No hay tratamientos con esa ID");
+            } else {
+                JOptionPane.showMessageDialog(null, "Se ha modificado con exito");
+            }
+        } catch (SQLException ex) {
+            
+        }
+        
     }
 
     public Tratamiento buscarTratamiento(int id) {

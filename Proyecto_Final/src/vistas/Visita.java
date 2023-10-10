@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.time.*;
 import java.util.*;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -17,14 +18,11 @@ public class Visita extends javax.swing.JInternalFrame {
     MascotaData md = new MascotaData();
     TratamientoData td=new TratamientoData();
     VisitaData vd=new VisitaData();
-    private List<Mascota> listaM;
-    private List<Tratamiento> listaT;
+    
 
     public Visita() {
         //this.setContentPane(fondo);
-        initComponents();
-        listaM = md.listarMascotas();
-        listaT=td.listarTratamiento();
+        initComponents();    
         cargarMascota();
         cargarTratamiento();
 
@@ -59,13 +57,16 @@ public class Visita extends javax.swing.JInternalFrame {
             }
         };
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(0, 0, 204));
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setPreferredSize(new java.awt.Dimension(900, 600));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(901, 214, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -144,7 +145,7 @@ public class Visita extends javax.swing.JInternalFrame {
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(221, 221, 221)
                         .addComponent(jLabel1)))
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,93 +172,60 @@ public class Visita extends javax.swing.JInternalFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(24, 24, 24)
                 .addComponent(botonGuardar)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
+
+        jPanel1.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 33, -1, -1));
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 244, Short.MAX_VALUE)
+            .addGap(0, 262, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 292, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jDesktopPane1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(216, 216, 216))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 147, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(845, 845, 845)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Mascota idM = (Mascota) cboxMascota.getSelectedItem();
-//            idM.getIdMascota();
-//
-//            Tratamiento idT = (Tratamiento) cboxTratamiento.getSelectedItem();
-//            idT.getIdTratamiento();
-//
-//            LocalDate fechaVisita = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//            String detalle = tfDetalle.getText();
-//            double peso = Double.parseDouble(jTpeso.getText());
-//
-//            Visitas visita = new Visitas();
-//
-//            visita.setFechaVisita(fechaVisita);
-//            visita.setDetalle(detalle);
-//            visita.setPesoActual(peso);
-//            vd.registrarVisita(idM, idT, visita);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Mascota idM = (Mascota) cboxMascota.getSelectedItem();
+            int id = idM.getIdMascota();
+            System.out.println(id+"ola");
+
+            Tratamiento idT = (Tratamiento) cboxTratamiento.getSelectedItem();
+            idT.getIdTratamiento();
+
+            LocalDate fechaVisita = calendario.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            String detalle = tfDetalle.getText();
+            double peso = Double.parseDouble(jTpeso.getText());
+
+            Visitas visita = new Visitas();
+
+            visita.setFechaVisita(fechaVisita);
+            visita.setDetalle(detalle);
+            visita.setPesoActual(peso);
+            vd.registrarVisita(idM, idT, visita);
+
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Campos vacios error:"+e.getMessage());
+            
+        } catch (NullPointerException e) {
+           
+            JOptionPane.showMessageDialog(null, "Campo de fecha vacio error:"+e.getMessage());
+        }
 
 
     }//GEN-LAST:event_botonGuardarActionPerformed
@@ -298,7 +266,7 @@ private void cargarMascota(){
     }
 }
 private void cargarTratamiento(){
-   for(Tratamiento item: listaT){
+   for(Tratamiento item: td.listarTratamiento()){
        cboxTratamiento.addItem(item);
    } 
 }

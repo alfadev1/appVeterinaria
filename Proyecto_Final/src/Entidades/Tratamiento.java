@@ -77,6 +77,6 @@ public class Tratamiento {
 
     @Override
     public String toString() {
-        return "Tipo=" + tipo ;
+        return "Tipo: " + tipo ;
     }
 }

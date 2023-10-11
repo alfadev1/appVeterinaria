@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2023 a las 15:30:17
+-- Tiempo de generación: 09-10-2023 a las 15:23:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -35,15 +35,16 @@ CREATE TABLE `cliente` (
   `telefono` int(11) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `nomAux` varchar(30) NOT NULL,
-  `telAux` int(11) NOT NULL
+  `telAux` int(11) NOT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idCliente`, `dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux`) VALUES
-(1, 29860341, 'Salvo', 'Juan', 11234567, '0', 'Jorge', 11987654);
+INSERT INTO `cliente` (`idCliente`, `dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux`, `estado`) VALUES
+(1, 29860341, 'Salvo', 'Juan', 11234567, '0', 'Jorge', 11987654, 0);
 
 -- --------------------------------------------------------
 
@@ -58,10 +59,18 @@ CREATE TABLE `mascota` (
   `especie` varchar(20) NOT NULL,
   `raza` varchar(20) NOT NULL,
   `colorPelo` varchar(60) NOT NULL,
-  `f_nac` int(11) NOT NULL,
+  `f_nac` date NOT NULL,
   `peso` int(11) NOT NULL,
-  `idCliente` int(11) NOT NULL
+  `idCliente` int(11) NOT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mascota`
+--
+
+INSERT INTO `mascota` (`idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, `idCliente`, `estado`) VALUES
+(1, 'pancho', 'f', 'perro', 'salchicha', 'marrón', '0000-00-00', 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -74,9 +83,16 @@ CREATE TABLE `tratamiento` (
   `tipo` varchar(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `importe` int(11) NOT NULL,
-  `activo` tinyint(1) NOT NULL,
-  `idmascota` int(11) NOT NULL
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tratamiento`
+--
+
+INSERT INTO `tratamiento` (`idtratamiento`, `tipo`, `descripcion`, `importe`, `estado`) VALUES
+(1, 'corte de pe', 'nn', 300, 1),
+(2, 'vacuna', 'feo', 5000, 1);
 
 -- --------------------------------------------------------
 
@@ -116,8 +132,7 @@ ALTER TABLE `mascota`
 -- Indices de la tabla `tratamiento`
 --
 ALTER TABLE `tratamiento`
-  ADD PRIMARY KEY (`idtratamiento`),
-  ADD KEY `idmascota` (`idmascota`);
+  ADD PRIMARY KEY (`idtratamiento`);
 
 --
 -- Indices de la tabla `visita`
@@ -141,7 +156,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `tratamiento`
+--
+ALTER TABLE `tratamiento`
+  MODIFY `idtratamiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `visita`
@@ -158,12 +179,6 @@ ALTER TABLE `visita`
 --
 ALTER TABLE `mascota`
   ADD CONSTRAINT `mascota_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`);
-
---
--- Filtros para la tabla `tratamiento`
---
-ALTER TABLE `tratamiento`
-  ADD CONSTRAINT `tratamiento_ibfk_1` FOREIGN KEY (`idmascota`) REFERENCES `mascota` (`idmascota`);
 
 --
 -- Filtros para la tabla `visita`

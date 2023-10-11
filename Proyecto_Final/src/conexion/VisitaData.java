@@ -19,26 +19,30 @@ public class VisitaData {
     }
     
     
-    public void registrarVisita(Mascota mascota,Tratamiento tratamiento,Visitas visita) {
-       String sql="INSERT INTO `visita`( `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`)"
-               + "VALUES (?,?,?,?,?)"; 
+    public void registrarVisita(Mascota mascota, Tratamiento tratamiento, Visitas visita) {
+        String sql = "INSERT INTO `visita`( `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`)"
+                + "VALUES (?,?,?,?,?)";
         try {
-        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        ps.setInt(1, mascota.getIdMascota());
-        ps.setInt(2, tratamiento.getIdTratamiento());
-        ps.setDate(3, java.sql.Date.valueOf(visita.getFechaVisita()));
-        ps.setString(4,visita.getDetalle());
-        ps.setDouble(5, mascota.getPesoActual());
-        int ejecucion=ps.executeUpdate();
-         if (ejecucion > 0) {
-            ResultSet generatedKeys = ps.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                int generatedId = generatedKeys.getInt(1);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, mascota.getIdMascota());
+            ps.setInt(2, tratamiento.getIdTratamiento());
+            ps.setDate(3, java.sql.Date.valueOf(visita.getFechaVisita()));
+            ps.setString(4, visita.getDetalle());
+            ps.setDouble(5, mascota.getPesoActual());
+            int ejecucion = ps.executeUpdate();
+            // el codigo de abajo es para  verificar si la sentencia se ejecutó con éxito y si afectó filas
+            if (ejecucion > 0) {
+                JOptionPane.showMessageDialog(null, "Se registró la visita");
+                // luego obtener la clave generada 
+                ResultSet generatedKeys = ps.getGeneratedKeys();
+                //si está disponible para su uso posterior en la aplicación.
+                if (generatedKeys.next()) {
+                    int generatedId = generatedKeys.getInt(1);
+                }
             }
-         }
         } catch (Exception e) {
-             e.printStackTrace(); // Imprime el mensaje completo de la excepción 
-            JOptionPane.showMessageDialog(null,"Error al registrar la visita");
+            e.printStackTrace(); // Imprime el mensaje completo de la excepción 
+            JOptionPane.showMessageDialog(null, "Error al registrar la visita");
         }
         
         
@@ -71,6 +75,7 @@ public class VisitaData {
         }
         return listaV;
     }
+   
 
 }
 

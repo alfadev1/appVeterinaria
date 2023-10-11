@@ -8,20 +8,17 @@ import java.time.*;
 import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 
 
 
 public class Visita extends javax.swing.JInternalFrame {
-
-    //fondoPanel fondo=new fondoPanel();
     MascotaData md = new MascotaData();
     TratamientoData td=new TratamientoData();
     VisitaData vd=new VisitaData();
     
 
     public Visita() {
-        //this.setContentPane(fondo);
         initComponents();    
         cargarMascota();
         cargarTratamiento();
@@ -135,10 +132,15 @@ public class Visita extends javax.swing.JInternalFrame {
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(panelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                                        .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(154, 154, 154))
+                                    .addGroup(panelLayout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -167,8 +169,8 @@ public class Visita extends javax.swing.JInternalFrame {
                 .addGap(59, 59, 59)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,10 +219,11 @@ public class Visita extends javax.swing.JInternalFrame {
             visita.setDetalle(detalle);
             visita.setPesoActual(peso);
             vd.registrarVisita(idM, idT, visita);
+            limpiar();
 
         } catch (NumberFormatException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Campos vacios error:"+e.getMessage());
+           JOptionPane.showMessageDialog(null, "ERROR campos incorrectos: "+e.getMessage());
+            
             
         } catch (NullPointerException e) {
            
@@ -270,5 +273,10 @@ private void cargarTratamiento(){
        cboxTratamiento.addItem(item);
    } 
 }
+ private void limpiar(){
+       calendario.setDate(null);
+       tfDetalle.setText("");
+       jTpeso.setText("");
+    }
 }
 

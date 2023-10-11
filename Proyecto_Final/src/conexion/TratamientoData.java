@@ -18,6 +18,12 @@ public class TratamientoData {
         con = Conexion.getConexion();
     }
     
+    public void guardarTratamiento(Tratamiento tr) {
+        String sql = "INSERT INTO 'tratamiento' (idTratamiento, tipo, descripcion, importe, estado) VALUES (NULL,?,?,?,?)";
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        
+    }
+    
     public void modificarTratamiento(Tratamiento tr) {
         try {
             Tratamiento tratamiento = new Tratamiento();

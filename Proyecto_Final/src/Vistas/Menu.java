@@ -94,14 +94,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jbTratamiento.setBackground(new java.awt.Color(51, 51, 255));
         jbTratamiento.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbTratamiento.setForeground(new java.awt.Color(255, 255, 255));
-        jbTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-perro-64.png"))); // NOI18N
+        jbTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-tratamiento-64.png"))); // NOI18N
         jbTratamiento.setText("Tratamiento");
         jbTratamiento.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbTratamiento.setBorderPainted(false);
         jbTratamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbTratamiento.setHideActionText(true);
         jbTratamiento.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jbTratamiento.setOpaque(false);
         jbTratamiento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbTratamientoMouseEntered(evt);
@@ -126,8 +128,8 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(menuLateralLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jbTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         menuLateralLayout.setVerticalGroup(
@@ -138,10 +140,10 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(menuLateralLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addComponent(jbTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -217,12 +219,11 @@ public class Menu extends javax.swing.JFrame {
 
     private void jbVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVisitaActionPerformed
         // TODO add your handling code here:
-       escritorio.removeAll();
-       escritorio.repaint();
-       Visita v = new Visita();
-       v.setVisible(true);
-       escritorio.add(v);
-                
+        escritorio.removeAll();
+        escritorio.repaint();
+        Visita v = new Visita();
+        v.setVisible(true);
+        escritorio.add(v);
 
 
     }//GEN-LAST:event_jbVisitaActionPerformed
@@ -245,18 +246,6 @@ public class Menu extends javax.swing.JFrame {
         jbVisita.setOpaque(false);
     }//GEN-LAST:event_jbVisitaMouseExited
 
-    private void jbTratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTratamientoActionPerformed
-       escritorio.removeAll();
-       escritorio.repaint();
-//       pruebaFondo pf=new pruebaFondo();
-       TratamientoVista tv = new TratamientoVista();
-
-       tv.setVisible(true);
-       escritorio.add(tv);
-       escritorio.moveToFront(tv);
-       
-    }//GEN-LAST:event_jbTratamientoActionPerformed
-
     private void jbTratamientoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbTratamientoMouseEntered
         jbTratamiento.setOpaque(true);
         jbTratamiento.setBackground(azulClaro);
@@ -265,6 +254,14 @@ public class Menu extends javax.swing.JFrame {
     private void jbTratamientoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbTratamientoMouseExited
         jbTratamiento.setOpaque(false);
     }//GEN-LAST:event_jbTratamientoMouseExited
+
+    private void jbTratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTratamientoActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        TratamientoVista t = new TratamientoVista();
+        t.setVisible(true);
+        escritorio.add(t);
+    }//GEN-LAST:event_jbTratamientoActionPerformed
 
     public void transparenciaButton() {
         jbClientes.setOpaque(false);

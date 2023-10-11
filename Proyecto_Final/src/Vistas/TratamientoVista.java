@@ -37,7 +37,6 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTTipo = new javax.swing.JTextField();
-        jTDescripcion = new javax.swing.JTextField();
         jLTipo = new javax.swing.JLabel();
         jCBEstado = new javax.swing.JCheckBox();
         jLDescripcion = new javax.swing.JLabel();
@@ -47,6 +46,8 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jTFImporte = new javax.swing.JTextField();
         jBActualizar = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTDescripcion = new javax.swing.JTextArea();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -91,6 +92,10 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jTDescripcion.setColumns(20);
+        jTDescripcion.setRows(5);
+        jScrollPane1.setViewportView(jTDescripcion);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -115,12 +120,15 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLImporte)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTDescripcion)
-                            .addComponent(jTTipo)
-                            .addComponent(jTFImporte)
-                            .addComponent(jCBEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 2, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTTipo)
+                                    .addComponent(jTFImporte)
+                                    .addComponent(jCBEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane1))))
                 .addGap(138, 138, 138))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -140,8 +148,8 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
                         .addGap(38, 38, 38)
                         .addComponent(jLDescripcion))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jTDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLImporte)
@@ -235,7 +243,8 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTDescripcion;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTDescripcion;
     private javax.swing.JTextField jTFImporte;
     private javax.swing.JTextField jTTipo;
     // End of variables declaration//GEN-END:variables

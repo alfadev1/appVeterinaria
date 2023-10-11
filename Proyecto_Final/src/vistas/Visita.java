@@ -227,7 +227,7 @@ public class Visita extends javax.swing.JInternalFrame {
             
         } catch (NullPointerException e) {
            
-            JOptionPane.showMessageDialog(null, "Campo de fecha vacio error:"+e.getMessage());
+            JOptionPane.showMessageDialog(null, "Campos vacio error: "+e.getMessage());
         }
 
 

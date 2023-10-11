@@ -197,19 +197,19 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         try {
-             String tipo = jTTipo.getText();
-        int importe = Integer.parseInt(jTFImporte.getText());
-        String descripcion = jTDescripcion.getText();
-        boolean estado = jCBEstado.isSelected();
-        
-        Tratamiento t = new Tratamiento(tipo, descripcion, importe, estado);
-        
-        td.registrarTratamiento(t); 
+            String tipo = jTTipo.getText();
+            int importe = Integer.parseInt(jTFImporte.getText());
+            String descripcion = jTDescripcion.getText();
+            boolean estado = jCBEstado.isSelected();
+
+            Tratamiento t = new Tratamiento(tipo, descripcion, importe, estado);
+
+            td.registrarTratamiento(t);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTTipo.requestFocus();
-        } 
-        
+        }
+
         
     }//GEN-LAST:event_jBGuardarActionPerformed
 

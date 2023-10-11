@@ -54,7 +54,7 @@ public class Menu extends javax.swing.JFrame {
         jbClientes.setText("Clientes");
         jbClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbClientes.setBorderPainted(false);
-        jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         jbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -77,7 +77,7 @@ public class Menu extends javax.swing.JFrame {
         jbVisita.setText("Visita");
         jbVisita.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbVisita.setBorderPainted(false);
-        jbVisita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbVisita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbVisita.setHideActionText(true);
         jbVisita.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         jbVisita.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,12 +96,11 @@ public class Menu extends javax.swing.JFrame {
 
         jbTratamiento.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbTratamiento.setForeground(new java.awt.Color(255, 255, 255));
-        jbTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-perro-64.png"))); // NOI18N
+        jbTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/clinica.png"))); // NOI18N
         jbTratamiento.setText("Tratamiento");
         jbTratamiento.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        jbTratamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbTratamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbTratamiento.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jbTratamiento.setOpaque(false);
         jbTratamiento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbTratamientoMouseEntered(evt);

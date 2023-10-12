@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class ClienteVista extends javax.swing.JInternalFrame {
-    DeClienteAMascota mv = new DeClienteAMascota();
+    
     Color azul = new Color(0, 107, 247);
     Color azulClaro = new Color(0, 173, 255);
     ClienteData cd = new ClienteData();
@@ -20,7 +20,6 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     
     public ClienteVista() {
         initComponents();
-        mv.setVisible(false);
         trans();//Aplicacion inclusiva
     }
 
@@ -64,6 +63,8 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(0, 0, 204));
         setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/patita.jpg"))); // NOI18N
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(900, 600));
@@ -101,11 +102,14 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         escritorioClientes.setBackground(new java.awt.Color(255, 204, 204));
+        escritorioClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jCBClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jCBClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 8, 263, -1));
 
         jTMascotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,8 +124,10 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTMascotas);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 320, 313));
+
         jbeliminar.setBackground(new java.awt.Color(51, 51, 255));
-        jbeliminar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jbeliminar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbeliminar.setForeground(new java.awt.Color(255, 255, 255));
         jbeliminar.setText("       ELIMINAR");
         jbeliminar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
@@ -141,11 +147,12 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 jbeliminarActionPerformed(evt);
             }
         });
+        jPanel2.add(jbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 150, 60));
 
         jbmod.setBackground(new java.awt.Color(51, 51, 255));
-        jbmod.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jbmod.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbmod.setForeground(new java.awt.Color(255, 255, 255));
-        jbmod.setText("     MODIFICAR");
+        jbmod.setText("   MODIFICAR");
         jbmod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbmod.setBorderPainted(false);
         jbmod.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -163,40 +170,9 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 jbmodActionPerformed(evt);
             }
         });
+        jPanel2.add(jbmod, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 389, 140, 60));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 43, Short.MAX_VALUE)
-                        .addComponent(jCBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jbmod, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbeliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbmod, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbeliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(106, 106, 106))
-        );
+        escritorioClientes.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 6, 340, 560));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -381,31 +357,9 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 .addContainerGap(95, Short.MAX_VALUE))
         );
 
-        escritorioClientes.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorioClientes.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorioClientes.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
-        javax.swing.GroupLayout escritorioClientesLayout = new javax.swing.GroupLayout(escritorioClientes);
-        escritorioClientes.setLayout(escritorioClientesLayout);
-        escritorioClientesLayout.setHorizontalGroup(
-            escritorioClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioClientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        escritorioClientesLayout.setVerticalGroup(
-            escritorioClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioClientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(escritorioClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel4.add(escritorioClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, 570));
+        jPanel4.add(escritorioClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 800, 570));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 650));
 
@@ -461,8 +415,10 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         escritorioClientes.remove(jPanel1);
         escritorioClientes.repaint();
+        DeClienteAMascota mv = new DeClienteAMascota();
         mv.setVisible(true);
         escritorioClientes.add(mv);
+        mv.moveToFront();
     }//GEN-LAST:event_jbRegMascotaActionPerformed
 
     private void jbRegMascotaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegMascotaMouseExited

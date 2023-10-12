@@ -88,20 +88,20 @@ public class TratamientoData {
         return tratamiento;
     }
     
-    public void registrarTratamiento(Tratamiento t) {
-        String sql = "INSERT into tratamiento VALUES(null,?,?,?,?)";
-        
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, t.getTipo());
-            ps.setString(2, t.getDescripcion());
-            ps.setInt(3, t.getImporte());
-            ps.setBoolean(4, t.isEstado());
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al insertar el cliente. " + e.getMessage());
-        }
-    }
+//    public void registrarTratamiento(Tratamiento t) {
+//        String sql = "INSERT into tratamiento VALUES(null,?,?,?,?)";
+//        
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setString(1, t.getTipo());
+//            ps.setString(2, t.getDescripcion());
+//            ps.setInt(3, t.getImporte());
+//            ps.setBoolean(4, t.isEstado());
+//            
+//        } catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, "Error al insertar el cliente. " + e.getMessage());
+//        }
+//    }
 
     public List<Tratamiento> listarTratamiento() {
        List <Tratamiento>tratamientos= new ArrayList<>();

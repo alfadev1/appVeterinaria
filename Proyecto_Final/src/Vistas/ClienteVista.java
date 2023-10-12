@@ -388,7 +388,11 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
     private void jbRegMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegMascotaActionPerformed
         // TODO add your handling code here:
-        
+        jPanel1.removeAll();
+        jPanel1.repaint();
+        MascotaVista mv = new MascotaVista();
+        mv.setVisible(true);
+        jPanel1.add(mv);
     }//GEN-LAST:event_jbRegMascotaActionPerformed
 
     private void jbRegIstrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegIstrarMouseEntered

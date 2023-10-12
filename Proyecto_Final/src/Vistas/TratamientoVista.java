@@ -205,6 +205,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         // TODO add your handling code here:
+    
         
         try {
             String tipo = jTTipo.getText();

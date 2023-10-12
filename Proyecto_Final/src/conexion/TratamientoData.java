@@ -19,9 +19,19 @@ public class TratamientoData {
     }
     
     public void guardarTratamiento(Tratamiento tr) {
-        String sql = "INSERT INTO 'tratamiento' (idTratamiento, tipo, descripcion, importe, estado) VALUES (NULL,?,?,?,?)";
+        String sql = "INSERT INTO tratamiento (tipo, descripcion, importe, estado) VALUES (?,?,?,?)";
         try {
-        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, tr.getTipo());
+        ps.setString(2, tr.getDescripcion());
+        ps.setInt(3, tr.getImporte());
+        ps.setBoolean(4, tr.isEstado());
+        
+        int reg = ps.executeUpdate();
+        
+        if (reg>0) {
+            JOptionPane.showMessageDialog(null, "se guardo el tratamiento");
+        }
             
         } catch (SQLException e){ 
             JOptionPane.showMessageDialog(null, "Error al guardar tratamiento " + e.getMessage());
@@ -82,7 +92,7 @@ public class TratamientoData {
         String sql = "INSERT into tratamiento VALUES(null,?,?,?,?)";
         
         try {
-            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, t.getTipo());
             ps.setString(2, t.getDescripcion());
             ps.setInt(3, t.getImporte());

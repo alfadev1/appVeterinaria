@@ -2,6 +2,8 @@ package Vistas;
 
 import vistas.Visita;
 import java.awt.Color;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -212,21 +214,29 @@ public class Menu extends javax.swing.JFrame {
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
         // TODO add your handling code here:
-       escritorio.removeAll();
-       escritorio.repaint();
-       ClienteVista c = new ClienteVista();
-       c.setVisible(true);
-       escritorio.add(c);
+        escritorio.removeAll();
+        escritorio.repaint();
+        ClienteVista c = new ClienteVista();
+        c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+        c.setResizable(false);
+        c.setClosable(false);
+        escritorio.add(c);
+        escritorio.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+            }
+        });
+        c.setVisible(true);
     }//GEN-LAST:event_jbClientesActionPerformed
 
     private void jbVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVisitaActionPerformed
         // TODO add your handling code here:
-       escritorio.removeAll();
-       escritorio.repaint();
-       Visita v = new Visita();
-       v.setVisible(true);
-       escritorio.add(v);
-                
+        escritorio.removeAll();
+        escritorio.repaint();
+        Visita v = new Visita();
+        v.setVisible(true);
+        escritorio.add(v);
 
 
     }//GEN-LAST:event_jbVisitaActionPerformed
@@ -250,15 +260,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVisitaMouseExited
 
     private void jbTratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTratamientoActionPerformed
-       escritorio.removeAll();
-       escritorio.repaint();
+        escritorio.removeAll();
+        escritorio.repaint();
 //       pruebaFondo pf=new pruebaFondo();
-       TratamientoVista tv = new TratamientoVista();
+        TratamientoVista tv = new TratamientoVista();
 
-       tv.setVisible(true);
-       escritorio.add(tv);
-       escritorio.moveToFront(tv);
-       
+        tv.setVisible(true);
+        escritorio.add(tv);
+        escritorio.moveToFront(tv);
+
     }//GEN-LAST:event_jbTratamientoActionPerformed
 
     private void jbTratamientoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbTratamientoMouseEntered

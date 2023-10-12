@@ -66,8 +66,9 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/patita.jpg"))); // NOI18N
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setOpaque(false);
-        setPreferredSize(new java.awt.Dimension(900, 600));
+        setPreferredSize(new java.awt.Dimension(977, 670));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 204));
@@ -99,6 +100,8 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 840, 50));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel4.setMinimumSize(new java.awt.Dimension(977, 670));
+        jPanel4.setPreferredSize(new java.awt.Dimension(977, 670));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         escritorioClientes.setBackground(new java.awt.Color(255, 204, 204));
@@ -172,7 +175,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jbmod, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 389, 140, 60));
 
-        escritorioClientes.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 6, 340, 560));
+        escritorioClientes.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 6, 340, 490));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -354,14 +357,14 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                     .addComponent(jbRegIstrar, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbRegMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        escritorioClientes.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        escritorioClientes.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 490));
 
-        jPanel4.add(escritorioClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 800, 570));
+        jPanel4.add(escritorioClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 870, 570));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 650));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -418,7 +421,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         DeClienteAMascota mv = new DeClienteAMascota();
         mv.setVisible(true);
         escritorioClientes.add(mv);
-        mv.moveToFront();
+        escritorioClientes.moveToFront(mv);
     }//GEN-LAST:event_jbRegMascotaActionPerformed
 
     private void jbRegMascotaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegMascotaMouseExited
@@ -508,5 +511,4 @@ public void trans() {
         jbmod.setContentAreaFilled(false);
         jbmod.setBorderPainted(false);
     }
-
 }

@@ -18,6 +18,17 @@ public class TratamientoData {
         con = Conexion.getConexion();
     }
     
+    public void guardarTratamiento(Tratamiento tr) {
+        String sql = "INSERT INTO 'tratamiento' (idTratamiento, tipo, descripcion, importe, estado) VALUES (NULL,?,?,?,?)";
+        try {
+        PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
+        } catch (SQLException e){ 
+            JOptionPane.showMessageDialog(null, "Error al guardar tratamiento " + e.getMessage());
+        }
+        
+    }
+    
     public void modificarTratamiento(Tratamiento tr) {
         try {
             Tratamiento tratamiento = new Tratamiento();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2023 a las 15:30:35
+-- Tiempo de generación: 09-10-2023 a las 15:23:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -110,13 +110,6 @@ CREATE TABLE `visita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `visita`
---
-
-INSERT INTO `visita` (`idVisita`, `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`) VALUES
-(1, 1, 1, '2023-10-02', 'A la mascota de nombre pancho se le cortó el pelo el día de la fecha \n', 2);
-
---
 -- Índices para tablas volcadas
 --
 
@@ -175,7 +168,7 @@ ALTER TABLE `tratamiento`
 -- AUTO_INCREMENT de la tabla `visita`
 --
 ALTER TABLE `visita`
-  MODIFY `idVisita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idVisita` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

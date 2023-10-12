@@ -215,7 +215,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
 
             Tratamiento t = new Tratamiento(tipo, descripcion, importe, estado);
 
-            td.registrarTratamiento(t);
+            td.guardarTratamiento(t);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTTipo.requestFocus();

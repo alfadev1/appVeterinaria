@@ -205,6 +205,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         // TODO add your handling code here:
+    
         
         try {
             String tipo = jTTipo.getText();
@@ -214,7 +215,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
 
             Tratamiento t = new Tratamiento(tipo, descripcion, importe, estado);
 
-            td.registrarTratamiento(t);
+            td.guardarTratamiento(t);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTTipo.requestFocus();

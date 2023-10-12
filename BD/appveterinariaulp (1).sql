@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2023 a las 15:23:22
+-- Tiempo de generación: 12-10-2023 a las 16:23:31
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -82,7 +82,7 @@ CREATE TABLE `tratamiento` (
   `idtratamiento` int(11) NOT NULL,
   `tipo` varchar(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
-  `importe` int(11) NOT NULL,
+  `importe` double(11,2) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -91,8 +91,8 @@ CREATE TABLE `tratamiento` (
 --
 
 INSERT INTO `tratamiento` (`idtratamiento`, `tipo`, `descripcion`, `importe`, `estado`) VALUES
-(1, 'corte de pe', 'nn', 300, 1),
-(2, 'vacuna', 'feo', 5000, 1);
+(1, 'corte de pe', 'nn', 300.00, 1),
+(2, 'vacuna', 'feo', 5000.00, 1);
 
 -- --------------------------------------------------------
 

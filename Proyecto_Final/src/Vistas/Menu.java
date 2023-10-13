@@ -267,7 +267,7 @@ public class Menu extends javax.swing.JFrame {
 
         tv.setVisible(true);
         escritorio.add(tv);
-        escritorio.moveToFront(tv);
+        //escritorio.moveToFront(tv);
 
     }//GEN-LAST:event_jbTratamientoActionPerformed
 

@@ -440,6 +440,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
             Cliente c = new Cliente(dni, ape, nom, dire, tel, nomAux, telAux);
             cd.altaCliente(c);
+            cargarCombo();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTdni.requestFocus();

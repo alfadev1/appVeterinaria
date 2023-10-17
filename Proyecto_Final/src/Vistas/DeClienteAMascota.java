@@ -175,7 +175,9 @@ public class DeClienteAMascota extends javax.swing.JInternalFrame {
 
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
         // TODO add your handling code here:
-        
+        ClienteVista mv = new ClienteVista();
+        jPanel1.setVisible(true);
+
     }//GEN-LAST:event_formInternalFrameClosed
 
 

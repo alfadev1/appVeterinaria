@@ -20,8 +20,8 @@ public class ClienteData {
     
     public void altaCliente(Cliente cliente){
         
-        String sql = "INSERT INTO `cliente`(`dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux`)"
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO `cliente`(`dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux`, `estado`)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, cliente.getDni());
@@ -31,6 +31,7 @@ public class ClienteData {
             ps.setString(5, cliente.getDireccion());
             ps.setString(6, cliente.getAltClie());
             ps.setInt(7, cliente.getAltTel());
+            ps.setBoolean(8, true);
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();

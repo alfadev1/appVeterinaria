@@ -117,6 +117,39 @@ public class ClienteData {
         return cliente;
     }
     
+    public Cliente buscarClientexdni(int dni) {
+    Cliente cliente = null;
+        String sql = "SELECT `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux` FROM cliente WHERE dni = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setIdCliente(dni);
+                cliente.setApellido(rs.getString("apellido"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setDireccion(rs.getString("direccion"));
+                cliente.setTelefono(rs.getInt("telefono"));
+                cliente.setAltClie(rs.getString("nomAux"));
+                cliente.setAltTel(rs.getInt("telAux"));
+                
+
+            } else {
+                JOptionPane.showMessageDialog(null, "El cliente no existe");
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de Clientes" + ex.getMessage());
+
+        }
+
+        return cliente;
+    }
+    
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<>();
         try {

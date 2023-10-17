@@ -132,7 +132,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbeliminar.setBackground(new java.awt.Color(51, 51, 255));
         jbeliminar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbeliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jbeliminar.setText("       ELIMINAR");
+        jbeliminar.setText("    ELIMINAR");
         jbeliminar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbeliminar.setBorderPainted(false);
         jbeliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -155,7 +155,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbmod.setBackground(new java.awt.Color(51, 51, 255));
         jbmod.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbmod.setForeground(new java.awt.Color(255, 255, 255));
-        jbmod.setText("   MODIFICAR");
+        jbmod.setText("  MODIFICAR");
         jbmod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbmod.setBorderPainted(false);
         jbmod.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -241,7 +241,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbRegIstrar.setBackground(new java.awt.Color(51, 51, 255));
         jbRegIstrar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbRegIstrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbRegIstrar.setText("     REGISTRAR");
+        jbRegIstrar.setText("  REGISTRAR");
         jbRegIstrar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbRegIstrar.setBorderPainted(false);
         jbRegIstrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -263,7 +263,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbbuscar.setBackground(new java.awt.Color(51, 51, 255));
         jbbuscar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbbuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jbbuscar.setText("        BUSCAR");
+        jbbuscar.setText("      BUSCAR");
         jbbuscar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbbuscar.setBorderPainted(false);
         jbbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -371,6 +371,33 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
     private void jbbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscarActionPerformed
         // TODO add your handling code here:
+        try {
+            Cliente clibu = cd.buscarClientexdni(Integer.parseInt(jTdni.getText()));
+
+        if (clibu != null) {
+            jTapellido.setText(clibu.getApellido());
+            jTnombre.setText(clibu.getNombre());
+            jTdireccion.setText(clibu.getDireccion());
+            jTtelefono.setText(String.valueOf(clibu.getTelefono()));
+            jTnomaux.setText(clibu.getAltClie());
+            jTtelaux.setText(String.valueOf(clibu.getAltTel()));
+            
+        } else {
+            jTapellido.setText("");
+            jTnombre.setText("");
+            jTdireccion.setText("");
+            jTtelefono.setText("");
+            jTnomaux.setText("");
+            jTtelaux.setText("");
+            
+        }
+
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error campos vacios o erroneos");
+            jTdni.setText("");
+            jTdni.requestFocus();
+        }
     }//GEN-LAST:event_jbbuscarActionPerformed
 
     private void jbbuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbbuscarMouseExited

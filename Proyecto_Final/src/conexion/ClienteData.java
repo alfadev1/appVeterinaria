@@ -165,7 +165,7 @@ public class ClienteData {
                 cliente.setNombre(rs.getString("nombre"));
                 cliente.setDireccion(rs.getString("direccion"));
                 cliente.setAltClie(rs.getString("nomAux"));
-                cliente.setAltTel(rs.getByte("telAux"));
+                cliente.setAltTel(rs.getInt("telAux"));
                 clientes.add(cliente);
             }
             ps.close();

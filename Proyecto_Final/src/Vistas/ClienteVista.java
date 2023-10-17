@@ -20,6 +20,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     
     public ClienteVista() {
         initComponents();
+        cargarCombo();
         trans();//Aplicacion inclusiva
     }
 
@@ -111,7 +112,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jCBClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new Cliente[] {  }));
         jPanel2.add(jCBClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 8, 263, -1));
 
         jTMascotas.setModel(new javax.swing.table.DefaultTableModel(
@@ -219,7 +220,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbRegMascota.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
         jbRegMascota.setForeground(new java.awt.Color(255, 255, 255));
         jbRegMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/espacio-para-gatos.png"))); // NOI18N
-        jbRegMascota.setText("         Registrar Mascota");
+        jbRegMascota.setText("     Registrar Mascota");
         jbRegMascota.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbRegMascota.setBorderPainted(false);
         jbRegMascota.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -493,7 +494,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorioClientes;
-    private javax.swing.JComboBox<String> jCBClientes;
+    private javax.swing.JComboBox<Cliente> jCBClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -521,7 +522,14 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbeliminar;
     private javax.swing.JButton jbmod;
     // End of variables declaration//GEN-END:variables
-public void trans() {
+
+    private void cargarCombo(){
+    for(Cliente clie: cd.listarClientes()){
+        jCBClientes.addItem(clie);
+    }
+}
+    
+    public void trans() {
     jbbuscar.setOpaque(false);
         jbRegMascota.setContentAreaFilled(false);
         jbRegMascota.setBorderPainted(false);

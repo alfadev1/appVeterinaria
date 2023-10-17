@@ -9,8 +9,16 @@ import java.time.*;
 import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 public class ClienteVista extends javax.swing.JInternalFrame {
+    DefaultTableModel modelo = new DefaultTableModel() {
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     
     Color azul = new Color(0, 107, 247);
     Color azulClaro = new Color(0, 173, 255);
@@ -21,6 +29,8 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     public ClienteVista() {
         initComponents();
         cargarCombo();
+        cargarTabla();
+        cabecera();
         trans();//Aplicacion inclusiva
     }
 
@@ -113,6 +123,11 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jCBClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new Cliente[] {  }));
+        jCBClientes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBClientesItemStateChanged(evt);
+            }
+        });
         jPanel2.add(jCBClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 8, 263, -1));
 
         jTMascotas.setModel(new javax.swing.table.DefaultTableModel(
@@ -491,6 +506,11 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbeliminar.setBackground(azulClaro);
     }//GEN-LAST:event_jbeliminarMouseEntered
 
+    private void jCBClientesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCBClientesItemStateChanged
+        // TODO add your handling code here:
+        cargarTabla();
+    }//GEN-LAST:event_jCBClientesItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorioClientes;
@@ -528,6 +548,41 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jCBClientes.addItem(clie);
     }
 }
+    private void cabecera() {
+
+        modelo.addColumn("ID");
+        modelo.addColumn("Alias");
+        modelo.addColumn("Especie");
+        modelo.addColumn("Sexo");
+
+        jTMascotas.setModel(modelo);
+
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) jTMascotas.getTableHeader().getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+    }
+    
+    private void cargarTabla() {
+        borrarFilas();
+        Cliente cli = (Cliente) jCBClientes.getSelectedItem();
+        int id = cli.getIdCliente();
+        List<Mascota> reg = cd.mascotaXCliente(id);
+        for (Mascota masc : reg) {
+
+            modelo.addRow(new Object[]{
+                masc.getIdMascota(),
+                masc.getAlias(),
+                masc.getEspecie(),
+                masc.getSexo()
+            });
+        }
+    }
+    
+    private void borrarFilas() {
+        int filas = modelo.getRowCount() - 1;
+        for (; filas >= 0; filas--) {
+            modelo.removeRow(filas);
+        }
+    }
     
     public void trans() {
     jbbuscar.setOpaque(false);

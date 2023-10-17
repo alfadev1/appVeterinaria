@@ -175,4 +175,29 @@ public class ClienteData {
         }
         return clientes;
     }
+    
+    public List<Mascota> mascotaXCliente(int idCliente){
+       ArrayList<Mascota> mascotaxcliente = new ArrayList<>();
+        
+        try {
+            //`raza`, `colorPelo`, `f_nac`, `peso`, `estado`
+            String sql = "SELECT `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, `estado` FROM `mascota` WHERE `idCliente` = ?;" ;
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idCliente);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()) {
+                Mascota mym = new Mascota();
+                mym.getIdMascota();
+                mym.getAlias();
+                mym.getSexo();
+                mym.getEspecie();           
+                mascotaxcliente.add(mym);                
+            }
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla" + ex.getMessage());
+        }
+        return mascotaxcliente; 
+    }
 }

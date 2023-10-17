@@ -50,7 +50,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jBGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTDescripcion = new javax.swing.JTextArea();
-        ImageIcon imagen =new ImageIcon(getClass().getResource("/Recursos/patita.jpg"));
+        ImageIcon imagen =new ImageIcon(getClass().getResource("/Recursos/clinica.png"));
         Image icono= imagen.getImage();
         jDesktopPane1 = new javax.swing.JDesktopPane(){
             public void paintComponent (Graphics g){

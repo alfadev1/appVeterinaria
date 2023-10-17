@@ -154,7 +154,7 @@ public class ClienteData {
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM cliente WHERE estado = 1 ";//Al eliminar un cliente, habria que set a 0
+            String sql = "SELECT * FROM cliente WHERE estado = 1";//Al eliminar un cliente, habria que set a 0
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -172,7 +172,7 @@ public class ClienteData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de Clientes" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de Clientes " + ex.getMessage());
         }
         return clientes;
     }

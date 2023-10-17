@@ -13,7 +13,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         transparenciaButton();
-        this.setSize(1250, 850);
+        this.setSize(1250, 900);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,11 +27,14 @@ public class Menu extends javax.swing.JFrame {
         jbClientes = new javax.swing.JButton();
         jbVisita = new javax.swing.JButton();
         jbTratamiento = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
+        jbMascotas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         escritorio = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1250, 850));
 
         jpFondo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -56,7 +59,7 @@ public class Menu extends javax.swing.JFrame {
         jbClientes.setText("Clientes");
         jbClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbClientes.setBorderPainted(false);
-        jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbClientes.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         jbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -79,7 +82,7 @@ public class Menu extends javax.swing.JFrame {
         jbVisita.setText("Visita");
         jbVisita.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbVisita.setBorderPainted(false);
-        jbVisita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbVisita.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbVisita.setHideActionText(true);
         jbVisita.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         jbVisita.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,10 +101,10 @@ public class Menu extends javax.swing.JFrame {
 
         jbTratamiento.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbTratamiento.setForeground(new java.awt.Color(255, 255, 255));
-        jbTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/clinica.png"))); // NOI18N
+        jbTratamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-plan-de-tratamiento-64.png"))); // NOI18N
         jbTratamiento.setText("Tratamiento");
         jbTratamiento.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        jbTratamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbTratamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbTratamiento.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         jbTratamiento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -117,6 +120,48 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jbSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(255, 255, 255));
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-ventana-abierta-64.png"))); // NOI18N
+        jbSalir.setText("Salir");
+        jbSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSalir.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbSalirMouseExited(evt);
+            }
+        });
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+
+        jbMascotas.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbMascotas.setForeground(new java.awt.Color(255, 255, 255));
+        jbMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-mascota-64.png"))); // NOI18N
+        jbMascotas.setText("Mascotas");
+        jbMascotas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbMascotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbMascotas.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbMascotas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbMascotasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbMascotasMouseExited(evt);
+            }
+        });
+        jbMascotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMascotasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuLateralLayout = new javax.swing.GroupLayout(menuLateral);
         menuLateral.setLayout(menuLateralLayout);
         menuLateralLayout.setHorizontalGroup(
@@ -127,9 +172,11 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(menuLateralLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jbTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         menuLateralLayout.setVerticalGroup(
             menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,11 +186,15 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(menuLateralLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jbTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jbTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(390, 390, 390)
+                .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 173, 255));
@@ -175,7 +226,7 @@ public class Menu extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jpFondoLayout = new javax.swing.GroupLayout(jpFondo);
@@ -194,7 +245,7 @@ public class Menu extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jpFondoLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(escritorio))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,6 +271,7 @@ public class Menu extends javax.swing.JFrame {
         c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
         c.setResizable(false);
         c.setClosable(false);
+        c.setMaximizable(false);
         escritorio.add(c);
         escritorio.addComponentListener(new ComponentAdapter() {
             @Override
@@ -280,6 +332,47 @@ public class Menu extends javax.swing.JFrame {
         jbTratamiento.setOpaque(false);
     }//GEN-LAST:event_jbTratamientoMouseExited
 
+    private void jbSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbSalirMouseEntered
+        jbSalir.setOpaque(true);
+        jbSalir.setBackground(azulClaro);
+    }//GEN-LAST:event_jbSalirMouseEntered
+
+    private void jbSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbSalirMouseExited
+        jbSalir.setOpaque(false);
+    }//GEN-LAST:event_jbSalirMouseExited
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbMascotasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbMascotasMouseEntered
+        jbMascotas.setOpaque(true);
+        jbMascotas.setBackground(azulClaro);
+    }//GEN-LAST:event_jbMascotasMouseEntered
+
+    private void jbMascotasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbMascotasMouseExited
+        jbMascotas.setOpaque(false);
+    }//GEN-LAST:event_jbMascotasMouseExited
+
+    private void jbMascotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMascotasActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        MascotaVista mv = new MascotaVista();
+        mv.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+        mv.setResizable(false);
+        mv.setClosable(false);
+        mv.setMaximizable(false);
+        escritorio.add(mv);
+        escritorio.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                mv.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+            }
+        });
+        mv.setVisible(true);
+
+    }//GEN-LAST:event_jbMascotasActionPerformed
+
     public void transparenciaButton() {
         jbClientes.setOpaque(false);
         jbClientes.setContentAreaFilled(false);
@@ -290,6 +383,12 @@ public class Menu extends javax.swing.JFrame {
         jbTratamiento.setOpaque(false);
         jbTratamiento.setContentAreaFilled(false);
         jbTratamiento.setBorderPainted(false);
+        jbSalir.setOpaque(false);
+        jbSalir.setContentAreaFilled(false);
+        jbSalir.setBorderPainted(false);
+        jbMascotas.setOpaque(false);
+        jbMascotas.setContentAreaFilled(false);
+        jbMascotas.setBorderPainted(false);
     }
 
     /**
@@ -334,6 +433,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbClientes;
+    private javax.swing.JButton jbMascotas;
+    private javax.swing.JButton jbSalir;
     private javax.swing.JButton jbTratamiento;
     private javax.swing.JButton jbVisita;
     private javax.swing.JPanel jpFondo;

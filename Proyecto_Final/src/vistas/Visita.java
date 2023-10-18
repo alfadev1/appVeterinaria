@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.time.*;
 import java.util.*;
+import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -13,16 +14,16 @@ import javax.swing.JOptionPane;
 
 
 public class Visita extends javax.swing.JInternalFrame {
+
     MascotaData md = new MascotaData();
-    TratamientoData td=new TratamientoData();
-    VisitaData vd=new VisitaData();
-    
+    TratamientoData td = new TratamientoData();
+    VisitaData vd = new VisitaData();
 
     public Visita() {
-        initComponents();    
+        //transparenciaButton();
+        initComponents();
         cargarMascota();
         cargarTratamiento();
-
 
     }
 
@@ -37,7 +38,8 @@ public class Visita extends javax.swing.JInternalFrame {
         calendario = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        cboxMascota = new javax.swing.JComboBox<>();
+        cboxMascota = new javax.swing.JComboBox<>()
+        ;
         jLabel6 = new javax.swing.JLabel();
         cboxTratamiento = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -69,9 +71,11 @@ public class Visita extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        botonGuardar.setBackground(new java.awt.Color(0, 0, 255));
         botonGuardar.setForeground(new java.awt.Color(255, 255, 255));
         botonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/boton1.png"))); // NOI18N
         botonGuardar.setText("Guardar");
+        botonGuardar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGuardarActionPerformed(evt);
@@ -248,7 +252,7 @@ public class Visita extends javax.swing.JInternalFrame {
         try {
             Mascota idM = (Mascota) cboxMascota.getSelectedItem();
             int id = idM.getIdMascota();
-            System.out.println(id+"ola");
+            System.out.println(id + "ola");
 
             Tratamiento idT = (Tratamiento) cboxTratamiento.getSelectedItem();
             idT.getIdTratamiento();
@@ -266,11 +270,11 @@ public class Visita extends javax.swing.JInternalFrame {
             limpiar();
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "ERROR campos incorrectos: "+e.getMessage());
+            JOptionPane.showMessageDialog(null, "ERROR campos incorrectos: " + e.getMessage());
 
         } catch (NullPointerException e) {
 
-            JOptionPane.showMessageDialog(null, "CAMPOS VACIOS : "+e.getMessage());
+            JOptionPane.showMessageDialog(null, "CAMPOS VACIOS : " + e.getMessage());
         }
 
     }//GEN-LAST:event_botonGuardarActionPerformed
@@ -309,20 +313,41 @@ public class Visita extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea tfDetalle;
     // End of variables declaration//GEN-END:variables
 
-private void cargarMascota(){
-    for(Mascota item: md.listarMascotas()){
-        cboxMascota.addItem(item);
+//    private void cargarMascota() {
+//        for (Mascota item : md.listarMascotas()) {
+//            cboxMascota.addItem(item);
+//        }
+//    }
+  
+    private void cargarMascota() {
+        cboxMascota.removeAllItems();
+        Mascota elementoI = new Mascota();
+        cboxMascota.addItem(elementoI);
+        for (Mascota item : md.listarMascotas()) {
+            cboxMascota.addItem(item);
+        }
     }
-}
-private void cargarTratamiento(){
-   for(Tratamiento item: td.listarTratamiento()){
-       cboxTratamiento.addItem(item);
-   } 
-}
- private void limpiar(){
-       calendario.setDate(null);
-       tfDetalle.setText("");
-       jTpeso.setText("");
+ 
+
+    private void cargarTratamiento() {
+        Tratamiento elementoI = new Tratamiento();
+        cboxTratamiento.addItem(elementoI);
+        for (Tratamiento item : td.listarTratamiento()) {
+            cboxTratamiento.addItem(item);
+        }
     }
+
+    private void limpiar() {
+        calendario.setDate(null);
+        tfDetalle.setText("");
+        jTpeso.setText("");
+    }
+// private void transparenciaButton()
+// {
+//     botonGuardar.setOpaque(false);
+//     botonGuardar.setContentAreaFilled(false);
+//     botonGuardar.setBorderPainted(false);
+// }
 }
+
 

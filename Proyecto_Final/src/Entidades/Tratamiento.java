@@ -75,8 +75,16 @@ public class Tratamiento {
         this.estado = estado;
     }
 
+//    @Override
+//    public String toString() {
+//        return "[TIPO: " + tipo + "] Importe $"+ importe;
+//    }
     @Override
-    public String toString() {
-        return "Tipo: " + tipo ;
+public String toString() {
+    if (idTratamiento == 0) {
+        return "Selecciona un tratamiento";
+    } else {
+       return "[TIPO: " + tipo + "] Importe $"+ importe; 
     }
+}
 }

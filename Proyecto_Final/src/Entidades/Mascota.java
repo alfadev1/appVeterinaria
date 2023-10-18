@@ -130,8 +130,16 @@ public class Mascota {
         this.Cliente = Cliente;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Nombre: "+alias+ " - Raza: "+ raza+ " - ID:"+idMascota;
+//    }
     @Override
-    public String toString() {
-        return "Nombre: "+alias+ " - Raza: "+ raza+ " - ID:"+idMascota;
+public String toString() {
+    if (idMascota == 0) {
+        return "Selecciona una mascota";
+    } else {
+        return "Nombre: " + alias + " - Raza: " + (raza != null ? raza : "Sin raza") + " - ID: " + idMascota;
     }
+}
 }

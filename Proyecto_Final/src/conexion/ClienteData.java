@@ -2,6 +2,7 @@ package conexion;
 
 import Entidades.*;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -181,17 +182,22 @@ public class ClienteData {
        ArrayList<Mascota> mascotaxcliente = new ArrayList<>();
         
         try {
-            //`raza`, `colorPelo`, `f_nac`, `peso`, `estado`
-            String sql = "SELECT `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, `estado` FROM `mascota` WHERE `idCliente` = ?;" ;
+            String sql = "SELECT `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso` FROM `mascota` WHERE `idCliente` = ? AND estado = 1;" ;
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idCliente);
             ResultSet rs=ps.executeQuery();
             while (rs.next()) {
                 Mascota mym = new Mascota();
-                mym.getIdMascota();
-                mym.getAlias();
-                mym.getSexo();
-                mym.getEspecie();           
+                mym.setIdMascota(rs.getInt("idmascota"));
+                mym.setAlias(rs.getString("alias"));
+                mym.setSexo(rs.getString("sexo"));
+                mym.setEspecie(rs.getString("especie")); 
+                mym.setRaza(rs.getString("raza"));
+                mym.setColor(rs.getString("colorPelo"));
+                Date Nac = rs.getDate("f_nac");
+                mym.setfNac(Nac.toLocalDate());
+                mym.setPesoActual(rs.getDouble("peso")); 
+                 
                 mascotaxcliente.add(mym);                
             }
             ps.close();

@@ -43,6 +43,13 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImageIcon imagen =new ImageIcon(getClass().getResource("/Recursos/clinica.png"));
+        Image icono= imagen.getImage();
+        jDesktopPane1 = new javax.swing.JDesktopPane(){
+            public void paintComponent (Graphics g){
+                g.drawImage(icono, 0, 0, getWidth() ,getHeight(), this);
+            }
+        };
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -71,6 +78,24 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbRegMascota = new javax.swing.JButton();
         jbRegIstrar = new javax.swing.JButton();
         jbbuscar = new javax.swing.JButton();
+        ImageIcon img =new ImageIcon(getClass().getResource("/fondos/mascota.jpg"));
+        Image fondo= img.getImage();
+        jDesktopPane2 = new javax.swing.JDesktopPane(){
+            public void paintComponent (Graphics g){
+                g.drawImage(fondo, 0, 0, getWidth() ,getHeight(), this);
+            }
+        };
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 262, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 292, Short.MAX_VALUE)
+        );
 
         setBackground(new java.awt.Color(0, 0, 204));
         setClosable(true);
@@ -78,7 +103,6 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         setResizable(true);
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/patita.jpg"))); // NOI18N
         setMinimumSize(new java.awt.Dimension(0, 0));
-        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(977, 670));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -98,7 +122,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(259, 259, 259)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +132,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 840, 50));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 790, 50));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 204));
         jPanel4.setMinimumSize(new java.awt.Dimension(977, 670));
@@ -191,7 +215,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jbmod, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 389, 140, 60));
 
-        escritorioClientes.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 6, 340, 490));
+        escritorioClientes.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 340, 550));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -373,12 +397,25 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                     .addComponent(jbRegIstrar, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbRegMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
-        escritorioClientes.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 490));
+        escritorioClientes.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 550));
 
-        jPanel4.add(escritorioClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 870, 570));
+        jPanel4.add(escritorioClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 790, 570));
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
+        );
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 292, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 160, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -516,6 +553,8 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorioClientes;
     private javax.swing.JComboBox<Cliente> jCBClientes;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

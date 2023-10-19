@@ -12,11 +12,14 @@ import javax.swing.JOptionPane;
 
 public class DeClienteAMascota extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form DeClienteAMascota
-     */
+    Color azul = new Color(0, 107, 247);
+    Color azulClaro = new Color(0, 173, 255);
+    ClienteData cd = new ClienteData();
+    MascotaData md = new MascotaData();
+    
     public DeClienteAMascota() {
         initComponents();
+        cargarCombo();
     }
 
     /**
@@ -46,7 +49,7 @@ public class DeClienteAMascota extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCBduenio = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
@@ -96,7 +99,7 @@ public class DeClienteAMascota extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 60));
@@ -148,8 +151,8 @@ public class DeClienteAMascota extends javax.swing.JInternalFrame {
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 260, -1));
         jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 140, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 260, -1));
+        jCBduenio.setModel(new javax.swing.DefaultComboBoxModel<>(new Cliente[] {}));
+        jPanel1.add(jCBduenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 260, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 204));
         jButton1.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
@@ -183,7 +186,7 @@ public class DeClienteAMascota extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<Cliente> jCBduenio;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -203,4 +206,9 @@ public class DeClienteAMascota extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
+    private void cargarCombo(){
+    for(Cliente clie: cd.listarClientes()){
+        jCBduenio.addItem(clie);
+    }
+  }
 }

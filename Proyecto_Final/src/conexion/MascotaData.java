@@ -39,6 +39,13 @@ public class MascotaData {
             ps.setDate(7, nac);
             ps.setDouble(8, mascota.getPesoActual());
             ps.setInt(9, cliente.getIdCliente());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                mascota.setIdMascota(rs.getInt(1));
+                JOptionPane.showMessageDialog(null, "Una nueva mascota ha sido añadida");          
+            }
+            ps.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla MASCOTA" + ex.getMessage());

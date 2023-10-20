@@ -20,6 +20,7 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
     public NuevaMascotaVista() {
         initComponents();
         cargarCombo();
+        trans();
     }
 
     /**
@@ -54,13 +55,13 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jTpeso = new javax.swing.JTextField();
+        jTalias = new javax.swing.JTextField();
+        jTsexo = new javax.swing.JTextField();
+        jTespecie = new javax.swing.JTextField();
+        jTraza = new javax.swing.JTextField();
+        jTcolor = new javax.swing.JTextField();
+        jDnac = new com.toedter.calendar.JDateChooser();
         jCBduenio = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
@@ -237,13 +238,13 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("PESO:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 110, 30));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 260, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 260, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 260, -1));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 260, -1));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 260, -1));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 260, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 140, -1));
+        jPanel1.add(jTpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 260, -1));
+        jPanel1.add(jTalias, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 260, -1));
+        jPanel1.add(jTsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 260, -1));
+        jPanel1.add(jTespecie, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 260, -1));
+        jPanel1.add(jTraza, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, 260, -1));
+        jPanel1.add(jTcolor, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 260, -1));
+        jPanel1.add(jDnac, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 140, -1));
 
         jCBduenio.setModel(new javax.swing.DefaultComboBoxModel<>(new Cliente[] {}));
         jPanel1.add(jCBduenio, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 260, -1));
@@ -283,14 +284,29 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
 
     private void jbRegMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegMascotaActionPerformed
         // TODO add your handling code here:
+        try {
+            String nom = jTalias.getText();
+            String sex/*epa*/ = jTsexo.getText();
+            String especie = jTespecie.getText();
+            String raza = jTraza.getText();
+            String colo = jTcolor.getText();
+            LocalDate nac = jDnac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            double peso = Double.parseDouble(jTpeso.getText());
+            Cliente id = (Cliente) jCBduenio.getSelectedItem();
+            Mascota masc = new Mascota(nom, sex, especie, raza, colo, nac, peso, peso, id);
+            md.registrarMascota(masc, id);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
+            jTalias.requestFocus();
+        }
         
     }//GEN-LAST:event_jbRegMascotaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Cliente> jCBduenio;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private com.toedter.calendar.JDateChooser jDnac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -306,12 +322,12 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTalias;
+    private javax.swing.JTextField jTcolor;
+    private javax.swing.JTextField jTespecie;
+    private javax.swing.JTextField jTpeso;
+    private javax.swing.JTextField jTraza;
+    private javax.swing.JTextField jTsexo;
     private javax.swing.JButton jbRegMascota;
     // End of variables declaration//GEN-END:variables
 

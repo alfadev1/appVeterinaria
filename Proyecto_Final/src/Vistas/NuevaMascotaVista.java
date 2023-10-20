@@ -65,6 +65,7 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
         jCBduenio = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-mascota-64.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

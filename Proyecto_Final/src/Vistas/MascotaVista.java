@@ -52,6 +52,7 @@ public class MascotaVista extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(0, 0, 204));
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-mascota-64.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
 

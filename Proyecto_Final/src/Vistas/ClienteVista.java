@@ -102,7 +102,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/patita.jpg"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/card_icon.png"))); // NOI18N
         setMinimumSize(new java.awt.Dimension(0, 0));
         setPreferredSize(new java.awt.Dimension(898, 601));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

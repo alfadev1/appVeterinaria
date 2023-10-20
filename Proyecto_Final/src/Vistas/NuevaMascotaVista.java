@@ -64,6 +64,8 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
         jDnac = new com.toedter.calendar.JDateChooser();
         jCBduenio = new javax.swing.JComboBox<>();
 
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

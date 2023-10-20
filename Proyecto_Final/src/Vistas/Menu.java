@@ -317,21 +317,26 @@ public class Menu extends javax.swing.JFrame {
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
         // TODO add your handling code here:
+//        escritorio.removeAll();
+//        escritorio.repaint();
+//        ClienteVista c = new ClienteVista();
+//        c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+//        c.setResizable(false);
+//        c.setClosable(false);
+//        c.setMaximizable(false);
+//        escritorio.add(c);
+//        escritorio.addComponentListener(new ComponentAdapter() {
+//            @Override
+//            public void componentResized(ComponentEvent e) {
+//                c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+//            }
+//        });
+//        c.setVisible(true);
         escritorio.removeAll();
         escritorio.repaint();
-        ClienteVista c = new ClienteVista();
-        c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
-        c.setResizable(false);
-        c.setClosable(false);
-        c.setMaximizable(false);
-        escritorio.add(c);
-        escritorio.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
-            }
-        });
-        c.setVisible(true);
+        ClienteVista cv = new ClienteVista();
+        cv.setVisible(true);
+        escritorio.add(cv);
     }//GEN-LAST:event_jbClientesActionPerformed
 
     private void jbVisitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVisitaActionPerformed

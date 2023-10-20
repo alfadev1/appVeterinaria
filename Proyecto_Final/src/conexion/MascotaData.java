@@ -43,7 +43,7 @@ public class MascotaData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 mascota.setIdMascota(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Una nueva mascota ha sido añadida");          
+                JOptionPane.showMessageDialog(null, "Una nueva mascota ha sido añadida");
             }
             ps.close();
 
@@ -117,7 +117,7 @@ public class MascotaData {
                 mascota.setIdMascota(id);
                 mascota.setAlias(rs.getString("alias"));
                 mascota.setSexo(rs.getString("sexo"));
-                mascota.setEspecie(rs.getString("especia"));
+                mascota.setEspecie(rs.getString("especie"));
                 mascota.setRaza(rs.getString("raza"));
                 mascota.setColor(rs.getString("colorPelo"));
                 mascota.setfNac(rs.getDate("f_nac").toLocalDate());
@@ -125,7 +125,7 @@ public class MascotaData {
                 mascota.setPesoMedio(calcularPesoMedio(id));
 
             } else {
-                JOptionPane.showMessageDialog(null, "No se encontraron mascotas de ese cliente");
+                //JOptionPane.showMessageDialog(null, "No se encontraron mascotas de ese cliente");
             }
 
             ps.close();
@@ -193,7 +193,7 @@ public class MascotaData {
 
     public double calcularPesoMedio(int id) {
         double pesoMedio = 0;
-        String sql = "SELECT peso FROM visita WHERE idMascota = ? ORDER BY fechaVisita DESC LIMIT 10";
+        String sql = "SELECT pesoActual FROM visita WHERE idMascota = ? ORDER BY fechaVisita DESC LIMIT 10";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -216,6 +216,21 @@ public class MascotaData {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla visita " + e.getMessage());
         }
+
+        /*if (pesoMedio == 0) {
+            String sql2 = "SELECT peso FROM mascota WHERE idMascota = ?";
+
+            try {
+                PreparedStatement ps2 = con.prepareStatement(sql2);
+                ps2.setInt(1, id);
+                ResultSet rs2 = ps2.executeQuery();
+                
+                pesoMedio = rs2.getDouble("peso");
+                
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error accediendo a la tabla visita " + e.getMessage());
+            }
+        }*/
 
         return pesoMedio;
     }

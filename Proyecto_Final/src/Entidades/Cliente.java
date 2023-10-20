@@ -4,12 +4,11 @@ package Entidades;
  *
  * @author @SimonettaDaniel
  */
-
 //Cada cliente registra su documento, apellido y nombre del cabeza de familia, 
 //una dirección y teléfono y nombre de otra persona alternativa. 
 //Se podrá gestionar el ABM y consulta de clientes.
-
 public class Cliente {
+
     private int idCliente;
     private int dni;
     private String apellido;
@@ -22,7 +21,7 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int idCliente, int dni, String apellido, String nombre, String direccion, int telefono, String altClie,int altTel) {
+    public Cliente(int idCliente, int dni, String apellido, String nombre, String direccion, int telefono, String altClie, int altTel) {
         this.idCliente = idCliente;
         this.dni = dni;
         this.apellido = apellido;
@@ -30,17 +29,17 @@ public class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         this.altClie = altClie;
-        this.altTel= altTel;
+        this.altTel = altTel;
     }
 
-    public Cliente(int dni, String apellido, String nombre, String direccion, int telefono, String altClie,int altTel) {
+    public Cliente(int dni, String apellido, String nombre, String direccion, int telefono, String altClie, int altTel) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.altClie = altClie;
-        this.altTel= altTel;
+        this.altTel = altTel;
     }
 
     public int getIdCliente() {
@@ -109,9 +108,12 @@ public class Cliente {
 
     @Override
     public String toString() {
-    return "ID: " + idCliente + " // " + apellido + ", " + nombre;
-    }
-    
+        if (idCliente == 0) {
+            return "Seleccione un Cliente";
+        } else {
+            return "ID: " + idCliente + " // " + apellido + ", " + nombre;
+        }
 
-   
+    }
+
 }

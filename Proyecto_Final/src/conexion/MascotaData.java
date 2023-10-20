@@ -25,20 +25,20 @@ public class MascotaData {
 //idmascota	alias	sexo	especie	raza	colorPelo	f_nac	peso	idCliente	
 
     public void registrarMascota(Mascota mascota, Cliente cliente) {
-        String sql = "INSERT INTO `mascota`(`alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente)"
+        String sql = "INSERT INTO `mascota`(`alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente, estado)"
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, mascota.getIdMascota());
-            ps.setString(2, mascota.getAlias());
-            ps.setString(3, mascota.getSexo());
-            ps.setString(4, mascota.getEspecie());
-            ps.setString(5, mascota.getRaza());
-            ps.setString(6, mascota.getColor());
+            ps.setString(1, mascota.getAlias());
+            ps.setString(2, mascota.getSexo());
+            ps.setString(3, mascota.getEspecie());
+            ps.setString(4, mascota.getRaza());
+            ps.setString(5, mascota.getColor());
             java.sql.Date nac = java.sql.Date.valueOf(mascota.getfNac());
-            ps.setDate(7, nac);
-            ps.setDouble(8, mascota.getPesoActual());
-            ps.setInt(9, cliente.getIdCliente());
+            ps.setDate(6, nac);
+            ps.setDouble(7, mascota.getPesoActual());
+            ps.setInt(8, cliente.getIdCliente());
+            ps.setBoolean(9, true);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {

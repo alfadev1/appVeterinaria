@@ -104,7 +104,6 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/patita.jpg"))); // NOI18N
         setMinimumSize(new java.awt.Dimension(0, 0));
         setPreferredSize(new java.awt.Dimension(977, 670));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -132,12 +131,9 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 790, 50));
-
         jPanel4.setBackground(new java.awt.Color(0, 0, 204));
         jPanel4.setMinimumSize(new java.awt.Dimension(977, 670));
         jPanel4.setPreferredSize(new java.awt.Dimension(977, 670));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         escritorioClientes.setBackground(new java.awt.Color(255, 204, 204));
         escritorioClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -402,8 +398,6 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
         escritorioClientes.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 550));
 
-        jPanel4.add(escritorioClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 790, 570));
-
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
@@ -415,9 +409,42 @@ public class ClienteVista extends javax.swing.JInternalFrame {
             .addGap(0, 292, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 160, -1));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(escritorioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(escritorioClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -495,25 +522,6 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbRegIstrar.setBackground(azulClaro);
     }//GEN-LAST:event_jbRegIstrarMouseEntered
 
-    private void jbRegMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegMascotaActionPerformed
-        // TODO add your handling code here:
-        escritorioClientes.remove(jPanel1);
-        escritorioClientes.repaint();
-        DeClienteAMascota mv = new DeClienteAMascota();
-        mv.setVisible(true);
-        escritorioClientes.add(mv);
-        escritorioClientes.moveToFront(mv);
-    }//GEN-LAST:event_jbRegMascotaActionPerformed
-
-    private void jbRegMascotaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegMascotaMouseExited
-        jbRegMascota.setOpaque(false);
-    }//GEN-LAST:event_jbRegMascotaMouseExited
-
-    private void jbRegMascotaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegMascotaMouseEntered
-        jbRegMascota.setOpaque(true);
-        jbRegMascota.setBackground(azulClaro);
-    }//GEN-LAST:event_jbRegMascotaMouseEntered
-
     private void jbmodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbmodActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbmodActionPerformed
@@ -548,6 +556,25 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         cargarTabla();
     }//GEN-LAST:event_jCBClientesItemStateChanged
+
+    private void jbRegMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegMascotaActionPerformed
+        // TODO add your handling code here:
+        escritorioClientes.remove(jPanel1);
+        escritorioClientes.repaint();
+        DeClienteAMascota mv = new DeClienteAMascota();
+        mv.setVisible(true);
+        escritorioClientes.add(mv);
+        escritorioClientes.moveToFront(mv);
+    }//GEN-LAST:event_jbRegMascotaActionPerformed
+
+    private void jbRegMascotaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegMascotaMouseExited
+        jbRegMascota.setOpaque(false);
+    }//GEN-LAST:event_jbRegMascotaMouseExited
+
+    private void jbRegMascotaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegMascotaMouseEntered
+        jbRegMascota.setOpaque(true);
+        jbRegMascota.setBackground(azulClaro);
+    }//GEN-LAST:event_jbRegMascotaMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

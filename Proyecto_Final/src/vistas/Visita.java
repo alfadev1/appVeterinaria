@@ -130,7 +130,7 @@ public class Visita extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Peso:");
+        jLabel5.setText("PESO:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 56, 22));
 
         jTpeso.addActionListener(new java.awt.event.ActionListener() {

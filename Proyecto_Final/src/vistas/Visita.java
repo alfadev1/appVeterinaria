@@ -92,13 +92,13 @@ public class Visita extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Fecha de visita:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 102, -1));
+        jLabel2.setText("FECHA DE VISITA:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 127, 120, 10));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Mascota:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 67, -1));
+        jLabel4.setText("MASCOTA:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 100, -1));
 
         cboxMascota.setModel(new javax.swing.DefaultComboBoxModel<>(new Mascota[] {  }));
         cboxMascota.setBorder(null);
@@ -106,7 +106,7 @@ public class Visita extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Tratamiento:");
+        jLabel6.setText("TRATAMIENTO:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, -1, -1));
 
         cboxTratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new Tratamiento[] {}));
@@ -125,7 +125,7 @@ public class Visita extends javax.swing.JInternalFrame {
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Detalle:");
+        jLabel7.setText("DETALLE:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -242,7 +242,7 @@ public class Visita extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 270, 580));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 900, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -272,7 +272,7 @@ public class Visita extends javax.swing.JInternalFrame {
             cargarTratamiento();
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "ERROR campos incorrectos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "CAMPOS INCORRECTOS : " + e.getMessage());
 
         } catch (NullPointerException e) {
 

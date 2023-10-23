@@ -105,7 +105,7 @@ public class MascotaData {
 
     public Mascota buscarMascotaXCliente(int id) {
         Mascota mascota = null;
-        String sql = "SELECT `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente FROM Mascota WHERE idCliente = ?";
+        String sql = "SELECT  `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente FROM Mascota WHERE idCliente = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -122,7 +122,7 @@ public class MascotaData {
                 mascota.setColor(rs.getString("colorPelo"));
                 mascota.setfNac(rs.getDate("f_nac").toLocalDate());
                 mascota.setPesoActual(rs.getDouble("peso"));
-                mascota.setPesoMedio(calcularPesoMedio(id));
+                mascota.setPesoMedio(calcularPesoMedio(rs.getInt("idmascota")));
 
             } else {
                 //JOptionPane.showMessageDialog(null, "No se encontraron mascotas de ese cliente");
@@ -203,7 +203,7 @@ public class MascotaData {
 
             int contador = 0;
             double suma = 0;
-            double peso;
+            double peso = 0;
 
             while (rs.next()) {
                 peso = rs.getDouble("pesoActual");
@@ -217,21 +217,22 @@ public class MascotaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla visita " + e.getMessage());
         }
 
-        /*if (pesoMedio == 0) {
+        if (pesoMedio == 0) {
             String sql2 = "SELECT peso FROM mascota WHERE idMascota = ?";
 
             try {
                 PreparedStatement ps2 = con.prepareStatement(sql2);
                 ps2.setInt(1, id);
                 ResultSet rs2 = ps2.executeQuery();
-                
+
                 pesoMedio = rs2.getDouble("peso");
-                
+
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error accediendo a la tabla visita " + e.getMessage());
             }
-        }*/
+        }
 
         return pesoMedio;
     }
+
 }

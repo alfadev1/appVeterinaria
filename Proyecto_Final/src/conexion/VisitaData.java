@@ -4,21 +4,21 @@ import java.sql.Connection;
 import Entidades.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 
-
 public class VisitaData {
+
     private Connection con = null;
 
     public VisitaData() {
         con = Conexion.getConexion();
     }
-    
-    
+
     public void registrarVisita(Mascota mascota, Tratamiento tratamiento, Visitas visita) {
         String sql = "INSERT INTO `visita`( `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`)"
                 + "VALUES (?,?,?,?,?)";
@@ -40,18 +40,37 @@ public class VisitaData {
                     int generatedId = generatedKeys.getInt(1);
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace(); // Imprime el mensaje completo de la excepción 
             JOptionPane.showMessageDialog(null, "Error al registrar la visita");
         }
-        
-        
-    } 
 
-    
+        // Actualizar el último peso registrado de la mascota
+        String sql2 = "UPDATE mascota SET peso = ? WHERE idMascota = ?";
+        try {
+            PreparedStatement ps2 = con.prepareStatement(sql2);
+            ps2.setDouble(1, visita.getPesoActual());
+            ps2.setInt(2, mascota.getIdMascota());
+            int ejecucion2 = ps2.executeUpdate();
+                        if (ejecucion2 > 0) {
+                JOptionPane.showMessageDialog(null, "Se registró la visita");
+                // luego obtener la clave generada 
+                ResultSet generatedKeys = ps2.getGeneratedKeys();
+                //si está disponible para su uso posterior en la aplicación.
+                if (generatedKeys.next()) {
+                    int generatedId = generatedKeys.getInt(1);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Imprime el mensaje completo de la excepción 
+            JOptionPane.showMessageDialog(null, "Error al actualizar el peso");
+        }
+
+    }
+
 //Debe haber un método que pueda listar todas las 
 //visitas de una mascota en especial (históricamente) 
-    
     public List<Visitas> listarVisitas() {
         List<Visitas> listaV = new ArrayList<>();
         try {
@@ -68,14 +87,12 @@ public class VisitaData {
                 v.setFechaVisita(rs.getDate("fechaVisita").toLocalDate());
                 v.setDetalle(rs.getString("Detalle"));
                 v.setPesoActual(rs.getDouble("pesoActual"));
-                
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al listar las visitas");
         }
         return listaV;
     }
-   
 
 }
-

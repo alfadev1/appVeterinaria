@@ -268,6 +268,8 @@ public class Visita extends javax.swing.JInternalFrame {
             visita.setPesoActual(peso);
             vd.registrarVisita(idM, idT, visita);
             limpiar();
+            cargarMascota();
+            cargarTratamiento();
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "CAMPOS INCORRECTOS : " + e.getMessage());
@@ -330,6 +332,7 @@ public class Visita extends javax.swing.JInternalFrame {
  
 
     private void cargarTratamiento() {
+        cboxTratamiento.removeAllItems();
         Tratamiento elementoI = new Tratamiento();
         cboxTratamiento.addItem(elementoI);
         for (Tratamiento item : td.listarTratamiento()) {

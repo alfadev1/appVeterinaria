@@ -45,6 +45,7 @@ private DefaultTableModel modelo= new DefaultTableModel();
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBorder(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -92,23 +93,25 @@ private DefaultTableModel modelo= new DefaultTableModel();
 
         jLabel11.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/4375153_logo_whatsapp_icon.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/3225179_app_logo_media_popular_social_icon.png"))); // NOI18N
         jLabel11.setText("098-445566");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 100, -1));
 
         jLabel13.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Distrito x");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, -1, -1));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/7089161_google_maps_icon.png"))); // NOI18N
+        jLabel13.setText("  Distrito x");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, 90, -1));
 
         jLabel14.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/3225191_app_instagram_logo_media_popular_icon.png"))); // NOI18N
         jLabel14.setText("@veterinaria_abms");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, 150, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 500, 150, 20));
 
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/4375153_logo_whatsapp_icon.png"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/3225179_app_logo_media_popular_social_icon.png"))); // NOI18N
         jLabel15.setText("098-112233");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, -1, -1));
 
@@ -175,6 +178,12 @@ private DefaultTableModel modelo= new DefaultTableModel();
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 150, 20));
 
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/7123031_mail_google_gmail_icon.png"))); // NOI18N
+        jLabel2.setText("abms_vet@gmail.com");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 530, 170, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-14, 0, 960, 590));
 
         pack();
@@ -191,6 +200,7 @@ private DefaultTableModel modelo= new DefaultTableModel();
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

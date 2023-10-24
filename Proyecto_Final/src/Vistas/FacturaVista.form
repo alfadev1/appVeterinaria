@@ -154,7 +154,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/fondos/4375153_logo_whatsapp_icon.png"/>
+              <Image iconType="3" name="/fondos/3225179_app_logo_media_popular_social_icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="098-445566"/>
           </Properties>
@@ -172,11 +172,14 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Distrito x"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/fondos/7089161_google_maps_icon.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="  Distrito x"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="140" y="490" width="-1" height="-1"/>
+              <AbsoluteConstraints x="140" y="500" width="90" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -188,11 +191,14 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/fondos/3225191_app_instagram_logo_media_popular_icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="@veterinaria_abms"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="730" y="490" width="150" height="-1"/>
+              <AbsoluteConstraints x="720" y="500" width="150" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -205,7 +211,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/fondos/4375153_logo_whatsapp_icon.png"/>
+              <Image iconType="3" name="/fondos/3225179_app_logo_media_popular_social_icon.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="098-112233"/>
           </Properties>
@@ -407,6 +413,25 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/fondos/7123031_mail_google_gmail_icon.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="abms_vet@gmail.com"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="718" y="530" width="170" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

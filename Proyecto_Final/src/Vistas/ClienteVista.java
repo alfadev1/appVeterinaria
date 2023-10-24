@@ -81,10 +81,12 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jTnomaux = new javax.swing.JTextField();
         jTtelaux = new javax.swing.JTextField();
         jbRegIstrar = new javax.swing.JButton();
-        jbbuscar = new javax.swing.JButton();
+        jbmod = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTMascotas = new javax.swing.JTable();
         jCBClientes = new javax.swing.JComboBox<>();
+        jbbuscar = new javax.swing.JButton();
+        jbdel = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -244,46 +246,61 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("DNI:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 12, 74, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellido:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 54, 74, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nombre:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 96, 74, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Dirección:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 138, 74, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Teléfono:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 180, 74, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Persona Alternativa:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 218, 148, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Telefono Alternativo:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 271, 153, -1));
+        jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 8, 469, -1));
+        jPanel1.add(jTapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 50, 469, -1));
+        jPanel1.add(jTnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 92, 469, -1));
+        jPanel1.add(jTdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 134, 469, -1));
+        jPanel1.add(jTtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 176, 469, -1));
+        jPanel1.add(jTnomaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 241, 465, -1));
+        jPanel1.add(jTtelaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 294, 462, -1));
 
         jbRegIstrar.setBackground(new java.awt.Color(51, 51, 255));
         jbRegIstrar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbRegIstrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbRegIstrar.setText("REGISTRAR");
+        jbRegIstrar.setText(" REGISTRAR");
         jbRegIstrar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbRegIstrar.setBorderPainted(false);
         jbRegIstrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -301,6 +318,53 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 jbRegIstrarActionPerformed(evt);
             }
         });
+        jPanel1.add(jbRegIstrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 126, 42));
+
+        jbmod.setBackground(new java.awt.Color(51, 51, 255));
+        jbmod.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbmod.setForeground(new java.awt.Color(255, 255, 255));
+        jbmod.setText("MODIFICAR");
+        jbmod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbmod.setBorderPainted(false);
+        jbmod.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbmod.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbmod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbmodMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbmodMouseExited(evt);
+            }
+        });
+        jbmod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbmodActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbmod, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 116, 42));
+
+        jTMascotas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTMascotas);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 416, 564, 79));
+
+        jCBClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new Cliente[] {  }));
+        jCBClientes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBClientesItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(jCBClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 384, 263, -1));
 
         jbbuscar.setBackground(new java.awt.Color(51, 51, 255));
         jbbuscar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -323,112 +387,30 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 jbbuscarActionPerformed(evt);
             }
         });
+        jPanel1.add(jbbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 116, 42));
 
-        jTMascotas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        jbdel.setBackground(new java.awt.Color(51, 51, 255));
+        jbdel.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbdel.setForeground(new java.awt.Color(255, 255, 255));
+        jbdel.setText("   BORRAR");
+        jbdel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbdel.setBorderPainted(false);
+        jbdel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbdel.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbdel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbdelMouseEntered(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTMascotas);
-
-        jCBClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new Cliente[] {  }));
-        jCBClientes.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jCBClientesItemStateChanged(evt);
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbdelMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jCBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTdni, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
-                                    .addComponent(jTapellido)
-                                    .addComponent(jTdireccion, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTtelefono, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTnombre)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 99, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTnomaux, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTtelaux, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jbbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jbRegIstrar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTnomaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTtelaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbRegIstrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-        );
+        jbdel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbdelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbdel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 116, 42));
 
         jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 580, 510));
 
@@ -442,46 +424,38 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         cargarTabla();
     }//GEN-LAST:event_jCBClientesItemStateChanged
 
-    private void jbbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscarActionPerformed
+    private void jbmodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbmodActionPerformed
         // TODO add your handling code here:
+        Cliente clibu = cd.buscarClientexdni(Integer.parseInt(jTdni.getText()));
+
         try {
-            Cliente clibu = cd.buscarClientexdni(Integer.parseInt(jTdni.getText()));
-
-            if (clibu != null) {
-                jTapellido.setText(clibu.getApellido());
-                jTnombre.setText(clibu.getNombre());
-                jTdireccion.setText(clibu.getDireccion());
-                jTtelefono.setText(String.valueOf(clibu.getTelefono()));
-                jTnomaux.setText(clibu.getAltClie());
-                jTtelaux.setText(String.valueOf(clibu.getAltTel()));
-
-            } else {
-                jTapellido.setText("");
-                jTnombre.setText("");
-                jTdireccion.setText("");
-                jTtelefono.setText("");
-                jTnomaux.setText("");
-                jTtelaux.setText("");
-
-            }
+           clibu.setApellido(jTapellido.getText());
+           clibu.setNombre(jTnombre.getText());
+           clibu.setDireccion(jTdireccion.getText());
+           int telefono = Integer.parseInt(jTtelefono.getText());
+           clibu.setTelefono(telefono);
+           clibu.setAltClie(jTnomaux.getText());
+           int altTel = Integer.parseInt(jTtelaux.getText());
+           clibu.setAltTel(altTel);
+           cd.modificarCliente(clibu);
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Error campos vacios o erroneos");
-            jTdni.setText("");
+            JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTdni.requestFocus();
         }
-    }//GEN-LAST:event_jbbuscarActionPerformed
+        
+    }//GEN-LAST:event_jbmodActionPerformed
 
-    private void jbbuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbbuscarMouseExited
+    private void jbmodMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbmodMouseExited
         // TODO add your handling code here:
-        jbbuscar.setOpaque(false);
-    }//GEN-LAST:event_jbbuscarMouseExited
+        jbmod.setOpaque(false);
+    }//GEN-LAST:event_jbmodMouseExited
 
-    private void jbbuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbbuscarMouseEntered
+    private void jbmodMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbmodMouseEntered
         // TODO add your handling code here:
-        jbbuscar.setOpaque(true);
-        jbbuscar.setBackground(azulClaro);
-    }//GEN-LAST:event_jbbuscarMouseEntered
+        jbmod.setOpaque(true);
+        jbmod.setBackground(azulClaro);
+    }//GEN-LAST:event_jbmodMouseEntered
 
     private void jbRegIstrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegIstrarActionPerformed
         // TODO add your handling code here:
@@ -513,6 +487,71 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbRegIstrar.setOpaque(true);
         jbRegIstrar.setBackground(azulClaro);
     }//GEN-LAST:event_jbRegIstrarMouseEntered
+
+    private void jbbuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbbuscarMouseEntered
+        // TODO add your handling code here:
+        jbbuscar.setOpaque(true);
+        jbbuscar.setBackground(azulClaro);
+    }//GEN-LAST:event_jbbuscarMouseEntered
+
+    private void jbbuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbbuscarMouseExited
+        // TODO add your handling code here:
+        jbbuscar.setOpaque(false);
+    }//GEN-LAST:event_jbbuscarMouseExited
+
+    private void jbbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscarActionPerformed
+        // TODO add your handling code here:
+        try {
+            Cliente clibu = cd.buscarClientexdni(Integer.parseInt(jTdni.getText()));
+
+            if (clibu != null) {
+                jTapellido.setText(clibu.getApellido());
+                jTnombre.setText(clibu.getNombre());
+                jTdireccion.setText(clibu.getDireccion());
+                jTtelefono.setText(String.valueOf(clibu.getTelefono()));
+                jTnomaux.setText(clibu.getAltClie());
+                jTtelaux.setText(String.valueOf(clibu.getAltTel()));
+
+            } else {
+                jTapellido.setText("");
+                jTnombre.setText("");
+                jTdireccion.setText("");
+                jTtelefono.setText("");
+                jTnomaux.setText("");
+                jTtelaux.setText("");
+
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error campos vacios o erroneos");
+            jTdni.setText("");
+            jTdni.requestFocus();
+        }
+    }//GEN-LAST:event_jbbuscarActionPerformed
+
+    private void jbdelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbdelMouseEntered
+        // TODO add your handling code here:
+        jbdel.setOpaque(true);
+        jbdel.setBackground(azulClaro);
+    }//GEN-LAST:event_jbdelMouseEntered
+
+    private void jbdelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbdelMouseExited
+        // TODO add your handling code here:
+        jbdel.setOpaque(false);
+    }//GEN-LAST:event_jbdelMouseExited
+
+    private void jbdelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbdelActionPerformed
+        // TODO add your handling code here:
+        try {
+            int dni = Integer.parseInt(jTdni.getText());
+            if (jTdni.getText()!=null) {
+                cd.bajaCliente(dni);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
+            jTdni.requestFocus();
+        }
+    }//GEN-LAST:event_jbdelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -546,6 +585,8 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTtelefono;
     private javax.swing.JButton jbRegIstrar;
     private javax.swing.JButton jbbuscar;
+    private javax.swing.JButton jbdel;
+    private javax.swing.JButton jbmod;
     // End of variables declaration//GEN-END:variables
 
     private void cargarCombo(){
@@ -593,11 +634,17 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     }
     
     public void trans() {
-    jbbuscar.setOpaque(false);
+    jbmod.setOpaque(false);
         jbRegIstrar.setContentAreaFilled(false);
         jbRegIstrar.setBorderPainted(false);
         jbRegIstrar.setOpaque(false);
+        jbmod.setContentAreaFilled(false);
+        jbmod.setBorderPainted(false);
         jbbuscar.setContentAreaFilled(false);
         jbbuscar.setBorderPainted(false);
+        jbbuscar.setOpaque(false);
+        jbdel.setContentAreaFilled(false);
+        jbdel.setBorderPainted(false);
+        jbdel.setOpaque(false);
     }
 }

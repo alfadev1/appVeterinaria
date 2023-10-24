@@ -111,7 +111,7 @@ public class Cliente {
         if (idCliente == 0) {
             return "Seleccione un Cliente";
         } else {
-            return "ID: " + idCliente + " // " + apellido + ", " + nombre;
+            return "ID: " + idCliente + " // " + apellido + ", " + nombre + " // " + dni;
         }
 
     }

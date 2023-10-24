@@ -273,21 +273,24 @@ public class MascotaVista extends javax.swing.JInternalFrame {
     private void cboxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxClientesActionPerformed
         borrarFilas();
         Cliente cliente = (Cliente) cboxClientes.getSelectedItem();
-        Mascota mascota = md.buscarMascotaXCliente(cliente.getIdCliente());
-        try {
-            modelo.addRow(new Object[]{
-                mascota.getAlias(),
-                mascota.getSexo(),
-                mascota.getEspecie(),
-                mascota.getRaza(),
-                mascota.getColor(),
-                mascota.getfNac(),
-                mascota.getPesoActual(),
-                mascota.getPesoMedio()
-            });
+        List<Mascota> mascotaLista = md.buscarMascotaXCliente(cliente.getIdCliente());
 
-        } catch (NullPointerException e) {
+        for (Mascota mascota : mascotaLista) {
+            try {
+                modelo.addRow(new Object[]{
+                    mascota.getAlias(),
+                    mascota.getSexo(),
+                    mascota.getEspecie(),
+                    mascota.getRaza(),
+                    mascota.getColor(),
+                    mascota.getfNac(),
+                    mascota.getPesoActual(),
+                    mascota.getPesoMedio()
+                });
 
+            } catch (NullPointerException e) {
+
+            }
         }
 
 

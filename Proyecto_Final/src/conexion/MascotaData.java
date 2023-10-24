@@ -103,8 +103,8 @@ public class MascotaData {
         return mascota;
     }
 
-    public Mascota buscarMascotaXCliente(int id) {
-        Mascota mascota = null;
+    public List<Mascota> buscarMascotaXCliente(int id) {
+        List<Mascota> mascotaLista = new ArrayList<>();
         String sql = "SELECT  `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente FROM Mascota WHERE idCliente = ?";
         PreparedStatement ps = null;
         try {
@@ -112,8 +112,8 @@ public class MascotaData {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                mascota = new Mascota();
+            while (rs.next()) {
+                Mascota mascota = new Mascota();
                 mascota.setIdMascota(id);
                 mascota.setAlias(rs.getString("alias"));
                 mascota.setSexo(rs.getString("sexo"));
@@ -123,9 +123,8 @@ public class MascotaData {
                 mascota.setfNac(rs.getDate("f_nac").toLocalDate());
                 mascota.setPesoActual(rs.getDouble("peso"));
                 mascota.setPesoMedio(calcularPesoMedio(rs.getInt("idmascota")));
+                mascotaLista.add(mascota);
 
-            } else {
-                //JOptionPane.showMessageDialog(null, "No se encontraron mascotas de ese cliente");
             }
 
             ps.close();
@@ -134,7 +133,7 @@ public class MascotaData {
 
         }
 
-        return mascota;
+        return mascotaLista;
     }
 
     public void modificarMascota(Mascota mascota) {
@@ -225,9 +224,13 @@ public class MascotaData {
                 ps2.setInt(1, id);
                 ResultSet rs2 = ps2.executeQuery();
 
-                pesoMedio = rs2.getDouble("peso");
+                if (rs2.next()) {
+                    pesoMedio = rs2.getDouble("peso");
+
+                }
 
             } catch (SQLException e) {
+                e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Error accediendo a la tabla visita " + e.getMessage());
             }
         }

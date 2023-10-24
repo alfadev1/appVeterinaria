@@ -334,11 +334,15 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbRegMascota;
     // End of variables declaration//GEN-END:variables
 
-private void cargarCombo(){
-    for(Cliente clie: cd.listarClientes()){
-        jCBduenio.addItem(clie);
+    private void cargarCombo() {
+        jCBduenio.removeAllItems();
+        Cliente ct = new Cliente();
+        jCBduenio.addItem(ct);
+        for (Cliente clie : cd.listarClientes()) {
+            jCBduenio.addItem(clie);
+        }
     }
-}
+
     public void trans() {
         jbRegMascota.setContentAreaFilled(false);
         jbRegMascota.setBorderPainted(false);

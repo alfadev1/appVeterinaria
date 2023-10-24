@@ -54,7 +54,7 @@ public class VisitaData {
             int ejecucion2 = ps2.executeUpdate();
             
         } catch (SQLException e) {
-            //e.printStackTrace(); // Imprime el mensaje completo de la excepción 
+            e.printStackTrace(); // Imprime el mensaje completo de la excepción 
             JOptionPane.showMessageDialog(null, "Error al actualizar el peso");
         }
 

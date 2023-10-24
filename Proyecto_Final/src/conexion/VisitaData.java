@@ -52,18 +52,9 @@ public class VisitaData {
             ps2.setDouble(1, visita.getPesoActual());
             ps2.setInt(2, mascota.getIdMascota());
             int ejecucion2 = ps2.executeUpdate();
-                        if (ejecucion2 > 0) {
-                JOptionPane.showMessageDialog(null, "Se registró la visita");
-                // luego obtener la clave generada 
-                ResultSet generatedKeys = ps2.getGeneratedKeys();
-                //si está disponible para su uso posterior en la aplicación.
-                if (generatedKeys.next()) {
-                    int generatedId = generatedKeys.getInt(1);
-                }
-            }
-
+            
         } catch (SQLException e) {
-            e.printStackTrace(); // Imprime el mensaje completo de la excepción 
+            //e.printStackTrace(); // Imprime el mensaje completo de la excepción 
             JOptionPane.showMessageDialog(null, "Error al actualizar el peso");
         }
 

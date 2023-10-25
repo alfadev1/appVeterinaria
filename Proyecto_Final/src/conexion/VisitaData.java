@@ -18,6 +18,8 @@ public class VisitaData {
     public VisitaData() {
         con = Conexion.getConexion();
     }
+    
+    
 
     public void registrarVisita(Mascota mascota, Tratamiento tratamiento, Visitas visita) {
         String sql = "INSERT INTO `visita`( `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`)"
@@ -67,6 +69,31 @@ public class VisitaData {
         try {
             String sql = "SELECT * FROM visitas WHERE idMascota = ? ORDER BY fechaVisita DESC";
             PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Visitas v = new Visitas();
+                Mascota masc = new Mascota();
+                Tratamiento trat = new Tratamiento();
+                masc.setIdMascota(rs.getInt("idMascota"));
+                trat.setIdTratamiento(rs.getInt("idTratamiento"));
+                v.setFechaVisita(rs.getDate("fechaVisita").toLocalDate());
+                v.setDetalle(rs.getString("Detalle"));
+                v.setPesoActual(rs.getDouble("pesoActual"));
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al listar las visitas");
+        }
+        return listaV;
+    }
+    
+     public List<Visitas> listarVisitasXIdmascota(int id) {
+        List<Visitas> listaV = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM visitas WHERE idMascota = ? ORDER BY fechaVisita DESC";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {

@@ -18,6 +18,12 @@ public class TratamientoData {
         con = Conexion.getConexion();
     }
     
+    public void tratamientosXAliasYCliente(int idCliente, String alias) {
+        
+        
+        String sql = "SELECT * FROM tratamiento WHERE ";
+    }
+    
     public void guardarTratamiento(Tratamiento tr) {
         String sql = "INSERT INTO tratamiento (tipo, descripcion, importe, estado) VALUES (?,?,?,?)";
         try {

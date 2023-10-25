@@ -29,7 +29,6 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     public ClienteVista() {
         initComponents();
         cargarCombo();
-        //cargarTabla();
         cabecera();
         trans();//Aplicacion inclusiva
     }

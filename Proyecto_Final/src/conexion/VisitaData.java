@@ -62,26 +62,27 @@ public class VisitaData {
 
 //Debe haber un método que pueda listar todas las 
 //visitas de una mascota en especial (históricamente) 
-    public List<Visitas> listarVisitas() {
-        List<Visitas> listaV = new ArrayList<>();
+    public List<Visitas> listarVisitas(int idMascota) {
+        ArrayList<Visitas> listaV = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM visitas WHERE idMascota = ? ORDER BY fechaVisita DESC";
+            String sql = "SELECT * FROM visita WHERE idMascota = ?";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idMascota);
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
                 Visitas v = new Visitas();
-                Mascota masc = new Mascota();
+                v.setIdVisita(rs.getInt("idVisita"));
                 Tratamiento trat = new Tratamiento();
-                masc.setIdMascota(rs.getInt("idMascota"));
                 trat.setIdTratamiento(rs.getInt("idTratamiento"));
-                v.setFechaVisita(rs.getDate("fechaVisita").toLocalDate());
+                v.setFechaVisita(rs.getDate("fechaVisita") != null ? rs.getDate("fechaVisita").toLocalDate() : null);
                 v.setDetalle(rs.getString("Detalle"));
                 v.setPesoActual(rs.getDouble("pesoActual"));
+                listaV.add(v);
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al listar las visitas");
+            JOptionPane.showMessageDialog(null, "Error al listar las visitas" + e.getMessage());
         }
         return listaV;
     }

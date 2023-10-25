@@ -32,6 +32,7 @@ public class Menu extends javax.swing.JFrame {
         jbMascotas = new javax.swing.JButton();
         jbFactura = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jbMascoAlt = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         escritorio = new javax.swing.JDesktopPane();
@@ -209,15 +210,41 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel2.setOpaque(false);
 
+        jbMascoAlt.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbMascoAlt.setForeground(new java.awt.Color(255, 255, 255));
+        jbMascoAlt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-factura-64.png"))); // NOI18N
+        jbMascoAlt.setText("Mascota Alt");
+        jbMascoAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbMascoAlt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbMascoAlt.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbMascoAlt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbMascoAltMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbMascoAltMouseExited(evt);
+            }
+        });
+        jbMascoAlt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMascoAltActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbMascoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 142, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbMascoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout menuLateralLayout = new javax.swing.GroupLayout(menuLateral);
@@ -494,6 +521,23 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(fv);
     }//GEN-LAST:event_jbFacturaActionPerformed
 
+    private void jbMascoAltMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbMascoAltMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbMascoAltMouseEntered
+
+    private void jbMascoAltMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbMascoAltMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbMascoAltMouseExited
+
+    private void jbMascoAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMascoAltActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        MascotaVistaAlt mva= new MascotaVistaAlt();
+        mva.setVisible(true);
+        escritorio.add(mva);
+    }//GEN-LAST:event_jbMascoAltActionPerformed
+
     public void transparenciaButton() {
         jbClientes.setOpaque(false);
         jbClientes.setContentAreaFilled(false);
@@ -563,6 +607,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jbClientes;
     private javax.swing.JButton jbFactura;
     private javax.swing.JButton jbListaMascotas;
+    private javax.swing.JButton jbMascoAlt;
     private javax.swing.JButton jbMascotas;
     private javax.swing.JButton jbSalir;
     private javax.swing.JButton jbTratamiento;

@@ -103,18 +103,18 @@ public class MascotaData {
         return mascota;
     }
 
-    public List<Mascota> buscarMascotaXCliente(int id) {
+    public List<Mascota> buscarMascotaXCliente(int idCliente) {
         List<Mascota> mascotaLista = new ArrayList<>();
         String sql = "SELECT  `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente FROM Mascota WHERE idCliente = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, idCliente);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Mascota mascota = new Mascota();
-                mascota.setIdMascota(id);
+                mascota.setIdMascota(rs.getInt("idmascota"));
                 mascota.setAlias(rs.getString("alias"));
                 mascota.setSexo(rs.getString("sexo"));
                 mascota.setEspecie(rs.getString("especie"));

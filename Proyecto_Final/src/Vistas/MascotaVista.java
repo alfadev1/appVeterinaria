@@ -318,11 +318,11 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         for (Mascota mascota : mascotaLista) {
             try {
                 modelo.addRow(new Object[]{
+                    mascota.getIdMascota(),
                     mascota.getAlias(),
                     mascota.getSexo(),
                     mascota.getEspecie(),
                     mascota.getRaza(),
-                    mascota.getColor(),
                     mascota.getfNac(),
                     mascota.getPesoActual(),
                     mascota.getPesoMedio()
@@ -358,7 +358,7 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         
         
     
-       // System.out.println(listarVisitasXIdmascota);       
+        System.out.println(mascotaSelected[0]);       
         System.out.println(idClienteSelected);
         
     }//GEN-LAST:event_jtMascotasMouseClicked
@@ -393,11 +393,11 @@ public class MascotaVista extends javax.swing.JInternalFrame {
     }
 
     private void armarCabecera() {
+        modelo.addColumn("Id");
         modelo.addColumn("Alias");
         modelo.addColumn("Sexo");
         modelo.addColumn("Especie");
         modelo.addColumn("Raza");
-        modelo.addColumn("Pelaje");
         modelo.addColumn("Fecha Nac");
         modelo.addColumn("Peso Actual");
         modelo.addColumn("Peso Medio");

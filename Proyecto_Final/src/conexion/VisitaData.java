@@ -18,8 +18,6 @@ public class VisitaData {
     public VisitaData() {
         con = Conexion.getConexion();
     }
-    
-    
 
     public void registrarVisita(Mascota mascota, Tratamiento tratamiento, Visitas visita) {
         String sql = "INSERT INTO `visita`( `idMascota`, `idTratamiento`, `fechaVisita`, `detalle`, `pesoActual`)"
@@ -54,7 +52,7 @@ public class VisitaData {
             ps2.setDouble(1, visita.getPesoActual());
             ps2.setInt(2, mascota.getIdMascota());
             int ejecucion2 = ps2.executeUpdate();
-            
+
         } catch (SQLException e) {
             e.printStackTrace(); // Imprime el mensaje completo de la excepción 
             JOptionPane.showMessageDialog(null, "Error al actualizar el peso");
@@ -87,30 +85,59 @@ public class VisitaData {
         }
         return listaV;
     }
-    
-     public List<Visitas> listarVisitasXIdmascota(int id) {
-        List<Visitas> listaV = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM visitas WHERE idMascota = ? ORDER BY fechaVisita DESC";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1,id);
-            ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                Visitas v = new Visitas();
-                Mascota masc = new Mascota();
-                Tratamiento trat = new Tratamiento();
-                masc.setIdMascota(rs.getInt("idMascota"));
-                trat.setIdTratamiento(rs.getInt("idTratamiento"));
-                v.setFechaVisita(rs.getDate("fechaVisita").toLocalDate());
-                v.setDetalle(rs.getString("Detalle"));
-                v.setPesoActual(rs.getDouble("pesoActual"));
+//    public List<String[]> listarVisitasXIdmascota(int id) {
+//        List<String[]> listaV = new ArrayList<>();
+//        try {
+//            String sql = "SELECT visita.fechaVisita AS fechaVisita, tratamiento.tipo AS tipoTratamiento, tratamiento.importe AS importeTratamiento\n"
+//                    + "FROM visita\n"
+//                    + "JOIN tratamiento ON visita.idTratamiento = tratamiento.idtratamiento\n"
+//                    + "WHERE visita.idMascota = ?";
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setInt(1, id);
+//            ResultSet rs = ps.executeQuery();
+//
+//            if (rs.next()) {
+////                Visitas v = new Visitas();
+////                Tratamiento trat = new Tratamiento();//
+////                trat.setIdTratamiento(rs.getInt("idTratamiento"));
+////                v.setFechaVisita(rs.getDate("fechaVisita").toLocalDate());
+////                v.setDetalle(rs.getString("Detalle"));
+////                v.setPesoActual(rs.getDouble("pesoActual"));
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error al listar las visitas");
+//        }
+//        return listaV;
+//    }
+    public List<String[]> listarVisitasXIdmascota(int id) {
+    List<String[]> listaV = new ArrayList<>();
+    try {
+        String sql = "SELECT visita.fechaVisita AS fechaVisita, tratamiento.tipo AS tipoTratamiento, tratamiento.importe AS importeTratamiento\n"
+                + "FROM visita\n"
+                + "JOIN tratamiento ON visita.idTratamiento = tratamiento.idtratamiento\n"
+                + "WHERE visita.idMascota = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
 
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al listar las visitas");
+        while (rs.next()) {
+            // Crea un vector de strings para almacenar los datos de la fila actual
+            String[] visitaData = new String[3];
+
+            // Rellena el vector con los datos de la fila
+            visitaData[0] = rs.getString("fechaVisita");
+            visitaData[1] = rs.getString("tipoTratamiento");
+            visitaData[2] = rs.getString("importeTratamiento");
+
+            // Agrega el vector de strings a la lista
+            listaV.add(visitaData);
         }
-        return listaV;
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error al listar las visitas");
     }
+    return listaV;
+}
+
 
 }

@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -61,6 +63,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jBActualizar = new javax.swing.JButton();
         jBGuardar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,7 +168,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
@@ -234,7 +237,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
                 jBActualizarActionPerformed(evt);
             }
         });
-        jPanel3.add(jBActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 150, 50));
+        jPanel3.add(jBActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 150, 50));
 
         jBGuardar.setBackground(new java.awt.Color(51, 51, 255));
         jBGuardar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -257,7 +260,15 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
                 jBGuardarActionPerformed(evt);
             }
         });
-        jPanel3.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, 150, 50));
+        jPanel3.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 150, 50));
+
+        jButton2.setText("Ver tratamientos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 900, 600));
 
@@ -321,10 +332,40 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBGuardarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+//        tratamienTodosVista ttv = new tratamienTodosVista();
+//        
+//        TratamientoVista tv = new TratamientoVista();
+//        tv.toBack();
+//        ttv.toFront();
+//        ttv.setVisible(true);
+     // Crear una instancia de tratamienTodosVista
+    tratamienTodosVista ttv = new tratamienTodosVista();
+    
+    // Obtener el JDesktopPane del InternalFrame actual (this.getParent())
+    JDesktopPane desktopPane = (JDesktopPane) this.getParent();
+    
+    // Obtener una referencia al TratamientoVista InternalFrame
+    TratamientoVista tv = obtenerTratamientoVistaInternalFrame(desktopPane);
+    
+    // Configurar la posición del tratamienTodosVista InternalFrame
+    ttv.setLocation(tv.getX() + 50, tv.getY() + 50); // Ajusta la posición como desees
+    
+    // Añadir tratamienTodosVista al JDesktopPane y hacerlo visible
+    desktopPane.add(ttv);
+    ttv.setVisible(true);
+    
+    // Hacer que tratamienTodosVista esté en frente del TratamientoVista
+    
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBActualizar;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCBEstado;
     private javax.swing.JDesktopPane jDesktopPane3;
     private javax.swing.JLabel jLabel1;
@@ -352,5 +393,14 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jBActualizar.setBorderPainted(false);
         jBActualizar.setOpaque(false);
     }
+    private TratamientoVista obtenerTratamientoVistaInternalFrame(JDesktopPane desktopPane) {
+    JInternalFrame[] frames = desktopPane.getAllFrames();
+    for (JInternalFrame frame : frames) {
+        if (frame instanceof TratamientoVista) {
+            return (TratamientoVista) frame;
+        }
+    }
+    return null; // Devuelve null si no se encuentra TratamientoVista
+}
 
 }

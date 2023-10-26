@@ -1,19 +1,20 @@
 
 package Vistas;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author yo
- */
 public class FacturaVista extends javax.swing.JInternalFrame {
 private DefaultTableModel modelo= new DefaultTableModel();
+private DefaultTableModel modelo2= new DefaultTableModel();
 
     
     public FacturaVista() {
         initComponents();
-        cabeceraTabla();
+        cabeceraTablaVisita();
+        cabeceraTablamascota();
+        cargaTipoPago();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -27,7 +28,7 @@ private DefaultTableModel modelo= new DefaultTableModel();
         jLabel8 = new javax.swing.JLabel();
         jtNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTabla = new javax.swing.JTable();
+        jTvisitas = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -37,7 +38,7 @@ private DefaultTableModel modelo= new DefaultTableModel();
         cboxPagos = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jrPago = new javax.swing.JRadioButton();
         jLabel16 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -46,6 +47,7 @@ private DefaultTableModel modelo= new DefaultTableModel();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jbGuardar = new javax.swing.JButton();
 
         setBorder(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,23 +62,31 @@ private DefaultTableModel modelo= new DefaultTableModel();
         jLabel1.setText("VISITAS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 50, 20));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Roboto Black", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ABMS ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 60, 44));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 34, 120, 50));
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Roboto", 2, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Clínica Veterinaria ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, 44));
+        jLabel4.setToolTipText("");
+        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 220, 44));
 
         jLabel8.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CLIENTE: ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 20));
+
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtNombreKeyReleased(evt);
+            }
+        });
         jPanel1.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 340, -1));
 
-        jTabla.setModel(new javax.swing.table.DefaultTableModel(
+        jTvisitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -87,7 +97,7 @@ private DefaultTableModel modelo= new DefaultTableModel();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTabla);
+        jScrollPane1.setViewportView(jTvisitas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 390, 130));
 
@@ -126,10 +136,20 @@ private DefaultTableModel modelo= new DefaultTableModel();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtMascota.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtMascotaMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtMascota);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 340, 190));
 
+        cboxPagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxPagosActionPerformed(evt);
+            }
+        });
         jPanel1.add(cboxPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 270, 30));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -141,7 +161,7 @@ private DefaultTableModel modelo= new DefaultTableModel();
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("PAGO/NO PAGO");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, -1, 20));
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
+        jPanel1.add(jrPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,10 +204,46 @@ private DefaultTableModel modelo= new DefaultTableModel();
         jLabel2.setText("abms_vet@gmail.com");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(718, 530, 170, -1));
 
+        jbGuardar.setText("GUARDAR");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-14, 0, 960, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jtNombreKeyReleased
+
+    private void jtMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMascotaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jtMascotaMouseClicked
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        // TODO add your handling code here
+        boolean PAGO = jrPago.isSelected();
+        //se verifica que el usuario haya seleccionado un medio de pago que no sea 
+        //el que está vacío
+        String Tpago;
+        if (cboxPagos.getSelectedIndex() != 0) {
+           Tpago = String.valueOf(cboxPagos.getSelectedIndex());
+        } else {
+            JOptionPane.showMessageDialog(null, "FALTA SELECCIONAR UN MEDIO DE PAGO ");
+        }
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void cboxPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxPagosActionPerformed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_cboxPagosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -211,28 +267,34 @@ private DefaultTableModel modelo= new DefaultTableModel();
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTabla;
+    private javax.swing.JTable jTvisitas;
+    private javax.swing.JButton jbGuardar;
+    private javax.swing.JRadioButton jrPago;
     private javax.swing.JTable jtMascota;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
 
-    private void cabeceraTabla (){
+    private void cabeceraTablaVisita (){
         //nombres de las columnas
         modelo.addColumn("Descripción");
         modelo.addColumn("Precio");
-        modelo.addColumn("Total");
         //Se pasa el modelo a la tabla
-        jTabla.setModel(modelo);
+        jTvisitas.setModel(modelo);
     }
+    private void cabeceraTablamascota() {
+        modelo2.addColumn("NOMBRE");
+        jtMascota.setModel(modelo2);
 
-
-
-
-
-
-
-
+    }
+    private void cargaTipoPago (){
+        //cboxPagos.removeAllItems();
+        cboxPagos.addItem("");
+        cboxPagos.addItem("DEBITO");
+        cboxPagos.addItem("CREDITO");
+    }
+    private void limpiar(){
+        
+    }
 }

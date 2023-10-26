@@ -210,7 +210,7 @@ private DefaultTableModel modelo2= new DefaultTableModel();
                 jbGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, -1));
+        jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(714, 360, 190, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-14, 0, 960, 590));
 
@@ -224,7 +224,7 @@ private DefaultTableModel modelo2= new DefaultTableModel();
 
     private void jtMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMascotaMouseClicked
         // TODO add your handling code here:
-        
+        int fila= jtMascota.getSelectedRow();
     }//GEN-LAST:event_jtMascotaMouseClicked
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -284,6 +284,7 @@ private DefaultTableModel modelo2= new DefaultTableModel();
         jTvisitas.setModel(modelo);
     }
     private void cabeceraTablamascota() {
+        modelo2.addColumn("ID");
         modelo2.addColumn("NOMBRE");
         jtMascota.setModel(modelo2);
 

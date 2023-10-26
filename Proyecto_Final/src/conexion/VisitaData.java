@@ -87,30 +87,7 @@ public class VisitaData {
         return listaV;
     }
 
-//    public List<String[]> listarVisitasXIdmascota(int id) {
-//        List<String[]> listaV = new ArrayList<>();
-//        try {
-//            String sql = "SELECT visita.fechaVisita AS fechaVisita, tratamiento.tipo AS tipoTratamiento, tratamiento.importe AS importeTratamiento\n"
-//                    + "FROM visita\n"
-//                    + "JOIN tratamiento ON visita.idTratamiento = tratamiento.idtratamiento\n"
-//                    + "WHERE visita.idMascota = ?";
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setInt(1, id);
-//            ResultSet rs = ps.executeQuery();
-//
-//            if (rs.next()) {
-////                Visitas v = new Visitas();
-////                Tratamiento trat = new Tratamiento();//
-////                trat.setIdTratamiento(rs.getInt("idTratamiento"));
-////                v.setFechaVisita(rs.getDate("fechaVisita").toLocalDate());
-////                v.setDetalle(rs.getString("Detalle"));
-////                v.setPesoActual(rs.getDouble("pesoActual"));
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error al listar las visitas");
-//        }
-//        return listaV;
-//    }
+//metodo que trabaja con el jtable de MascotaVista
     public List<String[]> listarVisitasXIdmascota(int id) {
     List<String[]> listaV = new ArrayList<>();
     try {

@@ -28,6 +28,7 @@ public class MascotaVista extends javax.swing.JInternalFrame {
 
     ClienteData cd = new ClienteData();
     MascotaData md = new MascotaData();
+    VisitaData vd = new VisitaData();
 
     public MascotaVista() {
         initComponents();
@@ -343,16 +344,17 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         int idClienteSelected = clienteSelected.getIdCliente();
         int columnasIndex = jtMascotas.getColumnCount();
         String[] mascotaSelected = new String[columnasIndex];
-        if (indexFila != -1) {
-            
-            
+        if (indexFila != -1) {           
             for(i=0; i < columnasIndex; i++) {
-                mascotaSelected[i]= jtMascotas.getValueAt(indexFila,i).toString();
-                
+                mascotaSelected[i]= jtMascotas.getValueAt(indexFila,i).toString();                
             }
         }
+        List<String[]> listaO = vd.listarVisitasXIdmascota(Integer.parseInt(mascotaSelected[0]));
+        for (String[] strings : listaO) {
+            modelov2.addRow(new Object[] {strings[0],strings[1],strings[2]});
+        }
         
-        
+//        modelov2.addRow(vd.listarVisitasXIdmascota(Integer.parseInt(mascotaSelected[0])));
         
         
         

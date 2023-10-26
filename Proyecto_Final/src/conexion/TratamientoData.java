@@ -18,10 +18,9 @@ public class TratamientoData {
         con = Conexion.getConexion();
     }
     
-    public void tratamientosXAliasYCliente(int idCliente, String alias) {
+    public void tratamientosXMascota(int idMascota) {       
         
-        
-        String sql = "SELECT * FROM tratamiento WHERE ";
+        String sql = "SELECT * FROM tratamiento WHERE idMascota = ?";
     }
     
     public void guardarTratamiento(Tratamiento tr) {

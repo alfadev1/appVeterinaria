@@ -48,6 +48,26 @@ public class ClienteData {
     }
     
     public void bajaCliente(int dni) {
+        
+            String sql = "UPDATE cliente SET estado = 0 WHERE dni = ? AND estado = 1";
+        try {
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            int del = ps.executeUpdate();
+            if (del == 1) {
+                JOptionPane.showMessageDialog(null, "Se ha dado de baja al cliente");
+            } else if (del == 0) {
+                JOptionPane.showMessageDialog(null, "No se encuentra un cliente activo con ese DNI");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla CLIENTE" + ex.getMessage());
+        }
+
+    }
+    
+    public void bajaClientexdni(int dni) {
         String sql = "DELETE FROM `cliente` WHERE dni = ? ";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -66,8 +86,10 @@ public class ClienteData {
     }
     
     public void modificarCliente(Cliente cliente){
-        String sql = "UPDATE cliente SET apellido = ?, nombre = ?, telefono = ?, direccion = ?, nomAux = ?, telAux = ? WHERE idCliente = ?";
+        
         try {
+            Cliente c = new Cliente();
+            String sql = "UPDATE cliente SET apellido = ?, nombre = ?, telefono = ?, direccion = ?, nomAux = ?, telAux = ? WHERE dni = ? AND estado = 1";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, cliente.getApellido());
             ps.setString(2, cliente.getNombre());
@@ -75,7 +97,8 @@ public class ClienteData {
             ps.setString(4, cliente.getDireccion());
             ps.setString(5, cliente.getAltClie());
             ps.setInt(6, cliente.getAltTel());
-            ps.setInt(7, cliente.getIdCliente());
+            ps.setInt(7, cliente.getDni());
+            ps.setBoolean(8, cliente.isEstado());
             int guardar = ps.executeUpdate();
             if (guardar == 1) {
                 JOptionPane.showMessageDialog(null, "Se modificó correctamente los datos del cliente");
@@ -86,13 +109,14 @@ public class ClienteData {
         }
     }
     
-    public Cliente buscarCliente(int id) {
+    public Cliente buscarCliente(int id, boolean est) {
     Cliente cliente = null;
-        String sql = "SELECT `dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux` FROM cliente WHERE idCliente = ?";
+        String sql = "SELECT `dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux` FROM cliente WHERE idCliente = ? AND estado = 1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, id);
+            ps.setBoolean(2, est);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -104,8 +128,7 @@ public class ClienteData {
                 cliente.setDireccion(rs.getString("direccion"));
                 cliente.setAltClie(rs.getString("nomAux"));
                 cliente.setAltTel(rs.getByte("telAux"));
-                
-
+                cliente.setEstado(rs.getBoolean("estado"));
             } else {
                 JOptionPane.showMessageDialog(null, "El cliente no existe");
             }

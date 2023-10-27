@@ -23,6 +23,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     Color azul = new Color(0, 107, 247);
     Color azulClaro = new Color(0, 173, 255);
     ClienteData cd = new ClienteData();
+    private Cliente cliente = null;
     MascotaData md = new MascotaData();
 
     
@@ -79,13 +80,14 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jTtelefono = new javax.swing.JTextField();
         jTnomaux = new javax.swing.JTextField();
         jTtelaux = new javax.swing.JTextField();
-        jbRegIstrar = new javax.swing.JButton();
-        jbmod = new javax.swing.JButton();
+        jbMod = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTMascotas = new javax.swing.JTable();
         jCBClientes = new javax.swing.JComboBox<>();
         jbbuscar = new javax.swing.JButton();
+        jbRegIstrar = new javax.swing.JButton();
         jbdel = new javax.swing.JButton();
+        jblimpiar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -281,66 +283,43 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Persona Alternativa:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 218, 148, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 148, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Telefono Alternativo:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 271, 153, -1));
-        jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 8, 469, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 153, -1));
+        jPanel1.add(jTdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 8, 300, -1));
         jPanel1.add(jTapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 50, 469, -1));
         jPanel1.add(jTnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 92, 469, -1));
         jPanel1.add(jTdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 134, 469, -1));
         jPanel1.add(jTtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 176, 469, -1));
-        jPanel1.add(jTnomaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 241, 465, -1));
-        jPanel1.add(jTtelaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 294, 462, -1));
+        jPanel1.add(jTnomaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 465, -1));
+        jPanel1.add(jTtelaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 462, -1));
 
-        jbRegIstrar.setBackground(new java.awt.Color(51, 51, 255));
-        jbRegIstrar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jbRegIstrar.setForeground(new java.awt.Color(255, 255, 255));
-        jbRegIstrar.setText(" REGISTRAR");
-        jbRegIstrar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        jbRegIstrar.setBorderPainted(false);
-        jbRegIstrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbRegIstrar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jbRegIstrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbMod.setBackground(new java.awt.Color(51, 51, 255));
+        jbMod.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbMod.setForeground(new java.awt.Color(255, 255, 255));
+        jbMod.setText("       MODIFICAR");
+        jbMod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbMod.setBorderPainted(false);
+        jbMod.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbMod.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbMod.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbRegIstrarMouseEntered(evt);
+                jbModMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jbRegIstrarMouseExited(evt);
+                jbModMouseExited(evt);
             }
         });
-        jbRegIstrar.addActionListener(new java.awt.event.ActionListener() {
+        jbMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRegIstrarActionPerformed(evt);
+                jbModActionPerformed(evt);
             }
         });
-        jPanel1.add(jbRegIstrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 126, 42));
-
-        jbmod.setBackground(new java.awt.Color(51, 51, 255));
-        jbmod.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jbmod.setForeground(new java.awt.Color(255, 255, 255));
-        jbmod.setText("MODIFICAR");
-        jbmod.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        jbmod.setBorderPainted(false);
-        jbmod.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbmod.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jbmod.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbmodMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jbmodMouseExited(evt);
-            }
-        });
-        jbmod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbmodActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbmod, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 116, 42));
+        jPanel1.add(jbMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 190, 42));
 
         jTMascotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -355,7 +334,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTMascotas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 416, 564, 79));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 564, 79));
 
         jCBClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new Cliente[] {  }));
         jCBClientes.addItemListener(new java.awt.event.ItemListener() {
@@ -363,12 +342,18 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 jCBClientesItemStateChanged(evt);
             }
         });
-        jPanel1.add(jCBClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 384, 263, -1));
+        jCBClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBClientesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCBClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 263, -1));
 
         jbbuscar.setBackground(new java.awt.Color(51, 51, 255));
         jbbuscar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbbuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jbbuscar.setText("  BUSCAR");
+        jbbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/favicon-16x16.png"))); // NOI18N
+        jbbuscar.setText("   BUSCAR");
         jbbuscar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbbuscar.setBorderPainted(false);
         jbbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -386,16 +371,35 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 jbbuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 116, 42));
+        jPanel1.add(jbbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 150, 42));
 
-        jbdel.setBackground(new java.awt.Color(51, 51, 255));
+        jbRegIstrar.setBackground(new java.awt.Color(51, 51, 255));
+        jbRegIstrar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbRegIstrar.setForeground(new java.awt.Color(255, 255, 255));
+        jbRegIstrar.setText("       REGISTRAR");
+        jbRegIstrar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbRegIstrar.setBorderPainted(false);
+        jbRegIstrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jbRegIstrar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbRegIstrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbRegIstrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbRegIstrarMouseExited(evt);
+            }
+        });
+        jbRegIstrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRegIstrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbRegIstrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 190, 42));
+
+        jbdel.setBackground(new java.awt.Color(0, 0, 204));
         jbdel.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbdel.setForeground(new java.awt.Color(255, 255, 255));
-        jbdel.setText("   BORRAR");
-        jbdel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        jbdel.setBorderPainted(false);
-        jbdel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jbdel.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbdel.setText("ELIMINAR");
         jbdel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jbdelMouseEntered(evt);
@@ -409,7 +413,18 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 jbdelActionPerformed(evt);
             }
         });
-        jPanel1.add(jbdel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 116, 42));
+        jPanel1.add(jbdel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 170, 40));
+
+        jblimpiar.setBackground(new java.awt.Color(0, 0, 204));
+        jblimpiar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jblimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        jblimpiar.setText("LIMPIAR");
+        jblimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jblimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 580, 510));
 
@@ -423,40 +438,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         cargarTabla();
     }//GEN-LAST:event_jCBClientesItemStateChanged
 
-    private void jbmodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbmodActionPerformed
-        // TODO add your handling code here:
-        Cliente clibu = cd.buscarClientexdni(Integer.parseInt(jTdni.getText()));
-
-        try {
-           clibu.setApellido(jTapellido.getText());
-           clibu.setNombre(jTnombre.getText());
-           clibu.setDireccion(jTdireccion.getText());
-           int telefono = Integer.parseInt(jTtelefono.getText());
-           clibu.setTelefono(telefono);
-           clibu.setAltClie(jTnomaux.getText());
-           int altTel = Integer.parseInt(jTtelaux.getText());
-           clibu.setAltTel(altTel);
-           cd.modificarCliente(clibu);
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
-            jTdni.requestFocus();
-        }
-        
-    }//GEN-LAST:event_jbmodActionPerformed
-
-    private void jbmodMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbmodMouseExited
-        // TODO add your handling code here:
-        jbmod.setOpaque(false);
-    }//GEN-LAST:event_jbmodMouseExited
-
-    private void jbmodMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbmodMouseEntered
-        // TODO add your handling code here:
-        jbmod.setOpaque(true);
-        jbmod.setBackground(azulClaro);
-    }//GEN-LAST:event_jbmodMouseEntered
-
-    private void jbRegIstrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegIstrarActionPerformed
+    private void jbModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModActionPerformed
         // TODO add your handling code here:
         try {
             int dni = Integer.parseInt(jTdni.getText());
@@ -466,26 +448,28 @@ public class ClienteVista extends javax.swing.JInternalFrame {
             int tel = Integer.parseInt(jTtelefono.getText());
             String nomAux = jTnomaux.getText();
             int telAux = Integer.parseInt(jTtelaux.getText());
+            boolean est = true;
 
-            Cliente c = new Cliente(dni, ape, nom, dire, tel, nomAux, telAux);
-            cd.altaCliente(c);
-            cargarCombo();
+            Cliente c = new Cliente(dni, ape, nom, dire, tel, nomAux, telAux, est);
+            cd.modificarCliente(c);
+            
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTdni.requestFocus();
         }
-    }//GEN-LAST:event_jbRegIstrarActionPerformed
+        
+    }//GEN-LAST:event_jbModActionPerformed
 
-    private void jbRegIstrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegIstrarMouseExited
+    private void jbModMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbModMouseExited
         // TODO add your handling code here:
-        jbRegIstrar.setOpaque(false);
-    }//GEN-LAST:event_jbRegIstrarMouseExited
+        jbMod.setOpaque(false);
+    }//GEN-LAST:event_jbModMouseExited
 
-    private void jbRegIstrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegIstrarMouseEntered
+    private void jbModMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbModMouseEntered
         // TODO add your handling code here:
-        jbRegIstrar.setOpaque(true);
-        jbRegIstrar.setBackground(azulClaro);
-    }//GEN-LAST:event_jbRegIstrarMouseEntered
+        jbMod.setOpaque(true);
+        jbMod.setBackground(azulClaro);
+    }//GEN-LAST:event_jbModMouseEntered
 
     private void jbbuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbbuscarMouseEntered
         // TODO add your handling code here:
@@ -501,32 +485,80 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     private void jbbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbuscarActionPerformed
         // TODO add your handling code here:
         try {
-            Cliente clibu = cd.buscarClientexdni(Integer.parseInt(jTdni.getText()));
 
-            if (clibu != null) {
-                jTapellido.setText(clibu.getApellido());
-                jTnombre.setText(clibu.getNombre());
-                jTdireccion.setText(clibu.getDireccion());
-                jTtelefono.setText(String.valueOf(clibu.getTelefono()));
-                jTnomaux.setText(clibu.getAltClie());
-                jTtelaux.setText(String.valueOf(clibu.getAltTel()));
+            int dni = Integer.parseInt(jTdni.getText());
+            cliente = cd.buscarClientexdni(dni);
 
-            } else {
-                jTapellido.setText("");
-                jTnombre.setText("");
-                jTdireccion.setText("");
-                jTtelefono.setText("");
-                jTnomaux.setText("");
-                jTtelaux.setText("");
+            if (cliente != null) {
+                int op = JOptionPane.showConfirmDialog(this, "Cliente encontrado! Cargar datos?");
+                if (op == 0) {
+                    jTapellido.setText(cliente.getApellido());
+                    jTnombre.setText(cliente.getNombre());
+                    jTdireccion.setText(cliente.getDireccion());
+                    jTtelefono.setText(String.valueOf(cliente.getTelefono()));
+                    jTnomaux.setText(cliente.getAltClie());
+                    jTtelaux.setText(String.valueOf(cliente.getAltTel()));
 
+                } else {
+                    jTdni.setText("");
+                    jTdni.requestFocus();
+                    jTapellido.setText("");
+                    jTnombre.setText("");
+                    jTdireccion.setText("");
+                    jTtelefono.setText("");
+                    jTnomaux.setText("");
+                    jTtelaux.setText("");
+                }
             }
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Error campos vacios o erroneos");
             jTdni.setText("");
             jTdni.requestFocus();
+
         }
     }//GEN-LAST:event_jbbuscarActionPerformed
+
+    private void jCBClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBClientesActionPerformed
+
+    private void jbRegIstrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegIstrarMouseEntered
+        // TODO add your handling code here:
+        jbRegIstrar.setOpaque(true);
+        jbRegIstrar.setBackground(azulClaro);
+    }//GEN-LAST:event_jbRegIstrarMouseEntered
+
+    private void jbRegIstrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbRegIstrarMouseExited
+        // TODO add your handling code here:
+        jbRegIstrar.setOpaque(false);
+    }//GEN-LAST:event_jbRegIstrarMouseExited
+
+    private void jbRegIstrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegIstrarActionPerformed
+        // TODO add your handling code here:
+        try {
+            int dni = Integer.parseInt(jTdni.getText());
+            String ape = jTapellido.getText();
+            String nom = jTnombre.getText();
+            String dire = jTdireccion.getText();
+            int tel = Integer.parseInt(jTtelefono.getText());
+            String nomAux = jTnomaux.getText();
+            int telAux = Integer.parseInt(jTtelaux.getText());
+            boolean est = true;
+
+            Cliente c = new Cliente(dni, ape, nom, dire, tel, nomAux, telAux, est);
+            cd.altaCliente(c);
+            cargarCombo();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
+            jTdni.requestFocus();
+        }
+    }//GEN-LAST:event_jbRegIstrarActionPerformed
+
+    private void jbdelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbdelMouseExited
+        // TODO add your handling code here:
+        jbdel.setOpaque(false);
+    }//GEN-LAST:event_jbdelMouseExited
 
     private void jbdelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbdelMouseEntered
         // TODO add your handling code here:
@@ -534,23 +566,29 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         jbdel.setBackground(azulClaro);
     }//GEN-LAST:event_jbdelMouseEntered
 
-    private void jbdelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbdelMouseExited
-        // TODO add your handling code here:
-        jbdel.setOpaque(false);
-    }//GEN-LAST:event_jbdelMouseExited
-
     private void jbdelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbdelActionPerformed
         // TODO add your handling code here:
         try {
             int dni = Integer.parseInt(jTdni.getText());
-            if (jTdni.getText()!=null) {
+            if (jTdni.getText() != null) {
                 cd.bajaCliente(dni);
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
-            jTdni.requestFocus();
+            JOptionPane.showMessageDialog(null, "Error " + "Los valores no corresponden");
         }
     }//GEN-LAST:event_jbdelActionPerformed
+
+    private void jblimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimpiarActionPerformed
+        // TODO add your handling code here:
+        jTdni.setText("");
+        jTdni.requestFocus();
+        jTapellido.setText("");
+        jTnombre.setText("");
+        jTdireccion.setText("");
+        jTtelefono.setText("");
+        jTnomaux.setText("");
+        jTtelaux.setText("");
+    }//GEN-LAST:event_jblimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -582,10 +620,11 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTnombre;
     private javax.swing.JTextField jTtelaux;
     private javax.swing.JTextField jTtelefono;
+    private javax.swing.JButton jbMod;
     private javax.swing.JButton jbRegIstrar;
     private javax.swing.JButton jbbuscar;
     private javax.swing.JButton jbdel;
-    private javax.swing.JButton jbmod;
+    private javax.swing.JButton jblimpiar;
     // End of variables declaration//GEN-END:variables
 
     private void cargarCombo(){
@@ -633,12 +672,13 @@ public class ClienteVista extends javax.swing.JInternalFrame {
     }
     
     public void trans() {
-    jbmod.setOpaque(false);
+//    
         jbRegIstrar.setContentAreaFilled(false);
         jbRegIstrar.setBorderPainted(false);
         jbRegIstrar.setOpaque(false);
-        jbmod.setContentAreaFilled(false);
-        jbmod.setBorderPainted(false);
+        jbMod.setOpaque(false);
+        jbMod.setContentAreaFilled(false);
+        jbMod.setBorderPainted(false);
         jbbuscar.setContentAreaFilled(false);
         jbbuscar.setBorderPainted(false);
         jbbuscar.setOpaque(false);

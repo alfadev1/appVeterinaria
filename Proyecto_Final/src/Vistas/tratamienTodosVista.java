@@ -39,7 +39,6 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jCBTratamientosAct = new javax.swing.JCheckBox();
         jCBTratamientosDesac = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -48,25 +47,27 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         jBactivarDesactivar = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Tratamientos");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
-
+        jCBTratamientosAct.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jCBTratamientosAct.setForeground(new java.awt.Color(255, 255, 255));
         jCBTratamientosAct.setText("Ver tratamientos activos");
         jCBTratamientosAct.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCBTratamientosActItemStateChanged(evt);
             }
         });
-        jPanel1.add(jCBTratamientosAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
+        jPanel1.add(jCBTratamientosAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
+        jCBTratamientosDesac.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jCBTratamientosDesac.setForeground(new java.awt.Color(255, 255, 255));
         jCBTratamientosDesac.setText("Ver tratamientos desactivados");
-        jPanel1.add(jCBTratamientosDesac, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+        jPanel1.add(jCBTratamientosDesac, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, -1, -1));
 
         jTTratamientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,13 +82,13 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTTratamientos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, 260));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 130, 650, 240));
 
         jBModificar.setText("Modificar");
-        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 140, 30));
 
         jBactivarDesactivar.setText("Desactivar/Activar");
-        jPanel1.add(jBactivarDesactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
+        jPanel1.add(jBactivarDesactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 140, 30));
 
         jBEliminar.setText("Eliminar");
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +96,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
                 jBEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
+        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 140, 30));
 
         jBCerrar.setText("Cerrar");
         jBCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +104,14 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
                 jBCerrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, -1, -1));
+        jPanel1.add(jBCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 473, 80, 20));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -1, 600, 520));
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("TRATAMIENTOS");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 210, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -1, 750, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -294,6 +294,10 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
             String raza = jTraza.getText();
             String colo = jTcolor.getText();
             LocalDate nac = jDnac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//            LocalDate nac = null;
+//            if (jDnac.getDate() != null) {
+//                nac = jDnac.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//            }
             double peso = Double.parseDouble(jTpeso.getText());
             Cliente id = (Cliente) jCBduenio.getSelectedItem();
             Mascota masc = new Mascota(nom, sex, especie, raza, colo, nac, peso, peso, id);
@@ -301,8 +305,10 @@ public class NuevaMascotaVista extends javax.swing.JInternalFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTalias.requestFocus();
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado una fecha de nacimiento");
         }
-        
+
     }//GEN-LAST:event_jbRegMascotaActionPerformed
 
 

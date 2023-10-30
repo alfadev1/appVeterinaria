@@ -263,16 +263,26 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 150, 50));
 
-        jButton2.setText("Ver tratamientos");
+        jButton2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("VER TRATAMIENTOS");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setOpaque(false);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 480, -1, -1));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 190, 50));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 900, 600));
 
@@ -372,6 +382,18 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        // TODO add your handling code here:
+        jButton2.setOpaque(true);
+        jButton2.setBackground(azulClaro);
+        
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        // TODO add your handling code here:
+        jButton2.setOpaque(false);
+    }//GEN-LAST:event_jButton2MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBActualizar;
@@ -403,6 +425,9 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jBActualizar.setContentAreaFilled(false);
         jBActualizar.setBorderPainted(false);
         jBActualizar.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
+        jButton2.setOpaque(false);
     }
     private TratamientoVista obtenerTratamientoVistaInternalFrame(JDesktopPane desktopPane) {
     JInternalFrame[] frames = desktopPane.getAllFrames();

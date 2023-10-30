@@ -43,7 +43,6 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         jTTratamientos = new javax.swing.JTable();
         jBModificar = new javax.swing.JButton();
         jBactivarDesactivar = new javax.swing.JButton();
-        jBEliminar = new javax.swing.JButton();
         jBCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jRBTratActivos = new javax.swing.JRadioButton();
@@ -65,7 +64,16 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTTratamientos.setToolTipText("");
         jScrollPane1.setViewportView(jTTratamientos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 130, 650, 240));
@@ -76,7 +84,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
                 jBModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 140, 30));
+        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 140, 30));
 
         jBactivarDesactivar.setText("Modificar");
         jBactivarDesactivar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,15 +92,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
                 jBactivarDesactivarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBactivarDesactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 140, 30));
-
-        jBEliminar.setText("Eliminar");
-        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 140, 30));
+        jPanel1.add(jBactivarDesactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 140, 30));
 
         jBCerrar.setText("Cerrar");
         jBCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,10 +136,6 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBEliminarActionPerformed
-
     private void jBCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCerrarActionPerformed
 
         // TODO add your handling code here:
@@ -152,7 +148,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             int indexFila = jTTratamientos.getSelectedRow();
             int idTr = (int) jTTratamientos.getValueAt(indexFila, 0);
 
-            if ((boolean) jTTratamientos.getValueAt(indexFila, 3) == false) {
+            if (jTTratamientos.getValueAt(indexFila, 3).equals("Desactivo")) {
                 td.modificarTratamientoEstadoActivado(idTr);
                 jRBTratActivosActionPerformed(evt);
             } else {
@@ -175,7 +171,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             List<Tratamiento> tratamientos = td.listarTratamiento();
 
             for (Tratamiento tratamiento : tratamientos) {
-                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()});
+                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()?"Activo":"Desactivo"});
             }
         }
     }//GEN-LAST:event_jRBTratActivosActionPerformed
@@ -188,7 +184,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         if (jRBTratDesac.isSelected()) {
             List<Tratamiento> tratamientos = td.listarTratamientoInactivo();
             for (Tratamiento tratamiento : tratamientos) {
-                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()});
+                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()?"Activo":"Desactivo"});
             }
         }
     }//GEN-LAST:event_jRBTratDesacActionPerformed
@@ -202,29 +198,39 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             List<Tratamiento> tratamientos = td.listarTodosTratamiento();
 
             for (Tratamiento tratamiento : tratamientos) {
-                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()});
+                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()?"Activo":"Desactivo"});
             }
         }
     }//GEN-LAST:event_jRBTratTodosActionPerformed
 
     private void jBactivarDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBactivarDesactivarActionPerformed
         // TODO add your handling code here:
+        
         try {
             int indexFila = jTTratamientos.getSelectedRow();
             int idTr = (int) jTTratamientos.getValueAt(indexFila, 0);
             String tipoMod = (String) jTTratamientos.getValueAt(indexFila, 1);
-            int importeMod = (int) jTTratamientos.getValueAt(indexFila, 2);
-            td.modificarTratamientoXId(idTr, tipoMod, importeMod);
+            int importeMod = Integer.parseInt((String)jTTratamientos.getValueAt(indexFila, 2)) ;
             
-            
+             if (tipoMod.equals("")) {
+                JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
+            } else {
+                 td.modificarTratamientoXId(idTr, tipoMod, importeMod);
+            }
+           
+            borrarFilas();
         } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No hay nada seleccionado");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
+        } catch (ClassCastException e) {
+            JOptionPane.showMessageDialog(null, "precio incorrecto");
         }
     }//GEN-LAST:event_jBactivarDesactivarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCerrar;
-    private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBModificar;
     private javax.swing.JButton jBactivarDesactivar;
     private javax.swing.JLabel jLabel1;

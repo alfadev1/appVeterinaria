@@ -50,6 +50,7 @@ private DefaultTableModel modelo2= new DefaultTableModel();
         jbGuardar = new javax.swing.JButton();
 
         setBorder(null);
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-factura-64.png"))); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));

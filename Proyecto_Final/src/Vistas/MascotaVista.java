@@ -259,6 +259,8 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         jLabel4.setText("Tratamientos recibidos por la mascota:");
 
         jBelimasco.setBackground(new java.awt.Color(0, 0, 204));
+        jBelimasco.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jBelimasco.setForeground(new java.awt.Color(255, 255, 255));
         jBelimasco.setText("Eliminar Mascota");
         jBelimasco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,6 +369,7 @@ public class MascotaVista extends javax.swing.JInternalFrame {
 
     private void jtMascotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMascotasMouseClicked
         // TODO add your handling code here:
+        borrarFilasOtraTabla();
         int indexFila = jtMascotas.getSelectedRow(), i;
         Cliente clienteSelected = (Cliente) cboxClientes.getSelectedItem();
         int idClienteSelected = clienteSelected.getIdCliente();
@@ -380,11 +383,24 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         List<String[]> listaO = vd.listarVisitasXIdmascota(Integer.parseInt(mascotaSelected[0]));
         for (String[] strings : listaO) {
             modelov2.addRow(new Object[] {strings[0],strings[1],strings[2]});
-        }        
+        }  
+        
     }//GEN-LAST:event_jtMascotasMouseClicked
 
     private void jBelimascoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBelimascoActionPerformed
         // TODO add your handling code here:
+        int indexFila = jtMascotas.getSelectedRow(), i;
+        Cliente clienteSelected = (Cliente) cboxClientes.getSelectedItem();
+        int idClienteSelected = clienteSelected.getIdCliente();
+        int columnasIndex = jtMascotas.getColumnCount();
+        String[] mascotaSelected = new String[columnasIndex];
+        if (indexFila != -1) {           
+            for(i=0; i < columnasIndex; i++) {
+                mascotaSelected[i]= jtMascotas.getValueAt(indexFila,i).toString();                
+            }
+        }
+        md.noEsDormirMascota(Integer.parseInt(mascotaSelected[0]), idClienteSelected);
+        
     }//GEN-LAST:event_jBelimascoActionPerformed
 
 
@@ -441,6 +457,13 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         int filas = modelo.getRowCount() - 1;
         for (; filas >= 0; filas--) {
             modelo.removeRow(filas);
+        }
+    }
+    
+     private void borrarFilasOtraTabla() {
+        int filas = modelov2.getRowCount() - 1;
+        for (; filas >= 0; filas--) {
+            modelov2.removeRow(filas);
         }
     }
 

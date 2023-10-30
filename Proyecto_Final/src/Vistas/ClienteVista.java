@@ -490,7 +490,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
             cliente = cd.buscarClientexdni(dni);
 
             if (cliente != null) {
-                int op = JOptionPane.showConfirmDialog(this, "Cliente encontrado! Cargar datos?");
+                int op = JOptionPane.showConfirmDialog(this, "Cargar datos?", "Cliente encontrado", WIDTH, HEIGHT);
                 if (op == 0) {
                     jTapellido.setText(cliente.getApellido());
                     jTnombre.setText(cliente.getNombre());

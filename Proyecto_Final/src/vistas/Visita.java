@@ -62,6 +62,7 @@ public class Visita extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(0, 0, 204));
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-perro-64.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(900, 600));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

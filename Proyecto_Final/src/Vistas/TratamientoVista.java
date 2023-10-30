@@ -66,6 +66,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/clinica.png"))); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 204));

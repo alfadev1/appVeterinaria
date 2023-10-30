@@ -27,11 +27,11 @@ public class Menu extends javax.swing.JFrame {
         jbClientes = new javax.swing.JButton();
         jbVisita = new javax.swing.JButton();
         jbTratamiento = new javax.swing.JButton();
-        jbSalir = new javax.swing.JButton();
         jbListaMascotas = new javax.swing.JButton();
         jbMascotas = new javax.swing.JButton();
         jbFactura = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jbSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         escritorio = new javax.swing.JDesktopPane();
@@ -122,28 +122,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jbSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jbSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-ventana-abierta-64.png"))); // NOI18N
-        jbSalir.setText("Salir");
-        jbSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
-        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jbSalir.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jbSalir.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbSalirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jbSalirMouseExited(evt);
-            }
-        });
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
-            }
-        });
-
         jbListaMascotas.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbListaMascotas.setForeground(new java.awt.Color(255, 255, 255));
         jbListaMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-mascota-64.png"))); // NOI18N
@@ -217,32 +195,57 @@ public class Menu extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 142, Short.MAX_VALUE)
+            .addGap(0, 86, Short.MAX_VALUE)
         );
+
+        jbSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(255, 255, 255));
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-ventana-abierta-64.png"))); // NOI18N
+        jbSalir.setText("Salir");
+        jbSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
+        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSalir.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jbSalir.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jbSalirMouseExited(evt);
+            }
+        });
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuLateralLayout = new javax.swing.GroupLayout(menuLateral);
         menuLateral.setLayout(menuLateralLayout);
         menuLateralLayout.setHorizontalGroup(
             menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLateralLayout.createSequentialGroup()
-                .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menuLateralLayout.createSequentialGroup()
+                .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menuLateralLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(menuLateralLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(menuLateralLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbListaMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(menuLateralLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(menuLateralLayout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(menuLateralLayout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jbClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbVisita, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbTratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbListaMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbMascotas, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
         menuLateralLayout.setVerticalGroup(
@@ -267,7 +270,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(62, 62, 62))
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 173, 255));

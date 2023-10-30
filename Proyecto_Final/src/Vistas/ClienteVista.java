@@ -571,8 +571,9 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         try {
             int dni = Integer.parseInt(jTdni.getText());
             if (jTdni.getText() != null) {
-                cd.bajaCliente(dni);
+                cd.bajaClientexdni(dni);
             }
+            clear();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Error " + "Los valores no corresponden");
         }
@@ -580,14 +581,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
     private void jblimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimpiarActionPerformed
         // TODO add your handling code here:
-        jTdni.setText("");
-        jTdni.requestFocus();
-        jTapellido.setText("");
-        jTnombre.setText("");
-        jTdireccion.setText("");
-        jTtelefono.setText("");
-        jTnomaux.setText("");
-        jTtelaux.setText("");
+        clear();
     }//GEN-LAST:event_jblimpiarActionPerformed
 
 
@@ -671,8 +665,19 @@ public class ClienteVista extends javax.swing.JInternalFrame {
         }
     }
     
+    public void clear(){
+        jTdni.setText("");
+        jTdni.requestFocus();
+        jTapellido.setText("");
+        jTnombre.setText("");
+        jTdireccion.setText("");
+        jTtelefono.setText("");
+        jTnomaux.setText("");
+        jTtelaux.setText("");
+    }
+    
+    
     public void trans() {
-//    
         jbRegIstrar.setContentAreaFilled(false);
         jbRegIstrar.setBorderPainted(false);
         jbRegIstrar.setOpaque(false);

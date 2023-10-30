@@ -19,9 +19,21 @@ public class TratamientoData {
         con = Conexion.getConexion();
     }
 
-    public void tratamientosXMascota(int idMascota) {
+    public void eliminarTratamiento(int idTratamiento) {
 
-        String sql = "SELECT * FROM tratamiento WHERE idMascota = ?";
+        try {
+            String sql = "DELETE FROM tratamiento where idtratamiento = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idTratamiento);
+            int reg = ps.executeUpdate();
+            if (reg > 0) {
+                JOptionPane.showMessageDialog(null, "se elimino el tratamiento");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar tratamiento " + e.getMessage());            
+        }
+
     }
 
     public void guardarTratamiento(Tratamiento tr) {

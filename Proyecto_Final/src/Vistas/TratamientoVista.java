@@ -264,12 +264,15 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jPanel3.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 150, 50));
 
         jButton2.setText("Ver tratamientos");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 460, -1, -1));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 480, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 900, 600));
 
@@ -325,8 +328,15 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
             boolean estado = jCBEstado.isSelected();
 
             Tratamiento t = new Tratamiento(tipo, descripcion, importe, estado);
+            
+            if (tipo.equals("") || descripcion.equals("")) {
+                JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
+            } else {
+                td.guardarTratamiento(t);
+            }
+            
 
-            td.guardarTratamiento(t);
+            
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTTipo.requestFocus();

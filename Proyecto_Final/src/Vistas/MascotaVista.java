@@ -259,6 +259,8 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         jLabel4.setText("Tratamientos recibidos por la mascota:");
 
         jBelimasco.setBackground(new java.awt.Color(0, 0, 204));
+        jBelimasco.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jBelimasco.setForeground(new java.awt.Color(255, 255, 255));
         jBelimasco.setText("Eliminar Mascota");
         jBelimasco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,6 +389,18 @@ public class MascotaVista extends javax.swing.JInternalFrame {
 
     private void jBelimascoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBelimascoActionPerformed
         // TODO add your handling code here:
+        int indexFila = jtMascotas.getSelectedRow(), i;
+        Cliente clienteSelected = (Cliente) cboxClientes.getSelectedItem();
+        int idClienteSelected = clienteSelected.getIdCliente();
+        int columnasIndex = jtMascotas.getColumnCount();
+        String[] mascotaSelected = new String[columnasIndex];
+        if (indexFila != -1) {           
+            for(i=0; i < columnasIndex; i++) {
+                mascotaSelected[i]= jtMascotas.getValueAt(indexFila,i).toString();                
+            }
+        }
+        md.noEsDormirMascota(Integer.parseInt(mascotaSelected[0]), idClienteSelected);
+        
     }//GEN-LAST:event_jBelimascoActionPerformed
 
 

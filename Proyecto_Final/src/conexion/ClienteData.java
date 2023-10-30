@@ -6,7 +6,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +42,7 @@ public class ClienteData {
             }
             ps.close();
 
-        } catch (SQLIntegrityConstraintViolationException e) {
-            JOptionPane.showMessageDialog(null, "Ya existe un cliente con ese DNI");
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla CLIENTE" + ex.getMessage());
         }
     }

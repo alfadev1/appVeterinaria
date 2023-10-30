@@ -124,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
 
         jbListaMascotas.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbListaMascotas.setForeground(new java.awt.Color(255, 255, 255));
-        jbListaMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-mascota-64.png"))); // NOI18N
+        jbListaMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-lista-64.png"))); // NOI18N
         jbListaMascotas.setText("Lista de Mascotas");
         jbListaMascotas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbListaMascotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

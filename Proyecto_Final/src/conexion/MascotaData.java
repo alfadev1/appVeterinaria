@@ -52,11 +52,12 @@ public class MascotaData {
         }
     }
 
-    public void noEsDormirMascota(int id) {
-        String sql = "DELETE FROM alumno WHERE dni = ? ";
+    public void noEsDormirMascota(int id, int id2) {
+        String sql = "DELETE FROM `mascota` WHERE idMascota = ? AND idCliente = ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
+            ps.setInt(2, id2);
             int fila = ps.executeUpdate();
             if (fila == 1) {
                 JOptionPane.showMessageDialog(null, "La mascota ha decidido irse a otra veterinaria");

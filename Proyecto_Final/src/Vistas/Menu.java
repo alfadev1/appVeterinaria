@@ -30,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
         jbListaMascotas = new javax.swing.JButton();
         jbMascotas = new javax.swing.JButton();
         jbFactura = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jpEspacio = new javax.swing.JPanel();
         jbSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -185,17 +185,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setOpaque(false);
+        jpEspacio.setOpaque(false);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpEspacioLayout = new javax.swing.GroupLayout(jpEspacio);
+        jpEspacio.setLayout(jpEspacioLayout);
+        jpEspacioLayout.setHorizontalGroup(
+            jpEspacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 280, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 86, Short.MAX_VALUE)
+        jpEspacioLayout.setVerticalGroup(
+            jpEspacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 142, Short.MAX_VALUE)
         );
 
         jbSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -229,7 +229,7 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menuLateralLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jpEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(menuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(menuLateralLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
@@ -267,10 +267,10 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addContainerGap())
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 173, 255));
@@ -561,7 +561,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbClientes;
     private javax.swing.JButton jbFactura;
@@ -570,6 +569,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jbSalir;
     private javax.swing.JButton jbTratamiento;
     private javax.swing.JButton jbVisita;
+    private javax.swing.JPanel jpEspacio;
     private javax.swing.JPanel jpFondo;
     private javax.swing.JPanel menuLateral;
     // End of variables declaration//GEN-END:variables

@@ -1,20 +1,28 @@
-
 package Vistas;
 
+import Entidades.*;
+import conexion.*;
+import conexion.ClienteData;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class FacturaVista extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo= new DefaultTableModel();
-private DefaultTableModel modelo2= new DefaultTableModel();
 
-    
+    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo2 = new DefaultTableModel();
+    ClienteData cd = new ClienteData();
+
     public FacturaVista() {
         initComponents();
+        //cabeceras de las tablas
         cabeceraTablaVisita();
         cabeceraTablamascota();
+        //carga de combos
         cargaTipoPago();
-
+        comboCientes();
+        //cargar tablas
+        cargaTMascota();
     }
 
     @SuppressWarnings("unchecked")
@@ -26,7 +34,6 @@ private DefaultTableModel modelo2= new DefaultTableModel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jtNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTvisitas = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
@@ -48,6 +55,7 @@ private DefaultTableModel modelo2= new DefaultTableModel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jbGuardar = new javax.swing.JButton();
+        cboxClientes = new javax.swing.JComboBox<>();
 
         setBorder(null);
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-factura-64.png"))); // NOI18N
@@ -79,13 +87,6 @@ private DefaultTableModel modelo2= new DefaultTableModel();
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CLIENTE: ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 20));
-
-        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtNombreKeyReleased(evt);
-            }
-        });
-        jPanel1.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 340, -1));
 
         jTvisitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -213,19 +214,21 @@ private DefaultTableModel modelo2= new DefaultTableModel();
         });
         jPanel1.add(jbGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(714, 360, 190, -1));
 
+        cboxClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxClientesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cboxClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 340, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-14, 0, 960, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jtNombreKeyReleased
-
     private void jtMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMascotaMouseClicked
         // TODO add your handling code here:
-        int fila= jtMascota.getSelectedRow();
+        int fila = jtMascota.getSelectedRow();
     }//GEN-LAST:event_jtMascotaMouseClicked
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -235,7 +238,7 @@ private DefaultTableModel modelo2= new DefaultTableModel();
         //el que está vacío
         String Tpago;
         if (cboxPagos.getSelectedIndex() != 0) {
-           Tpago = String.valueOf(cboxPagos.getSelectedIndex());
+            Tpago = String.valueOf(cboxPagos.getSelectedIndex());
         } else {
             JOptionPane.showMessageDialog(null, "FALTA SELECCIONAR UN MEDIO DE PAGO ");
         }
@@ -243,11 +246,16 @@ private DefaultTableModel modelo2= new DefaultTableModel();
 
     private void cboxPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxPagosActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_cboxPagosActionPerformed
+
+    private void cboxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxClientesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<Cliente> cboxClientes;
     private javax.swing.JComboBox<String> cboxPagos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -274,29 +282,54 @@ private DefaultTableModel modelo2= new DefaultTableModel();
     private javax.swing.JButton jbGuardar;
     private javax.swing.JRadioButton jrPago;
     private javax.swing.JTable jtMascota;
-    private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
 
-    private void cabeceraTablaVisita (){
+    private void cabeceraTablaVisita() {
         //nombres de las columnas
         modelo.addColumn("Descripción");
         modelo.addColumn("Precio");
         //Se pasa el modelo a la tabla
         jTvisitas.setModel(modelo);
     }
+
     private void cabeceraTablamascota() {
         modelo2.addColumn("ID");
         modelo2.addColumn("NOMBRE");
         jtMascota.setModel(modelo2);
 
     }
-    private void cargaTipoPago (){
-        //cboxPagos.removeAllItems();
+
+    private void cargaTipoPago() {
+        cboxPagos.removeAllItems();
         cboxPagos.addItem("");
         cboxPagos.addItem("DEBITO");
         cboxPagos.addItem("CREDITO");
     }
-    private void limpiar(){
-        
+
+    private void comboCientes() {
+        cboxClientes.removeAllItems();
+        for (Cliente object : cd.listarClientes()) {
+            cboxClientes.addItem(object);
+        }
+    }
+
+    private void cargaTMascota() {
+        borrarFilas();
+        Cliente cli = (Cliente) cboxClientes.getSelectedItem();
+        int id = cli.getIdCliente();
+
+        List<Mascota> reg = cd.mascotaXCliente(id);
+        for (Mascota masc : reg) {
+
+            modelo2.addRow(new Object[]{
+                masc.getIdMascota(),
+                masc.getAlias(),});
+        }
+    }
+    private void borrarFilas() {
+        int filas = modelo2.getRowCount() - 1;
+        for (; filas >= 0; filas--) {
+            modelo2.removeRow(filas);
+        }
     }
 }

@@ -175,6 +175,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
 
         jCBEstado.setBackground(new java.awt.Color(0, 0, 204));
+        jCBEstado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jCBEstado.setForeground(new java.awt.Color(255, 255, 255));
         jCBEstado.setText("Activado/Desactivado");
         jPanel3.add(jCBEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 344, -1));

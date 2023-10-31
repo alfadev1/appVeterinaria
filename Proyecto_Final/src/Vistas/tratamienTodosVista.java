@@ -6,8 +6,10 @@ package Vistas;
 
 import Entidades.Tratamiento;
 import conexion.TratamientoData;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class tratamienTodosVista extends javax.swing.JInternalFrame {
 
+    Color azulClaro = new Color(0, 173, 255);
     DefaultTableModel modelo = new DefaultTableModel();
 
     TratamientoData td = new TratamientoData();
@@ -54,6 +57,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTTratamientos.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jTTratamientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -74,11 +78,28 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             }
         });
         jTTratamientos.setToolTipText("");
+        jTTratamientos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTTratamientosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTTratamientos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 130, 650, 240));
 
+        jBModificar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jBModificar.setForeground(new java.awt.Color(255, 255, 255));
         jBModificar.setText("Desactivar/Activar");
+        jBModificar.setBorderPainted(false);
+        jBModificar.setOpaque(false);
+        jBModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jBModificarMouseExited(evt);
+            }
+        });
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModificarActionPerformed(evt);
@@ -86,6 +107,8 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 140, 30));
 
+        jBactivarDesactivar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jBactivarDesactivar.setForeground(new java.awt.Color(255, 255, 255));
         jBactivarDesactivar.setText("Modificar");
         jBactivarDesactivar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +117,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jBactivarDesactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, 140, 30));
 
+        jBCerrar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jBCerrar.setText("Cerrar");
         jBCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +131,8 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         jLabel1.setText("TRATAMIENTOS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 210, 40));
 
+        jRBTratActivos.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jRBTratActivos.setForeground(new java.awt.Color(255, 255, 255));
         jRBTratActivos.setText("Ver Activos");
         jRBTratActivos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +141,8 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jRBTratActivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 130, -1));
 
+        jRBTratDesac.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jRBTratDesac.setForeground(new java.awt.Color(255, 255, 255));
         jRBTratDesac.setText("Ver Desactivados");
         jRBTratDesac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +151,8 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jRBTratDesac, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 130, -1));
 
+        jRBTratTodos.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jRBTratTodos.setForeground(new java.awt.Color(255, 255, 255));
         jRBTratTodos.setText("Ver Todos");
         jRBTratTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +170,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
         dispose();
+        jBactivarDesactivar.setEnabled(false);
     }//GEN-LAST:event_jBCerrarActionPerformed
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
@@ -171,7 +202,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             List<Tratamiento> tratamientos = td.listarTratamiento();
 
             for (Tratamiento tratamiento : tratamientos) {
-                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()?"Activo":"Desactivo"});
+                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado() ? "Activo" : "Desactivo"});
             }
         }
     }//GEN-LAST:event_jRBTratActivosActionPerformed
@@ -184,7 +215,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         if (jRBTratDesac.isSelected()) {
             List<Tratamiento> tratamientos = td.listarTratamientoInactivo();
             for (Tratamiento tratamiento : tratamientos) {
-                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()?"Activo":"Desactivo"});
+                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado() ? "Activo" : "Desactivo"});
             }
         }
     }//GEN-LAST:event_jRBTratDesacActionPerformed
@@ -198,26 +229,26 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             List<Tratamiento> tratamientos = td.listarTodosTratamiento();
 
             for (Tratamiento tratamiento : tratamientos) {
-                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado()?"Activo":"Desactivo"});
+                modelo.addRow(new Object[]{tratamiento.getIdTratamiento(), tratamiento.getTipo(), tratamiento.getImporte(), tratamiento.isEstado() ? "Activo" : "Desactivo"});
             }
         }
     }//GEN-LAST:event_jRBTratTodosActionPerformed
 
     private void jBactivarDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBactivarDesactivarActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             int indexFila = jTTratamientos.getSelectedRow();
             int idTr = (int) jTTratamientos.getValueAt(indexFila, 0);
             String tipoMod = (String) jTTratamientos.getValueAt(indexFila, 1);
-            int importeMod = Integer.parseInt((String)jTTratamientos.getValueAt(indexFila, 2)) ;
-            
-             if (tipoMod.equals("")) {
+            int importeMod = Integer.parseInt(jTTratamientos.getValueAt(indexFila, 2).toString());
+
+            if (tipoMod.equals("")) {
                 JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             } else {
-                 td.modificarTratamientoXId(idTr, tipoMod, importeMod);
+                td.modificarTratamientoXId(idTr, tipoMod, importeMod);
             }
-           
+
             borrarFilas();
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(null, "No hay nada seleccionado");
@@ -227,6 +258,22 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "precio incorrecto");
         }
     }//GEN-LAST:event_jBactivarDesactivarActionPerformed
+
+    private void jTTratamientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTTratamientosMouseClicked
+        // TODO add your handling code here:
+        jBactivarDesactivar.setEnabled(true);
+    }//GEN-LAST:event_jTTratamientosMouseClicked
+
+    private void jBModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBModificarMouseEntered
+        // TODO add your handling code here:
+        jBModificar.setOpaque(true);
+        jBModificar.setBackground(azulClaro);
+    }//GEN-LAST:event_jBModificarMouseEntered
+
+    private void jBModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBModificarMouseExited
+        // TODO add your handling code here:
+        jBModificar.setOpaque(false);
+    }//GEN-LAST:event_jBModificarMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -256,4 +303,14 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
             modelo.removeRow(filas);
         }
     }
+
+    public void tableChanged(TableModelEvent e) {
+        if (e.getType() == TableModelEvent.UPDATE) {
+            int row = e.getFirstRow();
+            int column = e.getColumn();
+            Object data = jTTratamientos.getValueAt(row, column);
+            System.out.println("Celda modificada en fila " + row + ", columna " + column + ": " + data);
+        }
+    }
+
 }

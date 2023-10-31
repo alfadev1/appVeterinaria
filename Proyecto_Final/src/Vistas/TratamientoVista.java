@@ -26,7 +26,7 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
      */
     public TratamientoVista() {
         initComponents();
-        transparencias();
+        //transparencias();
     }
 
     /**
@@ -221,85 +221,55 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
         jBActualizar.setBackground(new java.awt.Color(51, 51, 255));
         jBActualizar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jBActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jBActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-editar-24.png"))); // NOI18N
         jBActualizar.setText("   ACTUALIZAR");
         jBActualizar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jBActualizar.setBorderPainted(false);
-        jBActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBActualizar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jBActualizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jBActualizarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jBActualizarMouseExited(evt);
-            }
-        });
+        jBActualizar.setIconTextGap(0);
         jBActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBActualizarActionPerformed(evt);
             }
         });
-        jPanel3.add(jBActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 150, 50));
+        jPanel3.add(jBActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 170, 50));
 
         jBGuardar.setBackground(new java.awt.Color(51, 51, 255));
         jBGuardar.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jBGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-subir-24.png"))); // NOI18N
         jBGuardar.setText("   REGISTRAR");
         jBGuardar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jBGuardar.setBorderPainted(false);
-        jBGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBGuardar.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jBGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jBGuardarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jBGuardarMouseExited(evt);
-            }
-        });
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
             }
         });
-        jPanel3.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 150, 50));
+        jPanel3.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 530, 170, 50));
 
+        jButton2.setBackground(new java.awt.Color(51, 51, 255));
         jButton2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-visible-24.png"))); // NOI18N
         jButton2.setText("VER TRATAMIENTOS");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
-        jButton2.setOpaque(false);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton2MouseExited(evt);
-            }
-        });
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 190, 50));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 220, 50));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 900, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBActualizarMouseEntered
-        // TODO add your handling code here:
-        jBActualizar.setOpaque(true);
-        jBActualizar.setBackground(azulClaro);
-    }//GEN-LAST:event_jBActualizarMouseEntered
-
-    private void jBActualizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBActualizarMouseExited
-        // TODO add your handling code here:
-        jBActualizar.setOpaque(false);
-    }//GEN-LAST:event_jBActualizarMouseExited
 
     private void jBActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBActualizarActionPerformed
         // TODO add your handling code here:
@@ -318,17 +288,6 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
             jTTipo.requestFocus();
         }
     }//GEN-LAST:event_jBActualizarActionPerformed
-
-    private void jBGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBGuardarMouseEntered
-        // TODO add your handling code here:
-        jBGuardar.setOpaque(true);
-        jBGuardar.setBackground(azulClaro);
-    }//GEN-LAST:event_jBGuardarMouseEntered
-
-    private void jBGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBGuardarMouseExited
-        // TODO add your handling code here:
-        jBGuardar.setOpaque(false);
-    }//GEN-LAST:event_jBGuardarMouseExited
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         // TODO add your handling code here:
@@ -382,18 +341,6 @@ public class TratamientoVista extends javax.swing.JInternalFrame {
     
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-        // TODO add your handling code here:
-        jButton2.setOpaque(true);
-        jButton2.setBackground(azulClaro);
-        
-    }//GEN-LAST:event_jButton2MouseEntered
-
-    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
-        // TODO add your handling code here:
-        jButton2.setOpaque(false);
-    }//GEN-LAST:event_jButton2MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

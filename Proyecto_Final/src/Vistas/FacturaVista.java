@@ -145,7 +145,7 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtMascota);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 340, 190));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 340, 130));
 
         cboxPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

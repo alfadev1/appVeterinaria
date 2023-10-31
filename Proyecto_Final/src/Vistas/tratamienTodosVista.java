@@ -185,10 +185,10 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
 
             if (jTTratamientos.getValueAt(indexFila, 3).equals("Desactivo")) {
                 td.modificarTratamientoEstadoActivado(idTr);
-                jRBTratActivosActionPerformed(evt);
+                //jRBTratActivosActionPerformed(evt);
             } else {
                 td.modificarTratamientoEstadoDesactivado(idTr);
-                jRBTratDesacActionPerformed(evt);
+                //jRBTratDesacActionPerformed(evt);
             }
             
             //borrarFilas();

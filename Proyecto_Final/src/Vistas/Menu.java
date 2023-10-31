@@ -2,8 +2,10 @@ package Vistas;
 
 import vistas.Visita;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import javax.swing.ImageIcon;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -14,6 +16,8 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         transparenciaButton();
         this.setSize(1250, 900);
+        this.setResizable(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -344,21 +348,6 @@ public class Menu extends javax.swing.JFrame {
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
         // TODO add your handling code here:
-//        escritorio.removeAll();
-//        escritorio.repaint();
-//        ClienteVista c = new ClienteVista();
-//        c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
-//        c.setResizable(false);
-//        c.setClosable(false);
-//        c.setMaximizable(false);
-//        escritorio.add(c);
-//        escritorio.addComponentListener(new ComponentAdapter() {
-//            @Override
-//            public void componentResized(ComponentEvent e) {
-//                c.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
-//            }
-//        });
-//        c.setVisible(true);
         escritorio.removeAll();
         escritorio.repaint();
         ClienteVista cv = new ClienteVista();
@@ -398,12 +387,9 @@ public class Menu extends javax.swing.JFrame {
     private void jbTratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTratamientoActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-//       pruebaFondo pf=new pruebaFondo();
         TratamientoVista tv = new TratamientoVista();
-
         tv.setVisible(true);
         escritorio.add(tv);
-        //escritorio.moveToFront(tv);
 
     }//GEN-LAST:event_jbTratamientoActionPerformed
 
@@ -442,17 +428,11 @@ public class Menu extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
         MascotaVista mv = new MascotaVista();
-        mv.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+        //mv.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
         mv.setResizable(false);
         mv.setClosable(false);
         mv.setMaximizable(false);
         escritorio.add(mv);
-        escritorio.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                mv.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
-            }
-        });
         mv.setVisible(true);
 
     }//GEN-LAST:event_jbListaMascotasActionPerformed

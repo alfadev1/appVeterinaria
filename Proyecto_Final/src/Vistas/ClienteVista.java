@@ -500,14 +500,7 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                     jTtelaux.setText(String.valueOf(cliente.getAltTel()));
 
                 } else {
-                    jTdni.setText("");
-                    jTdni.requestFocus();
-                    jTapellido.setText("");
-                    jTnombre.setText("");
-                    jTdireccion.setText("");
-                    jTtelefono.setText("");
-                    jTnomaux.setText("");
-                    jTtelaux.setText("");
+                    clear();
                 }
             }
 
@@ -548,7 +541,8 @@ public class ClienteVista extends javax.swing.JInternalFrame {
 
             Cliente c = new Cliente(dni, ape, nom, dire, tel, nomAux, telAux, est);
             cd.altaCliente(c);
-            cargarCombo();
+            jCBClientes.setSelectedIndex(0);
+            
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Campos vacios o incorrectos");
             jTdni.requestFocus();
@@ -574,8 +568,10 @@ public class ClienteVista extends javax.swing.JInternalFrame {
                 cd.bajaClientexdni(dni);
             }
             clear();
+            
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Error " + "Los valores no corresponden");
+            jTdni.requestFocus();
         }
     }//GEN-LAST:event_jbdelActionPerformed
 

@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,8 @@ public class ClienteData {
         con = Conexion.getConexion();
     }
     
-    public void altaCliente(Cliente cliente){
-        
+    public void altaCliente(Cliente cliente) {
+
         String sql = "INSERT INTO `cliente`(`dni`, `apellido`, `nombre`, `telefono`, `direccion`, `nomAux`, `telAux`, `estado`)"
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -33,15 +34,16 @@ public class ClienteData {
             ps.setString(6, cliente.getAltClie());
             ps.setInt(7, cliente.getAltTel());
             ps.setBoolean(8, true);
-            
+
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 cliente.setIdCliente(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Cliente añadido con exito");          
+                JOptionPane.showMessageDialog(null, "Cliente añadido con exito");
             }
             ps.close();
-
+        } catch (SQLIntegrityConstraintViolationException e) {
+            JOptionPane.showMessageDialog(null, "Ya existe un cliente con ese DNI");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se puede acceder a la tabla CLIENTE" + ex.getMessage());
         }

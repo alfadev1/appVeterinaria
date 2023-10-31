@@ -58,7 +58,7 @@ public class Menu extends javax.swing.JFrame {
         jbClientes.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbClientes.setForeground(new java.awt.Color(255, 255, 255));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-cabaña-64.png"))); // NOI18N
-        jbClientes.setText("Clientes");
+        jbClientes.setText("Cargar Clientes");
         jbClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbClientes.setBorderPainted(false);
         jbClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -146,7 +146,7 @@ public class Menu extends javax.swing.JFrame {
         jbMascotas.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jbMascotas.setForeground(new java.awt.Color(255, 255, 255));
         jbMascotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/icons8-mascota-64.png"))); // NOI18N
-        jbMascotas.setText("Mascotas");
+        jbMascotas.setText("Cargar Mascotas");
         jbMascotas.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 10, 1, 1, new java.awt.Color(0, 0, 0)));
         jbMascotas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbMascotas.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);

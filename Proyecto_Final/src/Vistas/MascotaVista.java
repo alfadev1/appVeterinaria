@@ -384,7 +384,7 @@ public class MascotaVista extends javax.swing.JInternalFrame {
         }
         List<String[]> listaO = vd.listarVisitasXIdmascota(Integer.parseInt(mascotaSelected[0]));
         for (String[] strings : listaO) {
-            modelov2.addRow(new Object[] {strings[2],strings[3]});
+            modelov2.addRow(new Object[] {strings[0],strings[1],strings[2]});
         }  
         
     }//GEN-LAST:event_jtMascotasMouseClicked

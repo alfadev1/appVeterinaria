@@ -94,7 +94,8 @@ public class VisitaData {
         String sql = "SELECT visita.fechaVisita AS fechaVisita, tratamiento.tipo AS tipoTratamiento, tratamiento.importe AS importeTratamiento\n"
                 + "FROM visita\n"
                 + "JOIN tratamiento ON visita.idTratamiento = tratamiento.idtratamiento\n"
-                + "WHERE visita.idMascota = ?";
+                + "WHERE visita.idMascota = ? "
+                + "ORDER BY visita.fechaVisita DESC";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();

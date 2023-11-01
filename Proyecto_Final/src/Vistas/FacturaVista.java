@@ -265,6 +265,7 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "FALTA SELECCIONAR UN MEDIO DE PAGO ");
         }
+        
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void cboxPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxPagosActionPerformed

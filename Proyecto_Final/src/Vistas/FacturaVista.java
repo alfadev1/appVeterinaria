@@ -274,6 +274,30 @@ public class FacturaVista extends javax.swing.JInternalFrame {
 
     private void cboxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxClientesActionPerformed
         // TODO add your handling code here:
+        cargaTMascota();
+        
+//        borrarFilas();
+//        Cliente cliente = (Cliente) cboxClientes.getSelectedItem();
+//        List<Mascota> mascotaLista = md.buscarMascotaXCliente(cliente.getIdCliente());
+//
+//        for (Mascota mascota : mascotaLista) {
+//            try {
+//                modelo.addRow(new Object[]{
+//                    mascota.getIdMascota(),
+//                    mascota.getAlias(),
+//                    mascota.getSexo(),
+//                    mascota.getEspecie(),
+//                    mascota.getRaza(),
+//                    mascota.getfNac(),
+//                    mascota.getPesoActual(),
+//                    mascota.getPesoMedio()
+//                });
+//
+//            } catch (NullPointerException e) {
+//
+//            }
+//        }
+
     }//GEN-LAST:event_cboxClientesActionPerformed
 
 

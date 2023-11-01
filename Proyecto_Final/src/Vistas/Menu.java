@@ -3,21 +3,30 @@ package Vistas;
 import vistas.Visita;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 public class Menu extends javax.swing.JFrame {
 
     Color azul = new Color(0, 107, 247);
     Color azulClaro = new Color(0, 173, 255);
+    
+    Image icon = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Recursos/icons8-mascota-64.png"));
+
+
+    
+
 
     public Menu() {
+        setIconImage(icon);
         initComponents();
         transparenciaButton();
         this.setSize(1250, 900);
         this.setResizable(false);
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -41,6 +50,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jpFondo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -472,7 +482,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        FacturaVista fv= new FacturaVista();
+        FacturaVista fv = new FacturaVista();
         fv.setVisible(true);
         escritorio.add(fv);
     }//GEN-LAST:event_jbFacturaActionPerformed
@@ -536,6 +546,7 @@ public class Menu extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
@@ -553,4 +564,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jpFondo;
     private javax.swing.JPanel menuLateral;
     // End of variables declaration//GEN-END:variables
+
 }

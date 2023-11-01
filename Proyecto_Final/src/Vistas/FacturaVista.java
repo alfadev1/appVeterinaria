@@ -53,8 +53,6 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         jtMascota = new javax.swing.JTable();
         cboxPagos = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jrPago = new javax.swing.JRadioButton();
         jLabel16 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -75,7 +73,7 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(30, 40));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("VISITAS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 60, 20));
@@ -92,7 +90,7 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         jLabel4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 220, 44));
 
-        jLabel8.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("CLIENTE: ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 20));
@@ -136,6 +134,7 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         jLabel15.setText("098-112233");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, -1, -1));
 
+        jtMascota.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jtMascota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -163,18 +162,12 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         });
         jPanel1.add(cboxPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 300, 270, 30));
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("MASCOTAS:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 20));
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("PAGO/NO PAGO");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, -1, 20));
-        jPanel1.add(jrPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
-
-        jLabel16.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("MEDIO DE PAGO:");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, 30));
@@ -256,12 +249,13 @@ public class FacturaVista extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here
-        boolean PAGO = jrPago.isSelected();
+        //boolean PAGO = jrPago.isSelected();
         //se verifica que el usuario haya seleccionado un medio de pago que no sea 
         //el que está vacío
         String Tpago;
         if (cboxPagos.getSelectedIndex() != 0) {
-            Tpago = String.valueOf(cboxPagos.getSelectedIndex());
+            Tpago = String.valueOf(cboxPagos.getSelectedItem());
+            JOptionPane.showMessageDialog(null, "Pago realizado con éxito con " + Tpago);
         } else {
             JOptionPane.showMessageDialog(null, "FALTA SELECCIONAR UN MEDIO DE PAGO ");
         }
@@ -317,7 +311,6 @@ public class FacturaVista extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
@@ -328,7 +321,6 @@ public class FacturaVista extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTvisitas;
     private javax.swing.JButton jbGuardar;
-    private javax.swing.JRadioButton jrPago;
     private javax.swing.JTable jtMascota;
     // End of variables declaration//GEN-END:variables
 

@@ -24,7 +24,8 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
     DefaultTableModel modelo = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int f, int c) {
-            return c != 0;
+            return (c != 0 && c!=3);
+           
         }
     };
     
@@ -49,8 +50,8 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTTratamientos = new javax.swing.JTable();
-        jBModificar = new javax.swing.JButton();
-        jBactivarDesactivar = new javax.swing.JButton();
+        jbActivarDesactivar = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
         jBCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jRBTratActivos = new javax.swing.JRadioButton();
@@ -89,33 +90,33 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 130, 650, 240));
 
-        jBModificar.setBackground(new java.awt.Color(0, 173, 255));
-        jBModificar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBModificar.setForeground(new java.awt.Color(255, 255, 255));
-        jBModificar.setText("Desactivar/Activar");
-        jBModificar.setBorder(new javax.swing.border.MatteBorder(null));
-        jBModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBModificar.setOpaque(false);
-        jBModificar.addActionListener(new java.awt.event.ActionListener() {
+        jbActivarDesactivar.setBackground(new java.awt.Color(51, 51, 255));
+        jbActivarDesactivar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jbActivarDesactivar.setForeground(new java.awt.Color(255, 255, 255));
+        jbActivarDesactivar.setText("Desactivar/Activar");
+        jbActivarDesactivar.setBorder(new javax.swing.border.MatteBorder(null));
+        jbActivarDesactivar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbActivarDesactivar.setOpaque(false);
+        jbActivarDesactivar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBModificarActionPerformed(evt);
+                jbActivarDesactivarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 140, 30));
+        jPanel1.add(jbActivarDesactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 140, 30));
 
-        jBactivarDesactivar.setBackground(new java.awt.Color(0, 173, 255));
-        jBactivarDesactivar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBactivarDesactivar.setForeground(new java.awt.Color(255, 255, 255));
-        jBactivarDesactivar.setText("Modificar");
-        jBactivarDesactivar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
-        jBactivarDesactivar.setBorderPainted(false);
-        jBactivarDesactivar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBactivarDesactivar.addActionListener(new java.awt.event.ActionListener() {
+        jbModificar.setBackground(new java.awt.Color(51, 51, 255));
+        jbModificar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jbModificar.setForeground(new java.awt.Color(255, 255, 255));
+        jbModificar.setText("Modificar");
+        jbModificar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        jbModificar.setBorderPainted(false);
+        jbModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBactivarDesactivarActionPerformed(evt);
+                jbModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBactivarDesactivar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 140, 30));
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 140, 30));
 
         jBCerrar.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
         jBCerrar.setText("Cerrar");
@@ -173,10 +174,10 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
 
         // TODO add your handling code here:
         dispose();
-        jBactivarDesactivar.setEnabled(false);
+        jbModificar.setEnabled(false);
     }//GEN-LAST:event_jBCerrarActionPerformed
 
-    private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
+    private void jbActivarDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActivarDesactivarActionPerformed
         // TODO add your handling code here:
         try {
             int indexFila = jTTratamientos.getSelectedRow();
@@ -184,17 +185,27 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
 
             if (jTTratamientos.getValueAt(indexFila, 3).equals("Desactivo")) {
                 td.modificarTratamientoEstadoActivado(idTr);
-                jRBTratActivosActionPerformed(evt);
+                //jRBTratActivosActionPerformed(evt);
             } else {
                 td.modificarTratamientoEstadoDesactivado(idTr);
+                //jRBTratDesacActionPerformed(evt);
+            }
+            
+            //borrarFilas();
+            
+            if(jRBTratActivos.isSelected()) {
+                jRBTratActivosActionPerformed(evt);
+            } else if (jRBTratDesac.isSelected()) {
                 jRBTratDesacActionPerformed(evt);
+            } else {
+                jRBTratTodosActionPerformed(evt);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this, "Datos sin seleccionar");
         }
 
 
-    }//GEN-LAST:event_jBModificarActionPerformed
+    }//GEN-LAST:event_jbActivarDesactivarActionPerformed
 
     private void jRBTratActivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBTratActivosActionPerformed
         // TODO add your handling code here:
@@ -237,7 +248,7 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jRBTratTodosActionPerformed
 
-    private void jBactivarDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBactivarDesactivarActionPerformed
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         // TODO add your handling code here:
 
         try {
@@ -260,18 +271,16 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
         } catch (ClassCastException e) {
             JOptionPane.showMessageDialog(null, "precio incorrecto");
         }
-    }//GEN-LAST:event_jBactivarDesactivarActionPerformed
+    }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jTTratamientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTTratamientosMouseClicked
         // TODO add your handling code here:
-        jBactivarDesactivar.setEnabled(true);
+        jbModificar.setEnabled(true);
     }//GEN-LAST:event_jTTratamientosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCerrar;
-    private javax.swing.JButton jBModificar;
-    private javax.swing.JButton jBactivarDesactivar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRBTratActivos;
@@ -279,6 +288,8 @@ public class tratamienTodosVista extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRBTratTodos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTTratamientos;
+    private javax.swing.JButton jbActivarDesactivar;
+    private javax.swing.JButton jbModificar;
     // End of variables declaration//GEN-END:variables
 
     private void cargarCabecera() {

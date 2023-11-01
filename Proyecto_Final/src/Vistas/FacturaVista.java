@@ -9,9 +9,18 @@ import javax.swing.table.DefaultTableModel;
 
 public class FacturaVista extends javax.swing.JInternalFrame {
 
-    private DefaultTableModel modelo = new DefaultTableModel();
-    private DefaultTableModel modelo2 = new DefaultTableModel();
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
+    private DefaultTableModel modelo2 = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     ClienteData cd = new ClienteData();
+    VisitaData vd = new VisitaData();
 
     public FacturaVista() {
         initComponents();
@@ -228,7 +237,21 @@ public class FacturaVista extends javax.swing.JInternalFrame {
 
     private void jtMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMascotaMouseClicked
         // TODO add your handling code here:
-        int fila = jtMascota.getSelectedRow();
+        borrarFilas2();
+        int indexFila = jtMascota.getSelectedRow(), i;
+        Cliente clienteSelected = (Cliente) cboxClientes.getSelectedItem();
+        int idClienteSelected = clienteSelected.getIdCliente();
+        int columnasIndex = jtMascota.getColumnCount();
+        String[] mascotaSelected = new String[columnasIndex];
+        if (indexFila != -1) {           
+            for(i=0; i < columnasIndex; i++) {
+                mascotaSelected[i]= jtMascota.getValueAt(indexFila,i).toString();                
+            }
+        }
+        List<String[]> listaO = vd.listarVisitasXIdmascota(Integer.parseInt(mascotaSelected[0]));
+        for (String[] strings : listaO) {
+            modelo.addRow(new Object[] {strings[0],strings[1],strings[2]});
+        }  
     }//GEN-LAST:event_jtMascotaMouseClicked
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -286,7 +309,8 @@ public class FacturaVista extends javax.swing.JInternalFrame {
 
     private void cabeceraTablaVisita() {
         //nombres de las columnas
-        modelo.addColumn("Descripción");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Tipo");
         modelo.addColumn("Precio");
         //Se pasa el modelo a la tabla
         jTvisitas.setModel(modelo);
@@ -330,6 +354,12 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         int filas = modelo2.getRowCount() - 1;
         for (; filas >= 0; filas--) {
             modelo2.removeRow(filas);
+        }
+    }
+    private void borrarFilas2() {
+        int filas = modelo.getRowCount() - 1;
+        for (; filas >= 0; filas--) {
+            modelo.removeRow(filas);
         }
     }
 }

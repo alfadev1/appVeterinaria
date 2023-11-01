@@ -106,7 +106,8 @@ public class MascotaData {
 
     public List<Mascota> buscarMascotaXCliente(int idCliente) {
         List<Mascota> mascotaLista = new ArrayList<>();
-        String sql = "SELECT  `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, idCliente FROM Mascota WHERE idCliente = ?";
+        //String sql = "SELECT  `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, `idCliente` FROM Mascota WHERE idCliente = ?";
+        String sql = "SELECT  `idmascota`, `alias`, `sexo`, `especie`, `raza`, `colorPelo`, `f_nac`, `peso`, `idCliente` FROM mascota WHERE idCliente = ?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);

@@ -9,20 +9,24 @@ import javax.swing.table.DefaultTableModel;
 
 public class FacturaVista extends javax.swing.JInternalFrame {
 
-    private DefaultTableModel modelo = new DefaultTableModel();
-    private DefaultTableModel modelo2 = new DefaultTableModel();
+    private DefaultTableModel modeloV = new DefaultTableModel();
+    private DefaultTableModel modeloM = new DefaultTableModel();
+    MascotaData md = new MascotaData();
     ClienteData cd = new ClienteData();
 
     public FacturaVista() {
         initComponents();
+        
         //cabeceras de las tablas
         cabeceraTablaVisita();
         cabeceraTablamascota();
+        
         //carga de combos
         cargaTipoPago();
         comboCientes();
+        
         //cargar tablas
-        cargaTMascota();
+        TMascota();
     }
 
     @SuppressWarnings("unchecked")
@@ -127,6 +131,7 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         jLabel15.setText("098-112233");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, -1, -1));
 
+        jtMascota.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jtMascota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -229,13 +234,15 @@ public class FacturaVista extends javax.swing.JInternalFrame {
     private void jtMascotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMascotaMouseClicked
         // TODO add your handling code here:
         int fila = jtMascota.getSelectedRow();
+        
     }//GEN-LAST:event_jtMascotaMouseClicked
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here
         boolean PAGO = jrPago.isSelected();
-        //se verifica que el usuario haya seleccionado un medio de pago que no sea 
-        //el que está vacío
+        
+        //se verifica que el usuario haya seleccionado un medio de pago que no sea el que está vacío
+       
         String Tpago;
         if (cboxPagos.getSelectedIndex() != 0) {
             Tpago = String.valueOf(cboxPagos.getSelectedIndex());
@@ -246,7 +253,6 @@ public class FacturaVista extends javax.swing.JInternalFrame {
 
     private void cboxPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxPagosActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_cboxPagosActionPerformed
 
     private void cboxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxClientesActionPerformed
@@ -286,16 +292,16 @@ public class FacturaVista extends javax.swing.JInternalFrame {
 
     private void cabeceraTablaVisita() {
         //nombres de las columnas
-        modelo.addColumn("Descripción");
-        modelo.addColumn("Precio");
+        modeloV.addColumn("Descripción");
+        modeloV.addColumn("Precio");
         //Se pasa el modelo a la tabla
-        jTvisitas.setModel(modelo);
+        jTvisitas.setModel(modeloV);
     }
 
     private void cabeceraTablamascota() {
-        modelo2.addColumn("ID");
-        modelo2.addColumn("NOMBRE");
-        jtMascota.setModel(modelo2);
+        modeloM.addColumn("ID");
+        modeloM.addColumn("NOMBRE");
+        jtMascota.setModel(modeloM);
 
     }
 
@@ -313,23 +319,23 @@ public class FacturaVista extends javax.swing.JInternalFrame {
         }
     }
 
-    private void cargaTMascota() {
+    private void TMascota() {
         borrarFilas();
-        Cliente cli = (Cliente) cboxClientes.getSelectedItem();
-        int id = cli.getIdCliente();
+        Cliente cliente = (Cliente) cboxClientes.getSelectedItem();
+        int id = cliente.getIdCliente();
 
-        List<Mascota> reg = cd.mascotaXCliente(id);
-        for (Mascota masc : reg) {
-
-            modelo2.addRow(new Object[]{
-                masc.getIdMascota(),
-                masc.getAlias(),});
+        List<Mascota> lista = md.buscarMascotaXCliente(id);
+        for (Mascota masc : lista) {
+            modeloM.addRow(new Object[]
+            {masc.getIdMascota(), masc.getAlias()}
+            );
         }
     }
+
     private void borrarFilas() {
-        int filas = modelo2.getRowCount() - 1;
+        int filas = modeloM.getRowCount() - 1;
         for (; filas >= 0; filas--) {
-            modelo2.removeRow(filas);
+            modeloM.removeRow(filas);
         }
     }
 }
